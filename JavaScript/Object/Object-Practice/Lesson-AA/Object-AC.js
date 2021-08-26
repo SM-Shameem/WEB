@@ -51,6 +51,14 @@ function ExCA() {
   outAC.innerHTML += '<br >employee name   : ' + empFour.empName;
   outAC.innerHTML += '<br >employee post   : ' + empFour.empPost;
   outAC.innerHTML += '<br >employee salary : ' + empFour.empSalary;
+  outAC.innerHTML += '<br >';
+
+  empFour.empName = 'palash';
+  empFour.empPost = 'director';
+  empFour.empSalary = 80000;
+  outAC.innerHTML += '<br >employee name   : ' + empFour.empName;
+  outAC.innerHTML += '<br >employee post   : ' + empFour.empPost;
+  outAC.innerHTML += '<br >employee salary : ' + empFour.empSalary;
 
   outAC.innerHTML += '<br >';
 }
