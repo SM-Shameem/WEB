@@ -76,11 +76,13 @@ function ExDA() {
 // javascript objects are variables too, but objects can contain many values
 // objects are written as (name:value) pair (name and value seperated by colon)
 // and each (name:value) pairs are seperated by (comma)
+// NB: so, javascript object is a collection of (named values)
+// NB: it is a common practice to declare objects with the (const) keyword
+// NB: though we can declare any object as (var | let)
 
 // these (name:value) pairs are called (properties)
 // and all (properties) are defined inside (curly-brackets)
 // object (properties) can be both (primitive-value | other-object | function)
-
 // objects written as (name value) pairs are similar to -
 // -> associative array in PHP
 // -> dictionaris in python
@@ -88,17 +90,75 @@ function ExDA() {
 // -> hash map in java
 // -> hashes in ruby and perl
 
-// NB: so, javascript object is a collection of (named values)
-// NB: it is a common practice to declare objects with the (const) keyword
-// -> in-case of (const) instead of (var | let), it constants the number of (properties),
-// -> but we can change the (value) of each (property) as required
-
 // methods are (actions) that can be performed on object
 // an (object-method) is an (object-property) containing a (function-defination)
 // NB: so, javascript objects are containers for (named value), called (property | method)
 
 function ExDB() {
+  // javascript variables
+  var varAA = 10;
+  var varAB = true;
+  var varAC = 'string';
 
+  outAD.innerHTML += '<br >varAA : ' + varAA;
+  outAD.innerHTML += '<br >varAB : ' + varAB;
+  outAD.innerHTML += '<br >varAC : ' + varAC;
+  outAD.innerHTML += '<br >';
+
+  // javascript variable (contain many values), called object
+  var varAD = { proOne: 11, proTwo: false };
+  let letAE = { proOne: 10, proTwo: 20 };
+  const constAF = { proOne: true, proTwo: false };
+
+  outAD.innerHTML += '<br >varAD.proOne   : ' + varAD.proOne;
+  outAD.innerHTML += '<br >varAD.proTwo   : ' + varAD.proTwo;
+  outAD.innerHTML += '<br >letAE.proOne   : ' + letAE.proOne;
+  outAD.innerHTML += '<br >letAE.proTwo   : ' + letAE.proTwo;
+  outAD.innerHTML += '<br >constAF.proOne : ' + constAF.proOne;
+  outAD.innerHTML += '<br >constAF.proTwo : ' + constAF.proTwo;
+  outAD.innerHTML += '<br >';
+
+  // object (var | let | const), changing (property and property-values)
+  varAD.proThree = null;
+  varAD.proOne = 111;
+  outAD.innerHTML += '<br >varAD.proOne   : ' + varAD.proOne;
+  outAD.innerHTML += '<br >varAD.proThree : ' + varAD.proThree;
+
+  letAE.proThree = null;
+  letAE.proOne = 222;
+  outAD.innerHTML += '<br >letAE.proOne   : ' + letAE.proOne;
+  outAD.innerHTML += '<br >letAE.proThree : ' + letAE.proThree;
+
+  constAF.proThree = null;
+
+  constAF.proOne = 333;
+  outAD.innerHTML += '<br >constAF.proOne   : ' + constAF.proOne;
+  outAD.innerHTML += '<br >constAF.proThree : ' + constAF.proThree;
+
+  outAD.innerHTML += '<br >';
+
+  // object with (properties and method)
+  const constAG = {
+    proOne: undefined,
+    proTwo: undefined,
+    methodOne: function () {
+      this.proOne = arguments[0];
+      this.proTwo = arguments[1];
+    },
+
+    methodTwo: function () {
+      outAD.innerHTML += '<br >proOne : ' + this.proOne;
+      outAD.innerHTML += '<br >proTwo : ' + this.proTwo;
+    },
+  };
+
+  constAG.methodOne(11.50, 22.50);
+  constAG.methodTwo();
+
+  constAG.proOne = 111.11;
+  constAG.proThree = true;
+  constAG.methodTwo();
+  outAD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -261,12 +321,12 @@ function ExDE() {
 
 ////////////////////////////////////////////////////////////////////////////////
 outAD.innerHTML += 'ex-da : javascript objects & primitives';
-outAD.innerHTML += '<br >'; ExDA();
+outAD.innerHTML += '<hr >'; ExDA();
 outAD.innerHTML += '<br >ex-db : objects are variable, object-properties & object-methods';
-outAD.innerHTML += '<br >'; ExDB();
+outAD.innerHTML += '<hr >'; ExDB();
 outAD.innerHTML += '<br >ex-dc : different ways of creating object';
-outAD.innerHTML += '<br >'; ExDC();
+outAD.innerHTML += '<hr >'; ExDC();
 outAD.innerHTML += '<br >ex-dd : creating object & empty-object using (literal/NEW keyword)';
-outAD.innerHTML += '<br >'; ExDD();
+outAD.innerHTML += '<hr >'; ExDD();
 outAD.innerHTML += '<br >ex-de : objects are mutable';
-outAD.innerHTML += '<br >'; ExDE();
+outAD.innerHTML += '<hr >'; ExDE();

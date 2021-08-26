@@ -149,10 +149,10 @@ function ExBD() {
 
 ////////////////////////////////////////////////////////////////////////////////
 outAB.innerHTML += '<br >ex-ba : (this) used alone (default) | (this) in method (default/strict)';
-outAB.innerHTML += '<br >'; ExBA();
+outAB.innerHTML += '<hr >'; ExBA();
 outAB.innerHTML += '<br>ex-bb : (this) in a function (default/strict)';
-outAB.innerHTML += '<br >'; ExBB();
+outAB.innerHTML += '<hr >'; ExBB();
 outAB.innerHTML += '<br >ex-bc : (this) in a event-handlers';
-outAB.innerHTML += '<br >'; ExBC();
+outAB.innerHTML += '<hr >'; ExBC();
 outAB.innerHTML += '<br >ex-bd : explicit-function binding | object-method binding';
-outAB.innerHTML += '<br >'; ExBD();
+outAB.innerHTML += '<hr >'; ExBD();

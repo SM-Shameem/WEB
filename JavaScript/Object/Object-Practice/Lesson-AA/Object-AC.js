@@ -127,6 +127,6 @@ function ExCB() {
 
 ////////////////////////////////////////////////////////////////////////////////
 outAC.innerHTML += 'ex-ca : java script class and using a class';
-outAC.innerHTML += '<br >'; ExCA();
+outAC.innerHTML += '<hr >'; ExCA();
 outAC.innerHTML += '<br >ex-cb : constructor and class method';
-outAC.innerHTML += '<br >'; ExCB();
+outAC.innerHTML += '<hr >'; ExCB();

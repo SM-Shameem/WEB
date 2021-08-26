@@ -213,10 +213,10 @@ function ExAD() {
 
 ////////////////////////////////////////////////////////////////////////////////
 outAA.innerHTML += '<br >ex-aa : real life object, properties and methods';
-outAA.innerHTML += '<br >'; ExAA();
+outAA.innerHTML += '<hr >'; ExAA();
 outAA.innerHTML += '<br >ex-ab : ojbect defination, object properties, and accessing properties';
-outAA.innerHTML += '<br >'; ExAB();
+outAA.innerHTML += '<hr >'; ExAB();
 outAA.innerHTML += '<br >ex-ac : object method, accessing methods, (this) keyword';
-outAA.innerHTML += '<br >'; ExAC();
+outAA.innerHTML += '<hr >'; ExAC();
 outAA.innerHTML += '<br >ex-ad : do not declare strings, numbers, and booleans as object';
-outAA.innerHTML += '<br >'; ExAD();
+outAA.innerHTML += '<hr >'; ExAD();
