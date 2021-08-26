@@ -1,4 +1,23 @@
-1. object fundamental
-2. class fundamental
-3. the (this) keyword
-4. object defination
+# object fundamental
+1. real-life object, properties, and methods
+2. object-definition, object-properties, and accessing properties
+3. object-methods, accessing methods, and (this) keyword
+4. do not declare (string | number | boolean) as object
+
+# object definition
+5. javascript object and primitives
+6. objects are variable, object-properties, and object-methods
+7. different ways of creating and declaring object
+8. creating object/empty-object using (literal/new keyword)
+9. objects are mutable
+
+# class fundamental
+10. javascript class and using a class
+11. constructor and class method
+
+# the (this) keyword
+12. the (this) keyword used alone (default)
+13. the (this) in a method (default/strict)
+14. the (this) in a function (default/strict)
+15. the (this) in a event-handler
+16. the (this) in a explicit-function binding/object-method binding
