@@ -35,3 +35,5 @@
 // javascript objects inherit the properties of their prototype
 // the (delete) keyword does not delete inherited properties,
 // -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)
+
+// Object.defineProperty() method
