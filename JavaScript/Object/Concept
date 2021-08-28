@@ -21,3 +21,17 @@
 14. the (this) in a function (default/strict)
 15. the (this) in a event-handler
 16. the (this) in a explicit-function binding/object-method binding
+
+///// REFERENCE ////////////////////////////////////////////////////////////
+// # property attributes | prototype property
+// all (properties) have a (name). in addition they also have a (value)
+// -> the (value) is one of the property's (attributes)
+// -> other (attributes) are (enumerable | configurable | writable)
+// -> these (attributes) define how the (property) can be accessed
+// in javascript, all attributes can be read,
+// -> but only the value attribute can be changed (and only if the property is writable)
+// NB : ECMAScript5 has methods for both (getting and setting) all property attributes
+
+// javascript objects inherit the properties of their prototype
+// the (delete) keyword does not delete inherited properties,
+// -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)

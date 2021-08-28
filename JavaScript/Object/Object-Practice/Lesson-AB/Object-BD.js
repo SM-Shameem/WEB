@@ -15,6 +15,11 @@ outBD.setAttribute('id', 'styleOne');
 document.body.appendChild(outBD);
 
 ////////////////////////////////////////////////////////////////////////////////
+// # object accessors (getters and setters) | the (get and set) keywords
+
+function ExDA() {
+  
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 outBD.innerHTML += 'ex-da : object accessors (getters and setters) | the (get | set) keywords';
