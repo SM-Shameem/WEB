@@ -1,0 +1,25 @@
+///// OBJECTS REFERENCES ///////////////////////////////////////////////////////
+// 1. ES5 object methods
+// 2. changing a property value
+// 3. changing meta data
+// 4. listing all properties
+// 5. listing enumerable properties
+// 6. adding a property
+// 7. adding getters and setters
+// 8. a counter example
+
+////////////////////////////////////////////////////////////////////////////////
+var outCD = document.createElement('div');
+outCD.setAttribute('id', 'styleTwo');
+document.body.appendChild(outCD);
+
+////////////////////////////////////////////////////////////////////////////////
+//
+
+function ExDA() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+outCA.innerHTML += 'ex-da : ';
+outCA.innerHTML += '<hr >'; ExDA();
