@@ -22,6 +22,30 @@
 15. the (this) in a event-handler
 16. the (this) in a explicit-function binding/object-method binding
 
+--------------------------------------------------------------------------------
+
+# object properties
+1. object properties and accessing properties
+2. object properties and (for..in) loop
+3. adding properties and deleting properties
+4. nested object and nested array and object
+
+# object methods
+5. object method and accessing methods
+6. using (this) keyword to access members inside methods
+7. adding a method to an object and using built-in method
+
+# object display
+8. display object, display object-properties and using (for..in) loop
+9. converting object to array using (Object.value()) method
+10. converting object to string (JSON notation) using (Object.stringify()) method
+11. stringify (array | date | function)
+
+# object accessors
+12. object accessors (getter and setter) and the (get and set) keyword
+13. why use (getters and setters) and difference bettween (method and getters)
+14. adding (getters and setters) to an existing object using (Object.defineProperty()) method
+
 ///// REFERENCE ////////////////////////////////////////////////////////////
 // # property attributes | prototype property
 // all (properties) have a (name). in addition they also have a (value)
