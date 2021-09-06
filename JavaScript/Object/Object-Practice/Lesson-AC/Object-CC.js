@@ -18,5 +18,5 @@ function ExCA() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-outCA.innerHTML += 'ex-ca : ';
-outCA.innerHTML += '<hr >'; ExCA();
+outCC.innerHTML += 'ex-ca : ';
+outCC.innerHTML += '<hr >'; ExCA();

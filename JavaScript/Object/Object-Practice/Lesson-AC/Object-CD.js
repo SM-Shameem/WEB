@@ -21,5 +21,5 @@ function ExDA() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-outCA.innerHTML += 'ex-da : ';
-outCA.innerHTML += '<hr >'; ExDA();
+outCD.innerHTML += 'ex-da : ';
+outCD.innerHTML += '<hr >'; ExDA();
