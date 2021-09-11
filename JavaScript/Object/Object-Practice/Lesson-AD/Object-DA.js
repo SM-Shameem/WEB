@@ -1,5 +1,8 @@
 ///// ClASS INTRODUCTION ///////////////////////////////////////////////////////
-//
+// 1. javascript classes
+// 2. using a class
+// 3. the constructor method
+// 4. class methods
 
 ////////////////////////////////////////////////////////////////////////////////
 var outDA = document.createElement('div');
@@ -7,12 +10,21 @@ outDA.setAttribute('id', 'styleOne');
 document.body.appendChild(outDA);
 
 ////////////////////////////////////////////////////////////////////////////////
-//
+// # class syntax | using class
 
 function ExAA() {
 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-outDA.innerHTML += 'ex-aa : iterators | iterating over a string | iterating over an array';
+// # class constructor | class methods
+
+function ExAB() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+outDA.innerHTML += 'ex-aa : class syntax | using class';
 outDA.innerHTML += '<hr >'; ExAA();
+outDA.innerHTML += '<br >ex-ab : class constructor | class methods';
+outDA.innerHTML += '<hr >'; ExAB();

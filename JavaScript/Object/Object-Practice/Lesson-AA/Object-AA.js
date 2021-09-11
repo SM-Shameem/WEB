@@ -212,7 +212,7 @@ function ExAD() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-outAA.innerHTML += '<br >ex-aa : real life object, properties and methods';
+outAA.innerHTML += 'ex-aa : real life object, properties and methods';
 outAA.innerHTML += '<hr >'; ExAA();
 outAA.innerHTML += '<br >ex-ab : ojbect defination, object properties, and accessing properties';
 outAA.innerHTML += '<hr >'; ExAB();

@@ -148,7 +148,7 @@ function ExBD() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-outAB.innerHTML += '<br >ex-ba : (this) used alone (default) | (this) in method (default/strict)';
+outAB.innerHTML += 'ex-ba : (this) used alone (default) | (this) in method (default/strict)';
 outAB.innerHTML += '<hr >'; ExBA();
 outAB.innerHTML += '<br>ex-bb : (this) in a function (default/strict)';
 outAB.innerHTML += '<hr >'; ExBB();

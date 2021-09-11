@@ -1,3 +1,6 @@
+--------------------------------------------------------------------------------
+DAY 01
+--------------------------------------------------------------------------------
 # object fundamental
 1. real-life object, properties, and methods
 2. object-definition, object-properties, and accessing properties
@@ -23,7 +26,8 @@
 16. the (this) in a explicit-function binding/object-method binding
 
 --------------------------------------------------------------------------------
-
+DAY 02
+--------------------------------------------------------------------------------
 # object properties
 1. object properties and accessing properties
 2. object properties and (for..in) loop
@@ -47,6 +51,8 @@
 14. adding (getters and setters) to an existing object using (Object.defineProperty()) method
 
 --------------------------------------------------------------------------------
+DAY 03
+--------------------------------------------------------------------------------
 
 # object constructor
 15. object constructor | the (this) keyword
@@ -62,7 +68,31 @@
 21. iterabors | iterating over a (string | array)
 22. home made iterable > object as argument | object as return
 
-///// REFERENCE ////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------
+DAY 04
+--------------------------------------------------------------------------------
+
+# class introduction
+23. class syntax | using class
+24. class constructor | clas methods
+
+# class inheritance
+25. class inheritance
+26. getters and setters
+27. hosting
+
+# class (static) mode
+28. static mode
+
+--------------------------------------------------------------------------------
+DAY 05
+--------------------------------------------------------------------------------
+
+# class Sets()
+
+# class Maps()
+
+# class references
 // # property attributes | prototype property
 // all (properties) have a (name). in addition they also have a (value)
 // -> the (value) is one of the property's (attributes)
