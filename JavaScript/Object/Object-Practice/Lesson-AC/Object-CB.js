@@ -157,5 +157,5 @@ function ExBB() {
 ////////////////////////////////////////////////////////////////////////////////
 outCB.innerHTML += 'ex-ba : object prototypes | prototype inheritance';
 outCB.innerHTML += '<hr >'; ExBA();
-outCB.innerHTML += '<br >adding (properties and methods) to objects | using (prototype property)';
+outCB.innerHTML += '<br >ex-bb : adding (properties and methods) to objects | using (prototype property)';
 outCB.innerHTML += '<hr >'; ExBB();

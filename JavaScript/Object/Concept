@@ -46,6 +46,22 @@
 13. why use (getters and setters) and difference bettween (method and getters)
 14. adding (getters and setters) to an existing object using (Object.defineProperty()) method
 
+--------------------------------------------------------------------------------
+
+# object constructor
+15. object constructor | the (this) keyword
+16. adding a properties to an (object | constructor)
+17. adding a methods to an (object | constructor)
+18. built-in object constructor (boolean | number | string)
+
+# object prototype
+19. object prototype | prototype inheritance
+20. using (prototype property)
+
+# object iterable
+21. iterabors | iterating over a (string | array)
+22. home made iterable > object as argument | object as return
+
 ///// REFERENCE ////////////////////////////////////////////////////////////
 // # property attributes | prototype property
 // all (properties) have a (name). in addition they also have a (value)

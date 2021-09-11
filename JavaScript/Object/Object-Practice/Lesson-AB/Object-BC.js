@@ -142,7 +142,7 @@ function ExCC() {
 ////////////////////////////////////////////////////////////////////////////////
 outBC.innerHTML += 'ex-ca : display object | display object-properties | in (for..in) loop';
 outBC.innerHTML += '<hr >'; ExCA();
-outBC.innerHTML += '<br >using (Object.values()) | (JSON.stringify())';
+outBC.innerHTML += '<br >ex-cb : using (Object.values()) | (JSON.stringify())';
 outBC.innerHTML += '<hr >'; ExCB();
-outBC.innerHTML += '<br >stringify dates | stringify functions | stringify arrays';
+outBC.innerHTML += '<br >ex-cc : stringify dates | stringify functions | stringify arrays';
 outBC.innerHTML += '<hr >'; ExCC();
