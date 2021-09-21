@@ -1,7 +1,6 @@
 ///// ClASS INHERITANCE ///////////////////////////////////////////////////////
 // 1. class inritance
-// 2. getters and setters
-// 3. hosting
+// 2. multi-inheritance | chain-inheritance
 
 ////////////////////////////////////////////////////////////////////////////////
 var outDB = document.createElement('div');
@@ -14,6 +13,11 @@ document.body.appendChild(outDB);
 // -> a class created with a class (inheritance), inherits all the methods from another class
 // NB : inheritance is useful for code reusability:
 // -> reuse (properties and methods) of an existing class when create a new class
+
+// in case of drived-constructor, (super) is required to call (base-properties)
+// -> if (properties) define inside (base-constructor) then (super) required (arguments)
+// -> if (properties) define inside (methods) then (super) does not required (arguments)
+// -> if (properties) define inside (global/static) then (super) does not required (arguments)
 
 function ExBA() {
 
@@ -183,12 +187,9 @@ function ExBA() {
 
   }
 
-  let letBA1 = new DrivedBA();
-  let letBA2 = new DrivedBA(100, 200);
-  letBA1.setProperty(11, 22);
-  letBA2.setProperty(10, 20);
-  letBA1.printValue('letBA1');
-  letBA2.printValue('letBA2');
+  let letBA = new DrivedBA(100, 200);
+  letBA.setProperty(11, 22);
+  letBA.printValue('letBA');
   outDB.innerHTML += '<br >';
 
   // drived class two
@@ -197,15 +198,14 @@ function ExBA() {
   // NB : calling the (base-property and base-method)
   class DrivedBB extends BaseAB {
     constructor() {
-      super();
+      super();    // ......................................
       this.setProperty(arguments[0], arguments[1]);
       outDB.innerHTML += '<br >' + arguments[2] + ' : proOne : ' + this.proOne;
       outDB.innerHTML += '<br >' + arguments[2] + ' : proTwo : ' + this.proTwo;
     }
   }
 
-  let letBB1 = new DrivedBB();
-  let letBB2 = new DrivedBB(33, 44, 'letBB2');
+  let letBB = new DrivedBB(33, 44, 'letBB');
   outDB.innerHTML += '<br >';
 
   // drived class three
@@ -217,84 +217,215 @@ function ExBA() {
     }
   }
 
-  let letBC1 = new DrivedBC();
-  let letBC2 = new DrivedBC(55, 66);
-  letBC1.callBase(55, 66, 'letBC1');
-  letBC2.callBase(50, 60, 'letBC2');
+  let letBC = new DrivedBC(55, 66);
+  letBC.callBase(55, 66, 'letBC');
   outDB.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # getters and setters
-// classes also allows you to use (getters and setters)
-// it can be smart to use (getters and setters) for your (properties),
-// -> especially if you want to do something special with the value before returning them,
-// -> or before you set them
-// -> to add (getters and setters) in the class, use the (get and set) keywords
-// NB : even if the (getter) is a method,
-// -> you do not use parentheses when you want to get the (property) value
-// -> to use a (setter), use the same syntax as when you set a (property) value, without parentheses
-// the name of (getter/setter) method cannot be same as the name of the (property)
-// -> many programmers use an underscore character (_) before the (property) name
-// -> to seperate the (getter/setter) from the actual (property)
+// # multi-inheritance | chain-inheritance
+// javascript does not support multiple inheritace
+// drived class inheritance (chain-inheritance)
 
 function ExBB() {
-  class Car {
-    constructor(brand) {
-      this.carName = brand;
+
+  // base class one
+  class BaseAA {
+    constructor() {
+      this.proOne = arguments[0];
+      this.proTwo = arguments[1];
     }
 
-    get cName() {
-      return this.carName;
-    }
-
-    set cName(arg) {
-      this.carName = arg;
+    printBaseAA() {
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo : ' + this.proTwo;
     }
   }
 
-  let carOne = new Car('Toyota');
-  outDB.innerHTML += '<br >car name : ' + carOne.cName;
+  // drived class one ..........................................................
+  // auto-constructor access automatically the (base-properties) defined by (base-constructor)
+  class DrivedAA extends BaseAA {
+    callBaseAA() {
+      this.proThree = arguments[0];
+      this.printBaseAA(arguments[1]);
+      outDB.innerHTML += '<br >' + arguments[1] + ' : proThree : ' + this.proThree;
+    }
+  }
 
-  carOne.cName = 'Honda';
-  outDB.innerHTML += '<br >car name : ' + carOne.cName;
+  let letAA = new DrivedAA(11, 22);
+  letAA.callBaseAA(33, 'letAA');
   outDB.innerHTML += '<br >';
-}
 
-////////////////////////////////////////////////////////////////////////////////
-// # hosting
-// unlike functions, and other javascript declarations, class declarations are not hosted
-// -> that means, you must declare a class before you can use it
-// NB : for other declarations, like functions,
-// -> you will not get an error when you try to use it before it is declared,
-// -> because the default behavior of javascript declarations are hosting
-// -> (moving the declaration to the top)
-
-// class-declaration is not hosted, so can not use any class before declaring it
-// let carTwo = new Car('Honda');
-// carTwo.print('carTwo');
-// outDB.innerHTML += '<br >';
-
-function ExBC() {
-  class Car {
-    constructor(brand) {
-      this.carName = brand;
+  // drived class inheritance ..................................................
+  // auto-constructor access automatically the (base-properties) defined by (base-constructor)
+  // (properties) defined by (method), is accessed (manually)
+  class DrivedAB extends DrivedAA {
+    callDrivedAA() {
+      this.callBaseAA(arguments[0], arguments[1]);
     }
 
-    print() {
-      outDB.innerHTML += '<br >' + arguments[0] + ' : carName : ' + this.carName;
+    callProperties() {
+      this.printBaseAA(arguments[0]);
+      this.callBaseAA(this.proThree, arguments[0]);
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne   : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo   : ' + this.proTwo;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
     }
   }
 
-  let carOne = new Car('Toyota');
-  carOne.print('carOne');
+  let letAB = new DrivedAB(10, 20);
+  letAB.callDrivedAA(30, 'letAB');
+  outDB.innerHTML += '<br >';
+
+  letAB.callProperties('letAB');
+  outDB.innerHTML += '<br >';
+
+  // drived constructor and inheritance ........................................
+  // (base-constructor-properties) accessed by (constructor-super)
+  // (drived-method-properties) accessed (manually)
+  class DrivedAC extends DrivedAB {
+    constructor() {
+      super(arguments[0], arguments[1]);
+      this.callBaseAA(arguments[2], 'DrivedAC');
+      this.proFour = arguments[3];
+    }
+
+    printDrivedAC() {
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne   : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo   : ' + this.proTwo;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFour  : ' + this.proFour;
+    }
+  }
+
+  let letAC = new DrivedAC(11, 22, 33, 44);
+  letAC.printDrivedAC('letAC');
+  outDB.innerHTML += '<br >';
+
+  // drived class and inheritance ..............................................
+  // as if (method-properties) are also recognized by the previous constructor, so
+  // -> (auto-constructor) access (base-constructor-properties) and (drived-method-properties)
+  class DrivedAD extends DrivedAC {
+    printDrivedAD() {
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne   : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo   : ' + this.proTwo;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFour  : ' + this.proFour;
+    }
+  }
+
+  let letAD = new DrivedAD(101, 202, 303, 404);
+  letAD.printDrivedAD('letAD');
+  outDB.innerHTML += '<br >';
+
+  // drived class and inheritance ..............................................
+  // as if (method-properties) are also recognized by the previous constructor, so
+  // -> (constructor-super) can access (base-constructor-properties) and (drived-method-properties)
+  class DrivedAE extends DrivedAC {
+    constructor() {
+      super(arguments[0], arguments[1], arguments[2], arguments[3]);
+    }
+
+    printDrivedAE() {
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne   : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo   : ' + this.proTwo;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFour  : ' + this.proFour;
+    }
+  }
+
+  let letAE = new DrivedAE(111, 222, 333, 444);
+  letAE.printDrivedAE('letAE');
+  outDB.innerHTML += '<hr >';
+
+  // ---------------------------------------------------------------------------
+
+  // base class - (properties) defined by (constructor)
+  class BaseAB {
+    constructor() {
+      this.proOne = arguments[0];
+      this.proTwo = arguments[1];
+    }
+
+    printBaseAB() {
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proOne : ' + this.proOne;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proTwo : ' + this.proTwo;
+    }
+  }
+
+  // drived class - (properties) definde by (methods)
+  class DrivedBA extends BaseAB {
+    setProperties() {
+      this.proThree = arguments[0];
+      this.proFour = arguments[1];
+    }
+
+    printDrivedBA() {
+      this.printBaseAB(arguments[0]);
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFour  : ' + this.proFour;
+    }
+  }
+
+  let letBA = new DrivedBA(11, 22);
+  letBA.setProperties(33, 44);
+  letBA.printDrivedBA('letBA');
+  outDB.innerHTML += '<br >';
+
+  // drived class - (constructor-properties) recognized by (auto-constructor)
+  // drived class - (method-propertied) recognized by (manually)
+  class DrivedBB extends DrivedBA {
+    printDrivedBB() {
+      this.printBaseAB(arguments[0]);
+      this.setProperties(arguments[1], arguments[2]);
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proThree : ' + this.proThree;
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFour  : ' + this.proFour;
+    }
+  }
+
+  let letBB = new DrivedBB(10, 20);
+  // letBB.setProperties(30, 40);
+  letBB.printDrivedBB('letBB', 300, 400);
+  outDB.innerHTML += '<br >';
+
+  // drived class - (constructor-properties) recognized by (super)
+  // drived class - (method-properties) recognized (manually)
+  class DrivedBC extends DrivedBA {
+    constructor() {
+      super(arguments[0], arguments[1]);
+      this.setProperties(arguments[2], arguments[3]);
+      this.proFive = arguments[4];
+    }
+
+    printDrivedBC() {
+      this.printDrivedBA(arguments[0]);
+      outDB.innerHTML += '<br >' + arguments[0] + ' : proFive  : ' + this.proFive;
+    }
+  }
+
+  let letBC = new DrivedBC(11, 22, 33, 44, 55);
+  letBC.printDrivedBC('letBC');
+  outDB.innerHTML += '<br >';
+
+  // drived class - (constructor/method-properties) are recognized by (auto/super-constructor)
+  class DrivedBD extends DrivedBC {
+    // constructor() {
+    //   // super();
+    //   super(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+    // }
+
+    printDrivedBD() {
+      this.printDrivedBC(arguments[0]);
+    }
+  }
+
+  let letBD = new DrivedBD(10, 20, 30, 40, 50);
+  letBD.printDrivedBD('letBD');
   outDB.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 outDB.innerHTML += 'ex-ba : class inheritance';
 outDB.innerHTML += '<hr >'; ExBA();
-outDB.innerHTML += '<br >ex-bb : getters and setters';
+outDB.innerHTML += '<br >ex-cb : multi-inheritance and chain-inheritance';
 outDB.innerHTML += '<hr >'; ExBB();
-outDB.innerHTML += '<br >ex-bc : hosting';
-outDB.innerHTML += '<hr >'; ExBC();
