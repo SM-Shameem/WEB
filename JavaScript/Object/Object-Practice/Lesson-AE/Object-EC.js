@@ -14,6 +14,20 @@ outEC.setAttribute('id', 'styleOne');
 document.body.appendChild(outEC);
 
 ////////////////////////////////////////////////////////////////////////////////
+// # property attributes | prototype property
+// all (properties) have a (name). in addition they also have a (value)
+// -> the (value) is one of the property's (attributes)
+// -> other (attributes) are (enumerable | configurable | writable)
+// -> these (attributes) define how the (property) can be accessed
+// in javascript, all attributes can be read,
+// -> but only the value attribute can be changed (and only if the property is writable)
+// NB : ECMAScript5 has methods for both (getting and setting) all property attributes
+
+// javascript objects inherit the properties of their prototype
+// the (delete) keyword does not delete inherited properties,
+// -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)
+// -----------------------------------------------------------------------------
+
 // # ES5 object methods (managing objects)
 // ECMAScript 5 (2009) added a lot of new Object Methods of javascript
 // 1. creat object with an existing object as prototype - Object.create()
@@ -58,7 +72,7 @@ function ExCC() {
 ////////////////////////////////////////////////////////////////////////////////
 outEC.innerHTML += 'ex-ca : ES5 object methods (managing objects)';
 outEC.innerHTML += '<hr >'; ExCA();
-outEC.innerHTML += '<br >ex-cb : ES5 object methods (protecting objects)';
+outEC.innerHTML += '<br >ex-cb : `ES5 object methods (protecting objects)`';
 outEC.innerHTML += '<hr >'; ExCB();
 outEC.innerHTML += '<br >ex-cc : ES5 object methods (examples)';
 outEC.innerHTML += '<hr >'; ExCC();

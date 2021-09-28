@@ -66,46 +66,47 @@ DAY 03
 
 # object iterable
 21. iterabors | iterating over a (string | array)
--> 22. home made iterable > object as argument | object as return (concept incomplete)
+22. home made iterable (object as argument | object as return)
+-> 23. javascript iterable (concept incomplete)
+
 
 --------------------------------------------------------------------------------
 DAY 04
 --------------------------------------------------------------------------------
 
 # class introduction
-23. class syntax | using class
-24. class constructor | clas methods
+24. class syntax | using class
+25. class constructor | clas methods
 
 # class inheritance
-25. class inheritance
-26. multi-inheritance and chain-inheritance
+26. class inheritance
+27. multi-inheritance and chain-inheritance
 
 # static, getters/setters, and hosting
-27. static keyword (methods and properties)
--> 28. static-property and global-property with inheritance (syntax incomplete)
--> 29. getters and setters in class with inheritance and static/global (manipulate incomplete)
-30. class hosting
+28. static keyword (methods and properties)
+-> 29. static-property and global-property with inheritance (syntax incomplete)
+-> 30. getters and setters in class with inheritance and static/global (manipulate incomplete)
+31. class hosting
 
 --------------------------------------------------------------------------------
 DAY 05
 --------------------------------------------------------------------------------
 
 # class Sets()
+32. javascript sets | how to create a set | sets are objects
+33. set methods & (add | forEach | values | key | entries)
+34. size | has | delete | clear
 
 # class Maps()
+35. javascript Maps | how to create a map | maps are objects
+36. map methods & (set | get | clear | has | size | delete)
+37. forEach | keys | values | entries
+38. javascript object vs maps | object as keys
 
 # class references
-// # property attributes | prototype property
-// all (properties) have a (name). in addition they also have a (value)
-// -> the (value) is one of the property's (attributes)
-// -> other (attributes) are (enumerable | configurable | writable)
-// -> these (attributes) define how the (property) can be accessed
-// in javascript, all attributes can be read,
-// -> but only the value attribute can be changed (and only if the property is writable)
-// NB : ECMAScript5 has methods for both (getting and setting) all property attributes
+39. ES5 object methods (managing objects)
+40. ES5 object methods (protecting objects)
+41. ES5 object methods (examples)
 
-// javascript objects inherit the properties of their prototype
-// the (delete) keyword does not delete inherited properties,
-// -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)
-
-// Object.defineProperty() method
+# MDN object references
+42.
