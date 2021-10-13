@@ -1,0 +1,293 @@
+--------------------------------------------------------------------------------
+DAY 01 (Object)
+--------------------------------------------------------------------------------
+# object fundamental
+1. real-life object, properties, and methods
+2. object-definition, object-properties, and accessing properties
+3. object-methods, accessing methods, and (this) keyword
+4. do not declare (string | number | boolean) as object
+
+# object definition
+5. javascript object and primitives
+6. objects are variable, object-properties, and object-methods
+7. different ways of creating and declaring object
+8. creating object/empty-object using (literal/new keyword)
+9. objects are mutable
+
+# class fundamental
+10. javascript class and using a class
+11. constructor and class method
+
+# the (this) keyword
+12. the (this) keyword used alone (default)
+13. the (this) in a method (default/strict)
+14. the (this) in a function (default/strict)
+15. the (this) in a event-handler
+16. the (this) in a explicit-function binding/object-method binding
+
+--------------------------------------------------------------------------------
+DAY 02 (Object)
+--------------------------------------------------------------------------------
+# object properties
+1. object properties and accessing properties
+2. object properties and (for..in) loop
+3. adding properties and deleting properties
+4. nested object and nested array and object
+
+# object methods
+5. object method and accessing methods
+6. using (this) keyword to access members inside methods
+7. adding a method to an object and using built-in method
+
+# object display
+8. display object, display object-properties and using (for..in) loop
+9. converting object to array using (Object.value()) method
+10. converting object to string (JSON notation) using (Object.stringify()) method
+11. stringify (array | date | function)
+
+# object accessors
+12. object accessors (getter and setter) and the (get and set) keyword
+13. why use (getters and setters) and difference bettween (method and getters)
+14. adding (getters and setters) to an existing object using (Object.defineProperty()) method
+
+--------------------------------------------------------------------------------
+DAY 03 (Object)
+--------------------------------------------------------------------------------
+# object constructor
+15. object constructor | the (this) keyword
+16. adding a properties to an (object | constructor)
+17. adding a methods to an (object | constructor)
+18. built-in object constructor (boolean | number | string)
+
+# object prototype
+19. object prototype | prototype inheritance
+20. using (prototype property)
+
+# object iterable
+21. iterabors | iterating over a (string | array)
+22. home made iterable (object as argument | object as return)
+-> 23. javascript iterable (concept incomplete)
+
+--------------------------------------------------------------------------------
+DAY 04 (Object)
+--------------------------------------------------------------------------------
+# class introduction
+24. class syntax | using class
+25. class constructor | clas methods
+
+# class inheritance
+26. class inheritance
+27. multi-inheritance and chain-inheritance
+
+# static, getters/setters, and hosting
+28. static keyword (methods and properties)
+-> 29. static-property and global-property with inheritance (syntax incomplete)
+-> 30. getters and setters in class with inheritance and static/global (manipulate incomplete)
+31. class hosting
+
+--------------------------------------------------------------------------------
+DAY 05 (Object)
+--------------------------------------------------------------------------------
+# class Sets()
+32. javascript sets | how to create a set | sets are objects
+33. set methods & (add | forEach | values | key | entries)
+34. size | has | delete | clear
+
+# class Maps()
+35. javascript Maps | how to create a map | maps are objects
+36. map methods & (set | get | clear | has | size | delete)
+37. forEach | keys | values | entries
+38. javascript object vs maps | object as keys
+
+# class references
+39. ES5 object methods (managing objects)
+    Object | Object.defineProperty | Object.defineProperties
+40. ES5 object methods (accessing objects)
+    Object.getOwnPropertyNames | Object.keys
+    -> Object.getOwnPropertyDescriptor | Object.getPrototypeOf (incomplete)
+41. ES5 object methods (protecting objects)
+    Object.preventExtensions | Object.seal | Object.freeze
+    Object.isExtensible | Object.isSealed | Object.isFrozen
+42. objec property attributes
+    value | writable
+    configurable | enumerable
+
+--------------------------------------------------------------------------------
+DAY 06 (Object)
+--------------------------------------------------------------------------------
+# review 
+
+--------------------------------------------------------------------------------
+DAY 01 (Function)
+--------------------------------------------------------------------------------
+# Function Intro
+# Events
+# Arrow Function
+
+--------------------------------------------------------------------------------
+DAY 02 (Function)
+--------------------------------------------------------------------------------
+# Function Defination
+# Function Parameters
+# Function Invocation
+
+--------------------------------------------------------------------------------
+DAY 03 (Function)
+--------------------------------------------------------------------------------
+# Function Call
+# Function Apply
+# Function Closures
+
+--------------------------------------------------------------------------------
+DAY 04 (Function)
+--------------------------------------------------------------------------------
+# Scope and Hoisting
+# references
+
+--------------------------------------------------------------------------------
+DAY 05 (Function)
+--------------------------------------------------------------------------------
+# review
+
+================================================================================
+Day 00 (references - MDN)
+================================================================================
+# MDN object references
+42. javascript
+43. standard built-in objects (by category)
+    1. value properties
+    2. function properties
+    3. fundamental objects
+    4. error object
+    5. numbers and dates
+    6. text processing
+    7. indexed collections
+    8. keyed collections
+    9. structured data
+    10. control abstraction objects
+    11. reflection
+    12. internationalization
+    13. webAssembly
+    14. other
+44. expressions and operators (by category)
+    1. primary expressions
+    2. left-hand-side expressions
+    3. increment and decrement
+    4. unary operators
+    5. arithmetic operators
+    6. relational operators
+    7. equality operators
+    8. bitwise shift operators
+    9. binary bitwise operators
+    10. binary logical operators
+    11. conditional (ternary) operator
+    12. optional chaining opertor
+    13. assignment operators
+    14. comma operator
+45. statements and declarations (by category)
+    1. control flow
+    2. declarations
+    3. functions and classes
+    4. iterations
+    5. others
+46. functions
+
+================================================================================
+Day 00 (for complete biginners - MDN)
+================================================================================
+01. javascript first steps
+    -> what is javascript
+    -> a first splash into javascript
+    -> what went wrong? troubleshooting javascript
+    -> storing th einformation you need - variables
+    -> basic math in javascript - numbers nad operators
+    -> handling text - string in javascript
+    -> useful string methods
+    -> arrays
+02. javascript building blocks
+    -> making decisions in your code - conditionals
+    -> looping code
+    -> functions - reusable blocks of code
+    -> build your own function
+    -> function return values
+    -> introduction to events
+03. inttroducing javascript objects
+    -> object basics
+    -> object-oriented javascript for beginners
+    -> object prototypes
+    -> inheritance in javascript
+    -> working with JSON data
+    -> object building practice
+04. asynchronous javascript
+    -> general asynchronous programming concepts
+    -> introducing asynchronous javascript
+    -> cooperative asynchronous javascript: timeouts and intervals
+    -> handling async operations gracefully with promises
+    -> making asynchronous programming easier with async and await
+    -> choosing the right approach
+    -> asynchronous programming (see also)
+05. client-side web APIs
+    -> introduction to web APIs
+    -> manipulating documents
+    -> fetching data from the server
+    -> third party APIs
+    -> drawing graphics
+    -> video and audio APIs
+    -> client-side storage
+06. javascript guide
+    -> introduction
+    -> grammar and types
+    -> control flow and error handling
+    -> loops and iteration
+    -> functions
+    -> expressions and operators
+    -> numbers and dates
+    -> text formatting
+    -> indexed collection
+    -> keyed collections
+    -> working with objects
+    -> details of the object model
+    -> promises
+    -> iterators and generators
+    -> meta programming
+    -> javascript modules
+
+================================================================================
+Day 00 (intermediate - MDN)
+================================================================================
+01. understanding clide-side javascript
+    introductory guides
+    -> introduction to client-side frameworks
+    -> framework main features
+    react tutorial
+    -> getting stated with react
+    -> beginning out react todo list
+    -> componentizing our react app
+    -> react interactivity: events and state
+    -> react interactivity: editing, filtering, conditional rendering
+    -> accessibility in react
+    -> react resources
+    ember tutorials
+    -> getting started with ember
+    -> ember app structure and componentization
+    -> ember interactivity: events, classes and state
+    -> ember interactivity: footer functionality, conditional rendering
+    -> routing in ember
+    -> ember resources and troubleshooting
+    vue tutorial
+    svelte tutorial
+    angular tutorial
+    which framework did we choose
+02. a re-introduction to javascript
+03. javascript data structures
+04. equality comparisons and sameness
+05. closures
+
+================================================================================
+Day 00 (admanced - MDN)
+================================================================================
+01. inheritance and the prototype chain
+02. strict mode
+03. javascript typed arrays
+04. memory managemetn
+05. concurrency model and event loop
