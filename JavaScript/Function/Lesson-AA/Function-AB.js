@@ -29,23 +29,62 @@ document.body.appendChild(outAB);
 // -> javascript code is often several lines long.
 //    it is more common to see event attribute calling function
 
-function ExBA() {
+outAB.innerHTML += 'ex-ba : javascript events | HTML events';
+outAB.innerHTML += '<hr >';
 
+let letAA = document.createElement('div');
+letAA.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout responce"');
+outAB.appendChild(letAA);
+
+let letAB = document.createElement('button');
+letAB.setAttribute('onclick', 'outAB.innerHTML += "<br >clickEvent responce"');
+outAB.appendChild(letAB);
+outAB.innerHTML += '<br >';
+
+function funcOne() {
+  let local = null;
+  local = '<br >' + arguments[0] + ' function-responce';
+  return local;
 }
+
+let letAC = document.createElement('button');
+letAC.setAttribute('onclick', 'outAB.innerHTML += funcOne("clickEvent")');
+outAB.appendChild(letAC);
+outAB.innerHTML += '<br >';
 
 ////////////////////////////////////////////////////////////////////////////////
 // # common HTML events
 // -> here is a list of some common HTML events
-// -> 1. onchange - an HTML element has been changed
-// -> 2. onclick - the user clicks an HTML element
-// -> 3. onmouseover - the user moves the mouse over an HTML element
-// -> 4. onmouseout - the user moves the mouse away from an HTML element
-// -> 5. onkeydown - the user pushes a keyboard key
+// -> 1. onclick - the user clicks an HTML element
+// -> 2. onmouseover - the user moves the mouse over an HTML element
+// -> 3. onmouseout - the user moves the mouse away from an HTML element
+// -> 4. onkeydown - the user pushes a keyboard key
+// -> 5. onchange - an HTML element has been changed
 // -> 6. onload - the browser has finished loading in page
 
-function ExBB() {
+outAB.innerHTML += '<br >ex-bb : common HTML events';
+outAB.innerHTML += '<hr >';
 
-}
+let letBA = document.createElement('div');
+letBA.setAttribute('onclick', 'outAB.innerHTML += "<br >onclick-event"');
+outAB.appendChild(letBA);
+
+let letBB = document.createElement('div');
+letBB.setAttribute('onmouseover', 'outAB.innerHTML += "<br >onmouseover-event"');
+outAB.appendChild(letBB);
+
+let letBC = document.createElement('div');
+letBC.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout-event"');
+outAB.appendChild(letBC);
+
+let letBD = document.createElement('div');
+letBD.setAttribute('onkeydown', 'outAB.innerHTML += "<br >onkeydown-event"');
+outAB.appendChild(letBD);
+
+let letBE = document.createElement('div');
+letBE.setAttribute('onload', 'outAB.innerHTML += "<br >onload-event"');
+outAB.appendChild(letBE);
+outAB.innerHTML += '<br >';
 
 ////////////////////////////////////////////////////////////////////////////////
 // # what can javascript do
@@ -63,14 +102,23 @@ function ExBB() {
 // -> and more ..
 // -> NB : HTML DOM will describe about event and event handlers
 
-function ExBC() {
+outAB.innerHTML += '<br >what can javascript do | any different methods can be used';
+outAB.innerHTML += '<hr >';
 
-}
+// -> page load (onload - event only works with - body element)
+let letCA = document.createElement('div');
+letCA.setAttribute('onload', 'outAB.innerHTML += <br >page loaded');
+outAB.appendChild(letCA);
 
-////////////////////////////////////////////////////////////////////////////////
-outAB.innerHTML += 'ex-ba : javascript events | HTML events';
-outAB.innerHTML += '<hr >'; ExBA();
-outAB.innerHTML += '<br >ex-bb : common HTML events';
-outAB.innerHTML += '<hr >'; ExBB();
-outAB.innerHTML += '<br >ex-bc : what can javascript do';
-outAB.innerHTML += '<hr >'; ExBC();
+// -> page closed
+let letCB = document.createElement('div');
+letCB.setAttribute('', 'outAB.innerHTML += <br >page closed');
+outAB.appendChild(letCB);
+
+// -> click a button
+// -> user inputes data
+// diffrent procedure used to (let javascript works with events) -
+// -> direct code execution
+// -> calling function
+// -> own event handler function
+// -> prevent events

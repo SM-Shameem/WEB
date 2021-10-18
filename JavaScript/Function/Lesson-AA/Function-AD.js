@@ -11,8 +11,55 @@ document.body.appendChild(outAD);
 ////////////////////////////////////////////////////////////////////////////////
 // # function and object, constructor, and class
 
+// function
 function ExDA() {
+  function funcOne() {
+    let local = arguments[0] * 2;
+    outAD.innerHTML += '<br >function statement - ';
+    return local;
+  }
 
+  // single object
+  let letAA = {
+    proOne: null,
+    proTwo: null,
+    method: function () {
+      this.proOne = arguments[0];
+      this.proTwo = arguments[1];
+      return this.proOne + this.proTwo;
+    },
+  };
+
+  // constructor - (proOne) is a property using (this)
+  // constructor name should start with the capital letter
+  function FuncTwo() {
+    let local = 2;
+    this.proOne = arguments[0] * local;
+    outAD.innerHTML += '<br >constructor statement - ';
+    return this.proOne;
+  }
+
+  // class declaration
+  class classOne {
+    constructor() {
+      this.proOne = arguments[0];
+      this.proTwo = arguments[1];
+    }
+
+    printValue() {
+      outAD.innerHTML += '<br >this.proOne : ' + this.proOne;
+      outAD.innerHTML += '<br >this.proTwo : ' + this.proTwo;
+    }
+  }
+
+  funcOne(10);
+  outAD.innerHTML += '<br >funcOne : ' + funcOne(20);
+  outAD.innerHTML += '<br >proOne : ' + this.proOne;
+  outAD.innerHTML += '<br >proTwo : ' + this.proTwo;
+  outAD.innerHTML += '<br >method : ' + this.method(10, 20);
+
+  let letAB = new FuncTwo(30);
+  outAD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
