@@ -185,5 +185,5 @@ outAA.innerHTML += 'ex-aa : function and why | function syntax | function return
 outAA.innerHTML += '<hr >'; ExAA();
 outAA.innerHTML += '<br >ex-ab : function invocation | The () Operator Invokes the Function';
 outAA.innerHTML += '<hr >'; ExAB();
-outAA.innerHTML += '<br >ex-ac : Functions Used as Variable Values | Local Variables';
+outAA.innerHTML += '<br >ex-ac : functions used as variable values | local variables';
 outAA.innerHTML += '<hr >'; ExAC();

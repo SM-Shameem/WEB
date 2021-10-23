@@ -115,21 +115,47 @@ DAY 05 (Object)
 --------------------------------------------------------------------------------
 DAY 06 (Object)
 --------------------------------------------------------------------------------
-# review 
+# review
 
 --------------------------------------------------------------------------------
 DAY 01 (Function)
 --------------------------------------------------------------------------------
 # Function Intro
+01. function and why | function syntax | function return
+02. function invocation | The () Operator Invokes the Function
+03. functions used as variable values | local variables
+
 # Events
+04. javascript events | HTML events
+05. common HTML events
+06. what can javascript do
+
 # Arrow Function
+07. javascript arrow function
+08. what about (this)
+
+# function-arrow-events and object
 
 --------------------------------------------------------------------------------
 DAY 02 (Function)
 --------------------------------------------------------------------------------
 # Function Defination
+09. function defination | function declaration
+10. function expression | arrow function
+11. the function constructor | functions are object
+12. self-invoking | function hosting | used as variable
+
 # Function Parameters
+13. javascript function parameters | function parameters and argument
+14. parameter rules | default parameters | the arguments object
+15. arguments are passed by value | object are passed by reference
+
 # Function Invocation
+16. invocation | invoking a function | invoking a function as a function
+17. the (this) keyword | the Global object
+18. invoking as a method | invoking as a constructor
+
+# function (defination-parameters-imvocation) and object
 
 --------------------------------------------------------------------------------
 DAY 03 (Function)
