@@ -155,6 +155,7 @@ function ExCB() {
     constructor() {
       // localPro = arguments[1];
       // static lstaticPro = arguments[2];
+      
       this.constPro = arguments[0];
     }
 

@@ -1,6 +1,6 @@
---------------------------------------------------------------------------------
+================================================================================
 DAY 01 (Object)
---------------------------------------------------------------------------------
+================================================================================
 # object fundamental
 1. real-life object, properties, and methods
 2. object-definition, object-properties, and accessing properties
@@ -64,7 +64,7 @@ DAY 03 (Object)
 20. using (prototype property)
 
 # object iterable
-21. iterabors | iterating over a (string | array)
+21. iterators | iterating over a (string | array)
 22. home made iterable (object as argument | object as return)
 -> 23. javascript iterable (concept incomplete)
 
@@ -73,7 +73,7 @@ DAY 04 (Object)
 --------------------------------------------------------------------------------
 # class introduction
 24. class syntax | using class
-25. class constructor | clas methods
+25. class constructor | class methods
 
 # class inheritance
 26. class inheritance
@@ -88,18 +88,18 @@ DAY 04 (Object)
 --------------------------------------------------------------------------------
 DAY 05 (Object)
 --------------------------------------------------------------------------------
-# class Sets()
+# object Sets()
 32. javascript sets | how to create a set | sets are objects
 33. set methods & (add | forEach | values | key | entries)
 34. size | has | delete | clear
 
-# class Maps()
+# object Maps()
 35. javascript Maps | how to create a map | maps are objects
 36. map methods & (set | get | clear | has | size | delete)
 37. forEach | keys | values | entries
 38. javascript object vs maps | object as keys
 
-# class references
+# object references
 39. ES5 object methods (managing objects)
     Object | Object.defineProperty | Object.defineProperties
 40. ES5 object methods (accessing objects)
@@ -108,18 +108,18 @@ DAY 05 (Object)
 41. ES5 object methods (protecting objects)
     Object.preventExtensions | Object.seal | Object.freeze
     Object.isExtensible | Object.isSealed | Object.isFrozen
-42. objec property attributes
+42. object property attributes
     value | writable
     configurable | enumerable
 
 --------------------------------------------------------------------------------
-DAY 06 (Object)
+DAY 06 (OBJECT, CLASS - REVIEW 1)
 --------------------------------------------------------------------------------
 # review
 
---------------------------------------------------------------------------------
+================================================================================
 DAY 01 (Function)
---------------------------------------------------------------------------------
+================================================================================
 # Function Intro
 01. function and why | function syntax | function return
 02. function invocation | The () Operator Invokes the Function
@@ -134,44 +134,52 @@ DAY 01 (Function)
 07. javascript arrow function
 08. what about (this)
 
-# function-arrow-events and object
-
 --------------------------------------------------------------------------------
 DAY 02 (Function)
 --------------------------------------------------------------------------------
-# Function Defination
-09. function defination | function declaration
+# Function Definition
+09. function definition | function declaration
 10. function expression | arrow function
 11. the function constructor | functions are object
 12. self-invoking | function hosting | used as variable
 
 # Function Parameters
-13. javascript function parameters | function parameters and argument
-14. parameter rules | default parameters | the arguments object
+13. function parameters | parameters and argument | parameter rules
+14. default parameters | the arguments object
 15. arguments are passed by value | object are passed by reference
 
 # Function Invocation
-16. invocation | invoking a function | invoking a function as a function
+16. invocation | invoking a function | invoking a function (as a function)
 17. the (this) keyword | the Global object
-18. invoking as a method | invoking as a constructor
-
-# function (defination-parameters-imvocation) and object
+18. invoking a function (as a method) | invoking a function (as a constructor)
 
 --------------------------------------------------------------------------------
-DAY 03 (Function)
+DAY 03 (OBJECT, CLASS, FUNCTION - REVIEW 1)
 --------------------------------------------------------------------------------
-# Function Call
-# Function Apply
-# Function Closures
+# review
+# function-arrow-events and object
+# function (definition-parameters-invocation) and object
 
 --------------------------------------------------------------------------------
 DAY 04 (Function)
 --------------------------------------------------------------------------------
-# Scope and Hoisting
-# references
+# Function Call
+# Function Apply
 
 --------------------------------------------------------------------------------
 DAY 05 (Function)
+--------------------------------------------------------------------------------
+# Function Closures
+# Scope
+
+--------------------------------------------------------------------------------
+DAY 06 (Function)
+--------------------------------------------------------------------------------
+# Hoisting
+# Strict
+
+--------------------------------------------------------------------------------
+DAY 07 (OBJECT, CLASS, FUNCTION - REVIEW 2)
 --------------------------------------------------------------------------------
 # review
 

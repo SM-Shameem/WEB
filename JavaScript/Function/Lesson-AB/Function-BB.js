@@ -179,6 +179,7 @@ function ExBB() {
   // so number of arguments defines the loop iteration number
   // does not affect parameter number and it's default value
   // NB : default value of (parameter) can not read the (arguments) object
+
   function funcCA(argOne, argTwo = 2, argThree) {
     for (let i = 0; arguments.length > i; i++)
       outBB.innerHTML += '<br >funcCA-arguments[' + i + '] : ' + arguments[i];
@@ -238,6 +239,7 @@ function ExBB() {
 
   outBB.innerHTML += '<br >constCB-arguments : ' + constCD(3, 2, 6, 1, 8);
 
+  // algorithm - arringing numbers - approach two (using - arguments)
   const constCE = function () {
     let temp = [null];
     for (let i = 0; i < arguments.length; i++) {

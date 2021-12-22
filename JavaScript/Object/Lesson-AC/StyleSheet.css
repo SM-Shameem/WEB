@@ -1,14 +1,14 @@
 div {
-	background-color: rgb(225, 225, 125, .4);
+	border: solid 1px silver;
 	border-radius: 10px;
 	padding: 20px;
 	margin: 10px;
 }
 
 #styleOne {
-    border: solid 1px red;
+    background-color: rgb(225, 225, 125, .4);
 }
 
 #styleTwo {
-    border: solid 1px blue;
+    background-color: rgb(125, 225, 225, .4);
 }
