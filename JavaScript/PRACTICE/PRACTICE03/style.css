@@ -1,6 +1,5 @@
-#divOne {
-    width: 75%;
-    height: 10%;
-    background-color: #DDDDDD;
-    padding: 10px;
+body {
+  background-color: black;
+  margin: 0px;   
+  padding: 0px;
 }

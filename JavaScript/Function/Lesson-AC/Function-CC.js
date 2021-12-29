@@ -46,7 +46,7 @@ function ExCA() {
     var localTwo;
     outCC.innerHTML += '<br >localOne (declared) : ' + localOne;
     outCC.innerHTML += '<br >localTwo (declared-out) : ' + localTwo;
-    outCC.innerHTML += '<br >localThree (undeclared) : ' + localThree;
+    // outCC.innerHTML += '<br >localThree (undeclared) : ' + localThree;
     outCC.innerHTML += '<br >';
 
     // # THE (LET & CONST) KEYWORDS
@@ -58,10 +58,44 @@ function ExCA() {
     // NB: variable is in (temporal dead zone) from the start of the block until it is declared
     // -- in case of (let) it will be (ReferenceError) and in case of (const) will not run
 
+    varAA = 10;
+    outCC.innerHTML += '<br >varAA : ' + varAA;
+    var varAA;
+
+    letAA = 20;
+    outCC.innerHTML += '<br >letAA : ' + letAA;
+    // let letAA;       // referenceError
+
+    constAA = 30;
+    outCC.innerHTML += '<br >constAA : ' + constAA;
+    // const constAA;   // syntax error
+
+    outCC.innerHTML += '<br >';    
+
     // # JAVASCRIPT INITIALIZATIONS ARE NOT HOISTED 
     // -> javascript only hoists declarations, not initializations 
-    // -> 
+    // -> in javascript, declaration of a variable is hoisted 
+    // -- but initialization of a variable is not hoisted (initialization refers assigning-value)
+    // NB: we can not (use) any variable without (declare or initialization)
 
+    var varBA = 10;
+    var varBB;
+    outCC.innerHTML += '<br >varBA : ' + varBA;
+    outCC.innerHTML += '<br >varBB : ' + varBB;
+    outCC.innerHTML += '<br >varBC : ' + varBC;
+    outCC.innerHTML += '<br >varBD : ' + varBD;
+    // outCC.innerHTML += '<br >varBD : ' + varBE;
+    varBB = 20;
+    var varBC = 30;
+    var varBD;
+    outCC.innerHTML += '<br >';
+
+    // # DECLARE YOUR VARIABLE AT THE TOP
+    // -> hosting is (to many developers) an unknown or overlooked behavior of javascript 
+    // -> if a developer doesn't understand hoisting, programs many contain bugs (errors)
+    // -> to avoid bugs, always declare all variable at the beginning of every scope 
+    // -> since this is how javascript interprets the code, it is always a good rule 
+    // -> NB: javascript in (strict) mode does not allow variables to be used if they are not declared
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -74,6 +108,73 @@ function ExCA() {
 // 06. not allowed in (strict) mode
 // 07. future proof
 function ExCB() {
+    // # JAVASCRIPT (Use Strict) & WHY (Strict) MODE
+    // -> (use strict) defines that javascript code should be executed in (strict mode)
+    // -> (strict) mode makes it easier to write (secure) javascript 
+    // -> (strict) mode changes previously accepted (bad syntax) into real error
+    // -> as an example, in normal javascript, mistyping a variable name create a new (global) variable
+    // -- in strict mode, this will throw an error, making it impossible to accidentally create a (global) variable
+    // -> in normal javascript, a developer will not receive any error feedback assigning value to non-writable properties 
+    // -> in (strict) mode, any assignment to a non-writable property, a getter-only property, a non-existing variable, 
+    // -- or a non-existing object, will throw an error
+
+    // # THE ("use strict") DIRECTIVE
+    // -> the (use strict) directive was new in ECMAScript version 5
+    // -> it is not a statement, but a literal expression, ignored by earlier versions of javascript 
+    // -> the purpose of (use strict) is to indicate that the code should be executed in (strict mode)
+    // -> with (strict) mode, you can not, use undeclared variable 
+    // -> all modern browser support, (use strict) except IE9 and lower
+    // NB: you can use (strict) mode in all your program. 
+    // -- it helps you to write cleaner code, like preventing you from using undeclared variables 
+    // -- (use strict) is just a (string), so EI9 will not throw an error if it does not understand it
+
+    // # DECLARING (Strict) MODE 
+    // -> the (strict) mode is declared by adding ("use strict";) to the beginning of a (script or function)
+    // -> declared at the beginning of a (script), it is (global) scope (all code in the script will execute in - strict - mode)
+    // -> declared inside a function, it has local scope (only the code inside the function is in - strict - mode) 
+    // NB : you can not declare any code before (use strict) statement of (global or function) scope
+    // -- so the (use strict) statement must declare at the first of any scope
+
+    // var varAA = 10;
+    // varAB = 20;
+    // outCC.innerHTML += '<br >varAA : ' + varAA;
+    // outCC.innerHTML += '<br >varAB : ' + varAB;
+
+    'use strict';
+    var varAC = 30;
+    // varAD = 40;
+    outCC.innerHTML += '<br >varAC : ' + varAC;
+    // outCC.innerHTML += '<br >varAD : ' + varAD;
+    outCC.innerHTML += '<br >';
+    
+    // # THE ("use strict";) SYNTAX & NOT ALLOWED IN (strict) MODE & FUTURE PROOF
+    // -> the syntax, for declaring strict mode, was designed to be compatible with older versions of javascript 
+    // -> compiling a numeric literal (4 + 5) or string literal ('john dee') in a javascript program has no side effect. 
+    // -- it simply compiles to a non existing variable and dies 
+    // -> so ('use strict';) only matters to new compilers that "understand" the meaning of it
+    
+    // -> 1. using a variable, without declaring it, is not allowed 
+    // -> 2. objects are variables too, so using an object, without declaring it, is not allowed
+    // -> 3. deleting a variable (or object) is not allowed 
+    // -> 4. deleting a function is not allowed
+    // -> 5. duplicating a parameter name is not allowed
+    // -> 6. octal numeric literals are not allowed 
+    // -> 7. octal escape character are not allowed 
+    // -> 8. writing to a read-only property is not allowed
+    // -> 9. writing to a get-only property is not allowed 
+    // -> 10. deleting an undeletable property is not allowed 
+    // -> 11. the word (eval) cannot be used as a variable 
+    // -> 12. the word (arguments) cannot be used as a variable 
+    // -> 13. the (with) statement is not allowed 
+    // -> 14. for security reasons, (eval()) is not allowed to create variables in the scope from which it was called 
+    // -> 15. the (this) keyword in function behaves differently in (strict) mode
+    // -> 16. the (this) keyword refers to the object that called the function 
+    // -> 17. if the object is not specified, function in (strict) mode will return (undefined) 
+    // -- and function in (normal) mode will return (global object - window) 
+
+    // -> keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
+    // -- these are (implements | interface | let | package | private | protected | public | static | yield)
+    // NB : the ("use strict") directive is only recognized at the (beginning) of a (script or function)
 
 }
 
