@@ -135,47 +135,140 @@ function ExCB() {
     // NB : you can not declare any code before (use strict) statement of (global or function) scope
     // -- so the (use strict) statement must declare at the first of any scope
 
+     // # THE ("use strict";) SYNTAX & NOT ALLOWED IN (strict) MODE & FUTURE PROOF
+    // -> the syntax, for declaring strict mode, was designed to be compatible with older versions of javascript 
+    // -> compiling a numeric literal (4 + 5) or string literal ('john dee') in a javascript program has no side effect. 
+    // -- it simply compiles to a non existing variable and dies 
+    // -> so ('use strict';) only matters to new compilers that "understand" the meaning of it
+
     // var varAA = 10;
     // varAB = 20;
     // outCC.innerHTML += '<br >varAA : ' + varAA;
     // outCC.innerHTML += '<br >varAB : ' + varAB;
 
-    'use strict';
-    var varAC = 30;
-    // varAD = 40;
-    outCC.innerHTML += '<br >varAC : ' + varAC;
-    // outCC.innerHTML += '<br >varAD : ' + varAD;
-    outCC.innerHTML += '<br >';
-    
-    // # THE ("use strict";) SYNTAX & NOT ALLOWED IN (strict) MODE & FUTURE PROOF
-    // -> the syntax, for declaring strict mode, was designed to be compatible with older versions of javascript 
-    // -> compiling a numeric literal (4 + 5) or string literal ('john dee') in a javascript program has no side effect. 
-    // -- it simply compiles to a non existing variable and dies 
-    // -> so ('use strict';) only matters to new compilers that "understand" the meaning of it
+    function funcAA() {
+        'use strict';
+        var varAC = 30;
+        // varAD = 40;
+        outCC.innerHTML += '<br >varAC : ' + varAC;
+        // outCC.innerHTML += '<br >varAD : ' + varAD;
+        outCC.innerHTML += '<br >';
+    }
     
     // -> 1. using a variable, without declaring it, is not allowed 
     // -> 2. objects are variables too, so using an object, without declaring it, is not allowed
+
     // -> 3. deleting a variable (or object) is not allowed 
     // -> 4. deleting a function is not allowed
+    
     // -> 5. duplicating a parameter name is not allowed
+
+    function funcAB() {
+        // 'use strict';
+        varAA = 10;             // in (strict) mode - declaration of a variable is required
+        objAA = { proOne: 20 }; // in (strict) mode - declaration of an object is required
+        // in (strict) mode - duplicating argument-name, in-general reference-error but in-strict mode script erro
+        function funcAA(argOne, argTwo//, argOne
+            ) {
+            return argOne + argTwo;
+        }
+
+        outCC.innerHTML += '<br >varAA  : ' + varAA;
+        outCC.innerHTML += '<br >objAA  : ' + objAA;
+        outCC.innerHTML += '<br >funcAA : ' + funcAA(10, 20);
+        outCC.innerHTML += '<br >objAA.proOne : ' + objAA.proOne;
+
+        // delete varAA;    // deleting (variable) - in-general is reference-error but in-strict mode is script-error
+        // delete objAA;    // deleting (object) - in-general is reference-error but in-strict mode is script-error
+        // delete funcAA;   // deleting (function) - in-general is referenc-error but in-strict mode is script-error
+        delete objAA.proOne;
+
+        outCC.innerHTML += '<br >varAA : ' + varAA;
+        outCC.innerHTML += '<br >objAA : ' + objAA;
+        outCC.innerHTML += '<br >funcAA: ' + funcAA(10, 20);
+        outCC.innerHTML += '<br >objAA.proOne : ' + objAA.proOne;
+    }
+
     // -> 6. octal numeric literals are not allowed 
     // -> 7. octal escape character are not allowed 
-    // -> 8. writing to a read-only property is not allowed
-    // -> 9. writing to a get-only property is not allowed 
-    // -> 10. deleting an undeletable property is not allowed 
-    // -> 11. the word (eval) cannot be used as a variable 
-    // -> 12. the word (arguments) cannot be used as a variable 
-    // -> 13. the (with) statement is not allowed 
-    // -> 14. for security reasons, (eval()) is not allowed to create variables in the scope from which it was called 
+
+    // -> 8. deleting an undeletable property is not allowed 
+    // -> 9. writing to a read-only property is not allowed
+    // -> 10. writing to a get-only property is not allowed 
+   
+    function funcAC() {
+        'use strict';
+        
+        // var varBA = 011;    // in (strict) mode - octal numeber is not acceptable
+        // var varBB = '\012'; // in (strict) mode - octal escape character is nto acceptable 
+
+        // outCC.innerHTML += '<br >varBA : ' + varBA;
+        // outCC.innerHTML += '<br >varBB : ' + varBB;
+        // outCC.innerHTML += '<br >';
+
+        var ConstOne = function () {
+            this.proOne = 11;
+            this.proTwo = 22;
+        };
+
+        Object.defineProperty(ConstOne.prototype, 'proThree', { value: 33 });
+        Object.defineProperty(ConstOne.prototype, 'proFour', { value: 44, writable: false });
+        Object.defineProperty(ConstOne.prototype, 'GetSet', {
+            get: function () {
+                return 55;
+            },
+        });
+
+        var varAC = new ConstOne();
+        outCC.innerHTML += '<br >varAC.proOne : ' + varAC.proOne;
+        outCC.innerHTML += '<br >varAC.proTwo : ' + varAC.proTwo;
+        outCC.innerHTML += '<br >varAC.proThree : ' + varAC.proThree;
+        outCC.innerHTML += '<br >varAC.proFour : ' + varAC.proFour;
+        outCC.innerHTML += '<br >varAC.GetSet : ' + varAC.GetSet;
+        outCC.innerHTML += '<br >';
+
+        varAC.proOne = 10;
+        delete varAC.proTwo;
+        // delete ConstOne.prototype.proThree; // in (strict) mode - deleting (prototype-property) is not allowed
+        // varAC.proFour = 40;                 // in (strict) mode - changing value of (non-writable) property is not allowed
+        // varAC.GetSet = 50;                  // in (strict) mode - setting value to (get-only) property is not allowed
+
+        outCC.innerHTML += '<br >varAC.proOne : ' + varAC.proOne;
+        outCC.innerHTML += '<br >varAC.proTwo : ' + varAC.proTwo;
+        outCC.innerHTML += '<br >varAC.proThree : ' + varAC.proThree;
+        outCC.innerHTML += '<br >varAC.proFour : ' + varAC.proFour;
+        outCC.innerHTML += '<br >varAC.GetSet : ' + varAC.GetSet;
+    }
+
+    // -> 11. for security reasons, (eval()) is not allowed to create variables in the scope from which it was called     
+    // -> 12. the word (eval) cannot be used as a variable     
+    // -> 13. the word (arguments) cannot be used as a variable 
+    // -> 14. the (with) statement is not allowed 
+    
+    function funcAD() {
+        'use strict';
+        // var eval = 111;         // in (strict) mode (eval) keyword can not be used as variable name
+        // var arguments = 222;    // in (strict) mode (arguments) property can not be used as variable name
+
+        // outCC.innerHTML += '<br >eval : ' + eval;
+        // outCC.innerHTML += '<br >arguments : ' + arguments;
+
+
+    }
+
     // -> 15. the (this) keyword in function behaves differently in (strict) mode
     // -> 16. the (this) keyword refers to the object that called the function 
+    
     // -> 17. if the object is not specified, function in (strict) mode will return (undefined) 
     // -- and function in (normal) mode will return (global object - window) 
-
-    // -> keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
+    // -> 18. keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
     // -- these are (implements | interface | let | package | private | protected | public | static | yield)
+    
     // NB : the ("use strict") directive is only recognized at the (beginning) of a (script or function)
 
+    funcAA(); outCC.innerHTML += '<br >';
+    funcAB(); outCC.innerHTML += '<br >';
+    funcAC(); outCC.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
