@@ -246,19 +246,31 @@ function ExCB() {
     // -> 14. the (with) statement is not allowed 
     
     function funcAD() {
-        'use strict';
-        // var eval = 111;         // in (strict) mode (eval) keyword can not be used as variable name
-        // var arguments = 222;    // in (strict) mode (arguments) property can not be used as variable name
+        // 'use strict';
+        var eval = 111;         // in (strict) mode - (eval) keyword can not be used as variable name
+        var arguments = 222;    // in (strict) mode - (arguments) property can not be used as variable name
 
-        // outCC.innerHTML += '<br >eval : ' + eval;
-        // outCC.innerHTML += '<br >arguments : ' + arguments;
+        outCC.innerHTML += '<br >eval : ' + eval;
+        outCC.innerHTML += '<br >arguments : ' + arguments;
 
+        // in (strict) mode - (with) statement is not allowed
+        with (Math) {
+            x = cos(2);
+            outCC.innerHTML += '<br >Math.cos(2) : ' + x;
+        }
 
+        // in (strict) mode - (eval()) method is not allowed
+        // outCC.innerHTML += '<br >varAC : ' + eval('4 + 2');
     }
 
     // -> 15. the (this) keyword in function behaves differently in (strict) mode
     // -> 16. the (this) keyword refers to the object that called the function 
     
+    function funcAE() {
+        'use strict';
+
+    }
+
     // -> 17. if the object is not specified, function in (strict) mode will return (undefined) 
     // -- and function in (normal) mode will return (global object - window) 
     // -> 18. keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
@@ -269,6 +281,8 @@ function ExCB() {
     funcAA(); outCC.innerHTML += '<br >';
     funcAB(); outCC.innerHTML += '<br >';
     funcAC(); outCC.innerHTML += '<br >';
+    funcAD(); outCC.innerHTML += '<br >';
+    funcAE(); outCC.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
