@@ -57,14 +57,14 @@ function ExCB() {
 
   // return as object defination (properties)
   function funcOne() {
-    let letAA = {
+    var varAA = {
       proOne: arguments[0] + arguments[1],
       proTwo: arguments[0] - arguments[1],
     };
 
     return {
-      proOne: letAA.proOne,
-      proTwo: letAA.proTwo,
+      proOne: varAA.proOne,
+      proTwo: varAA.proTwo,
     };
   }
 
@@ -78,7 +78,7 @@ function ExCB() {
   // return as object defination (method)
   function funcTwo(arg) {
     var x = 0;
-    let letAA = {
+    var varAA = {
       proOne: arg.valueOne,
       proTwo: arg.valueTwo,
       method: function () {
@@ -91,7 +91,7 @@ function ExCB() {
 
     return {
       reMethod: function () {
-        x += letAA.method() * 10;
+        x += varAA.method() * 10;
         return { value: x, done: false };
       },
     };
@@ -114,7 +114,7 @@ function ExCB() {
   var varAA = { };  // creating object
 
   varAA[Symbol.iterator] = function () {
-    let n = 0;
+    var n = 0;
     done = false;
     return {
       next() {
@@ -139,7 +139,7 @@ function ExCB() {
 // an (object) becomes an (iterator) when it implements a (next()) method
 // the (next()) method must return an (object) with (two properties)
 // -> value : (the next value), the value returned by the iterator (can be omitted if done is true)
-// -> done : (true | false), (true) if iterator has completed, (false) iterator produced new value
+// -> done : (true | false), (true) if iterator has compvared, (false) iterator produced new value
 
 // the (for .. of) loop can be used to iterates over the elements of a string
 // the (for .. of) loop can be used to iterates over the elements of an array
@@ -152,45 +152,45 @@ function ExCB() {
 // an (iterable) can be (iterated) over with the code (for .. of) statement
 
 function ExCC() {
-  let array = [11, 22, 33];
+  var array = [11, 22, 33];
 
-  for (let x in array)
+  for (var x in array)
     outCC.innerHTML += '<br >array[' + array + '] : ' + array[x];
   outCC.innerHTML += '<br >';
 
-  for (let x of array)
+  for (var x of array)
     outCC.innerHTML += '<br >array : ' + x;
   outCC.innerHTML += '<br >----------------';
 
   // ---------------------------------------------------------------------------
-  let letAA = 10;
-  outCC.innerHTML += '<br >letAA : ' + letAA;
+  var varAA = 10;
+  outCC.innerHTML += '<br >varAA : ' + varAA;
 
   function FuncAA() {
-    let letLocal = arguments[0] + 10;
-    return letLocal;
+    var varLocal = arguments[0] + 10;
+    return varLocal;
   }
 
-  outCC.innerHTML += '<br >FuncAA-return : ' + FuncAA(letAA);
-  outCC.innerHTML += '<br >letAA : ' + letAA;
+  outCC.innerHTML += '<br >FuncAA-return : ' + FuncAA(varAA);
+  outCC.innerHTML += '<br >varAA : ' + varAA;
   outCC.innerHTML += '<br >';
 
   // -------------------------------------
   function FuncAB() {
-    let letLocal = arguments[0];
+    var varLocal = arguments[0];
     return {
-      proOne: letLocal += 10,
+      proOne: varLocal += 10,
     };
   }
 
-  let letAB = new FuncAB(letAA);
-  outCC.innerHTML += '<br >letAA  : ' + letAA;
-  outCC.innerHTML += '<br >letAB  : ' + letAB;
-  outCC.innerHTML += '<br >letAB  : ' + letAB.proOne;
-  outCC.innerHTML += '<br >letAB  : ' + letAB.proOne;
-  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(letAA);
-  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(letAA).proOne;
-  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(letAA).proOne;
+  var varAB = new FuncAB(varAA);
+  outCC.innerHTML += '<br >varAA  : ' + varAA;
+  outCC.innerHTML += '<br >varAB  : ' + varAB;
+  outCC.innerHTML += '<br >varAB  : ' + varAB.proOne;
+  outCC.innerHTML += '<br >varAB  : ' + varAB.proOne;
+  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(varAA);
+  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(varAA).proOne;
+  outCC.innerHTML += '<br >FuncAB : ' + FuncAB(varAA).proOne;
   outCC.innerHTML += '<br >';
 
   // -------------------------------------
@@ -201,77 +201,77 @@ function ExCC() {
     };
   }
 
-  let letAC = new FuncAC(letAA);
-  outCC.innerHTML += '<br >letAC : ' + letAC;
-  outCC.innerHTML += '<br >letAC : ' + letAC.proOne;
-  outCC.innerHTML += '<br >letAC : ' + letAC.proTwo;
-  outCC.innerHTML += '<br >letAC : ' + letAC.proTwo;
-  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(letAA);
-  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(letAA).proOne;
-  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(letAA).proTwo;
-  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(letAA).proTwo;
+  var varAC = new FuncAC(varAA);
+  outCC.innerHTML += '<br >varAC : ' + varAC;
+  outCC.innerHTML += '<br >varAC : ' + varAC.proOne;
+  outCC.innerHTML += '<br >varAC : ' + varAC.proTwo;
+  outCC.innerHTML += '<br >varAC : ' + varAC.proTwo;
+  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(varAA);
+  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(varAA).proOne;
+  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(varAA).proTwo;
+  outCC.innerHTML += '<br >FuncAC : ' + FuncAC(varAA).proTwo;
   outCC.innerHTML += '<br >';
 
   // -------------------------------------
   function FuncAD() {
-    // let letLocal = arguments[0];
+    // var varLocal = arguments[0];
     return {
       proOne: function () {
-        this.letLocal = 0;
-        return { value: this.letLocal += 10 };
+        this.varLocal = 0;
+        return { value: this.varLocal += 10 };
       },
     };
   }
 
-  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(letAA);
-  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(letAA).proOne();
-  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(letAA).proOne().value;
-  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(letAA).proOne().value;
+  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(varAA);
+  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(varAA).proOne();
+  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(varAA).proOne().value;
+  outCC.innerHTML += '<br >FuncAD : ' + FuncAD(varAA).proOne().value;
   outCC.innerHTML += '<br >FuncAD : ' + FuncAD().proOne().value;
   outCC.innerHTML += '<br >';
 
-  let letAD = new FuncAD();
-  outCC.innerHTML += '<br >letAD : ' + letAD;
-  outCC.innerHTML += '<br >letAD : ' + letAD.proOne();
-  outCC.innerHTML += '<br >letAD : ' + letAD.proOne().value;
-  outCC.innerHTML += '<br >letAD : ' + letAD.proOne().value;
-  outCC.innerHTML += '<br >letAD : ' + letAD.proOne().value;
-  outCC.innerHTML += '<br >letAA : ' + letAA;
+  var varAD = new FuncAD();
+  outCC.innerHTML += '<br >varAD : ' + varAD;
+  outCC.innerHTML += '<br >varAD : ' + varAD.proOne();
+  outCC.innerHTML += '<br >varAD : ' + varAD.proOne().value;
+  outCC.innerHTML += '<br >varAD : ' + varAD.proOne().value;
+  outCC.innerHTML += '<br >varAD : ' + varAD.proOne().value;
+  outCC.innerHTML += '<br >varAA : ' + varAA;
   outCC.innerHTML += '<br >';
 
   // -------------------------------------
   function FuncAE() {
-    letLocal = arguments[0];
+    varLocal = arguments[0];
     return {
       proOne: function () {
-        letLocal += 10;
-        return { value: letLocal };
+        varLocal += 10;
+        return { value: varLocal };
       },
     };
   }
 
-  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(letAA);
-  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(letAA).proOne();
-  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(letAA).proOne().value;
-  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(letAA).proOne().value;
+  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(varAA);
+  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(varAA).proOne();
+  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(varAA).proOne().value;
+  outCC.innerHTML += '<br >FuncAE : ' + FuncAE(varAA).proOne().value;
   outCC.innerHTML += '<br >FuncAE : ' + FuncAE().proOne().value;
   outCC.innerHTML += '<br >';
 
-  let letAE = new FuncAE(letAA);
-  outCC.innerHTML += '<br >letAE : ' + letAE;
-  outCC.innerHTML += '<br >letAE : ' + letAE.proOne();
-  outCC.innerHTML += '<br >letAE : ' + letAE.proOne().value;
-  outCC.innerHTML += '<br >letAE : ' + letAE.proOne().value;
-  outCC.innerHTML += '<br >letAE : ' + letAE.proOne().value;
-  outCC.innerHTML += '<br >letAA : ' + letAA;
-  outCC.innerHTML += '<br >letLocal : ' + letLocal;
+  var varAE = new FuncAE(varAA);
+  outCC.innerHTML += '<br >varAE : ' + varAE;
+  outCC.innerHTML += '<br >varAE : ' + varAE.proOne();
+  outCC.innerHTML += '<br >varAE : ' + varAE.proOne().value;
+  outCC.innerHTML += '<br >varAE : ' + varAE.proOne().value;
+  outCC.innerHTML += '<br >varAE : ' + varAE.proOne().value;
+  outCC.innerHTML += '<br >varAA : ' + varAA;
+  outCC.innerHTML += '<br >varLocal : ' + varLocal;
   outCC.innerHTML += '<br >';
 
   // -------------------------------------
-  let letGlobal = null;
+  var varGlobal = null;
   function FuncAF() {
-    letGlobal += 10;
-    return letGlobal;
+    varGlobal += 10;
+    return varGlobal;
   }
 
   outCC.innerHTML += '<br >FuncAF : ' + FuncAF();
@@ -280,7 +280,7 @@ function ExCC() {
 
   // -------------------------------------
   function FuncAG() {
-    let local = arguments[0];
+    var local = arguments[0];
 
     // function Nested() {
     //   local += 10;
@@ -309,21 +309,21 @@ function ExCC() {
   // outCC.innerHTML += '<br >FuncAG : ' + Nested();
   outCC.innerHTML += '<br >';
 
-  let letAG = new FuncAG(letAA);
-  outCC.innerHTML += '<br >letAG : ' + letAG;
-  outCC.innerHTML += '<br >letAG : ' + letAG.Nested();
-  outCC.innerHTML += '<br >letAG : ' + letAG.Nested();
+  var varAG = new FuncAG(varAA);
+  outCC.innerHTML += '<br >varAG : ' + varAG;
+  outCC.innerHTML += '<br >varAG : ' + varAG.Nested();
+  outCC.innerHTML += '<br >varAG : ' + varAG.Nested();
   outCC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
-  // javascript iterable ----------- concept incomplete
+  // javascript iterable ----------- concept incompvare
   // Create an Object
   const myNumbers = {};
 
   // Make it Iterable
   // -> here, (next()) is a built-in (method/property) for (Symbol.iterator) method
   myNumbers[Symbol.iterator] = function () {
-    let n = 0;
+    var n = 0;
     done = false;
     return {
       next() {
@@ -337,7 +337,7 @@ function ExCC() {
   // # The Symbol.iterator method is called automatically by for..of.
   // # But we can also do it "manually":
 
-  let iterator = myNumbers[Symbol.iterator]();
+  var iterator = myNumbers[Symbol.iterator]();
 
   while (true) {
     const result = iterator.next();

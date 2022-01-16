@@ -3,7 +3,7 @@
 // 02. Function Apply
 
 ////////////////////////////////////////////////////////////////////////////////
-let outCA = document.createElement('div');
+var outCA = document.createElement('div');
 outCA.setAttribute('id', 'styleOne');
 document.body.appendChild(outCA);
 
@@ -39,10 +39,10 @@ function ExAA() {
   FuncOne();
   outCA.innerHTML += '<br >';
 
-  let letAA = new FuncOne();
+  var varAA = new FuncOne();
   outCA.innerHTML += '<br >';
 
-  letAA.funcNested();
+  varAA.funcNested();
   outCA.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -54,7 +54,7 @@ function ExAA() {
   // THE (CALL) METHOD WITH ARGUMENTS
   // # the (call) method can accept arguments
 
-  let letAB = {
+  var varAB = {
     methodOne: function () {
       return this.firstName + this.lastName;
     },
@@ -64,23 +64,23 @@ function ExAA() {
     },
   };
 
-  let letAC = {
+  var varAC = {
     firstName: 'john ',
     lastName: 'doe ',
   };
 
-  let letAD = {
+  var varAD = {
     firstName: 'mary ',
     lastName: 'doe ',
   };
 
   // access properties of one object from another using the (call) method
-  outCA.innerHTML += '<br >letAC : ' + letAB.methodOne.call(letAC);
-  outCA.innerHTML += '<br >letAD : ' + letAB.methodOne.call(letAD);
+  outCA.innerHTML += '<br >varAC : ' + varAB.methodOne.call(varAC);
+  outCA.innerHTML += '<br >varAD : ' + varAB.methodOne.call(varAD);
 
   // access properties of one object from another using the (call) method with arguments
-  outCA.innerHTML += '<br >letAC : ' + letAB.methodTwo.call(letAC, 'new york', 'USA');
-  outCA.innerHTML += '<br >letAD : ' + letAB.methodTwo.call(letAD, 'london', 'Europe');
+  outCA.innerHTML += '<br >varAC : ' + varAB.methodTwo.call(varAC, 'new york', 'USA');
+  outCA.innerHTML += '<br >varAD : ' + varAB.methodTwo.call(varAD, 'london', 'Europe');
   outCA.innerHTML += '<br >';
 }
 
@@ -99,7 +99,7 @@ function ExAB() {
   // # with the (apply) method, you can write a method that can be used on different object
   // -> the (apply) method is similar to the (call) method
 
-  let letBA = {
+  var varBA = {
     methodOne: function () {
       return this.proOne + this.proTwo;
     },
@@ -109,23 +109,23 @@ function ExAB() {
     },
   };
 
-  let letBB = {
+  var varBB = {
     proOne: 10,
     proTwo: 20,
   };
 
-  let letBC = {
+  var varBC = {
     proOne: 11,
     proTwo: 22,
   };
 
   // the (apply) method is used as like (call) method
-  outCA.innerHTML += '<br >letBB : ' + letBA.methodOne.apply(letBB);
-  outCA.innerHTML += '<br >letBC : ' + letBA.methodOne.apply(letBC);
+  outCA.innerHTML += '<br >varBB : ' + varBA.methodOne.apply(varBB);
+  outCA.innerHTML += '<br >varBC : ' + varBA.methodOne.apply(varBC);
 
   // the (apply) method is used as like (call) method but using arguments is different like index
-  outCA.innerHTML += '<br >letBB : ' + letBA.methodTwo.apply(letBB, [10.5, 20.5]);
-  outCA.innerHTML += '<br >letBC : ' + letBA.methodTwo.apply(letBC, [11.5, 22.5]);
+  outCA.innerHTML += '<br >varBB : ' + varBA.methodTwo.apply(varBB, [10.5, 20.5]);
+  outCA.innerHTML += '<br >varBC : ' + varBA.methodTwo.apply(varBC, [11.5, 22.5]);
   outCA.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -137,7 +137,7 @@ function ExAB() {
   // THE (APPLY) METHOD WITH ARGUMENTS
   // # the (apply) method accepts arguments in an array
 
-  let letCA = {
+  var varCA = {
     methodOne() {
       return this.proOne + this.proTwo;
     },
@@ -151,26 +151,26 @@ function ExAB() {
     },
   };
 
-  let letCB = {
+  var varCB = {
     proOne: 10,
     proTwo: 20,
   };
 
-  let letCC = {
+  var varCC = {
     proOne: 11,
     proTwo: 22,
   };
 
-  outCA.innerHTML += '<br >letCB-apply : ' + letCA.methodOne.apply(letCB);
-  outCA.innerHTML += '<br >letCB-apply : ' + letCA.methodTwo.apply(letCB, [30]);
-  outCA.innerHTML += '<br >letCC-apply : ' + letCA.methodOne.apply(letCC);
-  outCA.innerHTML += '<br >letCC-apply : ' + letCA.methodTwo.apply(letCC, [33]);
-  outCA.innerHTML += '<br >letCC-apply : ' + letCA.methodThree.apply(letCC, [33, 44, 55]);
+  outCA.innerHTML += '<br >varCB-apply : ' + varCA.methodOne.apply(varCB);
+  outCA.innerHTML += '<br >varCB-apply : ' + varCA.methodTwo.apply(varCB, [30]);
+  outCA.innerHTML += '<br >varCC-apply : ' + varCA.methodOne.apply(varCC);
+  outCA.innerHTML += '<br >varCC-apply : ' + varCA.methodTwo.apply(varCC, [33]);
+  outCA.innerHTML += '<br >varCC-apply : ' + varCA.methodThree.apply(varCC, [33, 44, 55]);
   outCA.innerHTML += '<br >';
 
-  outCA.innerHTML += '<br >letCB-call : ' + letCA.methodOne.call(letCB);
-  outCA.innerHTML += '<br >letCB-call : ' + letCA.methodTwo.call(letCB, 30);
-  outCA.innerHTML += '<br >letCC-call : ' + letCA.methodThree.call(letCC, 33, 44, 55);
+  outCA.innerHTML += '<br >varCB-call : ' + varCA.methodOne.call(varCB);
+  outCA.innerHTML += '<br >varCB-call : ' + varCA.methodTwo.call(varCB, 30);
+  outCA.innerHTML += '<br >varCC-call : ' + varCA.methodThree.call(varCC, 33, 44, 55);
   outCA.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------

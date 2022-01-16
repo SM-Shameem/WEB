@@ -44,7 +44,7 @@ function ExAA() {
   // === syntax mainpulation practice ==========================================
 
   function funcAA(argOne, argTwo, argN) {
-    let local = argOne + argTwo;
+    var local = argOne + argTwo;
 
     if (local < argN) return argOne + argTwo;
     else outBA.innerHTML += '<br >argOne - argTwo : ' + (argOne - argTwo);
@@ -115,12 +115,12 @@ function ExAB() {
     outBA.innerHTML += '<br >function expression - as (var)';
   };
 
-  let letAF = function () {
-    outBA.innerHTML += '<br >function expression - as (let)';
+  var varAF = function () {
+    outBA.innerHTML += '<br >function expression - as (var)';
   };
 
   varAE();
-  letAF();
+  varAF();
   outBA.innerHTML += '<br >';
 
   // practice-c : arrow function
@@ -132,14 +132,14 @@ function ExAB() {
   var varAH = arg => arg + 10;
 
   // arrow function
-  let letAI = (argOne, argTwo) => {
-    let local = argOne + argTwo;
+  var varAI = (argOne, argTwo) => {
+    var local = argOne + argTwo;
     return local;
   };
 
   constAG();
   outBA.innerHTML += '<br >return of arrow-varAH : ' + varAH(10);
-  outBA.innerHTML += '<br >return of arrow-letAI : ' + letAI(11, 22);
+  outBA.innerHTML += '<br >return of arrow-varAI : ' + varAI(11, 22);
   outBA.innerHTML += '<br >';
 
   // arrow function and (this) keyword - constructor
@@ -156,15 +156,15 @@ function ExAB() {
     this.proOne = arg;
   };
 
-  let letFunc = new FuncAJ(11);
-  let letExpr = new ConstAK(22);
+  var varFunc = new FuncAJ(11);
+  var varExpr = new ConstAK(22);
 
-  // let letArro = new ConstAL(33);
+  // var varArro = new ConstAL(33);
 
-  outBA.innerHTML += '<br >letFunc.proOne : ' + letFunc.proOne;
-  outBA.innerHTML += '<br >letExpr.proOne : ' + letExpr.proOne;
+  outBA.innerHTML += '<br >varFunc.proOne : ' + varFunc.proOne;
+  outBA.innerHTML += '<br >varExpr.proOne : ' + varExpr.proOne;
 
-  // outBA.innerHTML += '<br >letArro.proOne : ' + letArro.proOne;
+  // outBA.innerHTML += '<br >varArro.proOne : ' + varArro.proOne;
   outBA.innerHTML += '<br >';
 }
 
@@ -301,45 +301,45 @@ function ExAD() {
 
   // function used as value
   function funcBA() {
-    let local = 10;
+    var local = 10;
     return arguments[0] + local;
   }
 
   // function expression used as value
   const constBA = function () {
-    let local = 10;
+    var local = 10;
     return arguments[0] + local;
   };
 
   // arrow expression used as value
   const constBB = arg => {
-    let local = 10;
+    var local = 10;
     return arg + local;
   };
 
-  let letBA = funcBA(11) * 10;
-  let letBB = constBA(22) * 20;
-  let letBC = constBB(33) * 30;
+  var varBA = funcBA(11) * 10;
+  var varBB = constBA(22) * 20;
+  var varBC = constBB(33) * 30;
 
-  outBA.innerHTML += '<br >letBA : ' + letBA;
-  outBA.innerHTML += '<br >letBB : ' + letBB;
-  outBA.innerHTML += '<br >letBC : ' + letBC;
+  outBA.innerHTML += '<br >varBA : ' + varBA;
+  outBA.innerHTML += '<br >varBB : ' + varBB;
+  outBA.innerHTML += '<br >varBC : ' + varBC;
   outBA.innerHTML += '<br >';
 
   // self-invoked function expression as expression
-  let letBD = (function () {
-    let local = 10;
+  var varBD = (function () {
+    var local = 10;
     return arguments[0] + local;
   })(44) * 40;
 
   // self-invoked arrow expression as expression
-  let letBE = (arg => {
-    let local = 10;
+  var varBE = (arg => {
+    var local = 10;
     return arg + local;
   })(55) * 50;
 
-  outBA.innerHTML += '<br >letBD : ' + letBD;
-  outBA.innerHTML += '<br >letBE : ' + letBE;
+  outBA.innerHTML += '<br >varBD : ' + varBD;
+  outBA.innerHTML += '<br >varBE : ' + varBE;
   outBA.innerHTML += '<br >';
 
   // -> hoisting is js default behavior of moving declarations to the top of the current scope

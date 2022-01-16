@@ -21,7 +21,7 @@ document.body.appendChild(outAA);
 
 // # function syntax -
 // -> function is defined with the (function) keyword, followed by (name), followed by (parentheses)
-// -> function-name can contain (letter | digits | underscore | dollar-sign), as like variable
+// -> function-name can contain (varter | digits | underscore | dollar-sign), as like variable
 // -> the parentheses may include one or more (parameters) are seperated by (comma)
 // -> the code to be executed, by the function, is placed inside (curly-brackets),
 //    is place after (parentheses)
@@ -54,7 +54,7 @@ function ExAA() {
 
   // function with multiple arguments and local variable
   function funcAC(argOne, argTwo) {
-    let local = argOne + argTwo;
+    var local = argOne + argTwo;
     outAA.innerHTML += '<br >argOne + argTwo : ' + local;
   }
 
@@ -70,7 +70,7 @@ function ExAA() {
 
   // function with arguments, local variable, conditional statement, and return statement
   function funcAF(argOne, argTwo, argN) {
-    let localOne;
+    var localOne;
 
     if (argOne > argTwo) {
       localOne = argOne + argN;
@@ -115,7 +115,7 @@ function ExAB() {
   // reason :
 
   // events invokes
-  let elementOne = document.createElement('button');
+  var elementOne = document.createElement('button');
   elementOne.setAttribute('onclick', 'funcOne(this)');
   outAA.appendChild(elementOne);
 
@@ -152,7 +152,7 @@ function ExAB() {
 // -> local variables can only be accessed from within the function
 // -> since local variables are only recognized inside their functions,
 //    variables with the same name can be used in different function
-// -> local variables are created when a function starts, and deleted when function is completed
+// -> local variables are created when a function starts, and devared when function is compvared
 
 function ExAC() {
   function funcOne(arg) {
@@ -163,16 +163,16 @@ function ExAC() {
   outAA.innerHTML += '<br >funcOne : ' + funcOne(10);
 
   function funcTwo(arg) {
-    let letOne = 10;
-    outAA.innerHTML += '<br >funcTwo : ' + (arg + letOne);
+    var varOne = 10;
+    outAA.innerHTML += '<br >funcTwo : ' + (arg + varOne);
   }
 
   // local variable added with arguments
   funcTwo(10);
 
   function funcThree(arg) {
-    let letOne = 10;
-    return arg + letOne;
+    var varOne = 10;
+    return arg + varOne;
   }
 
   // same name local variable used in different function

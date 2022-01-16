@@ -6,7 +6,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outAB = document.createElement('div');
-outAB.setAttribute('id', 'styleTwo');
+outAB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outAB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +20,7 @@ document.body.appendChild(outAB);
 // -> 2. an HTML input field was changed
 // -> 3. an HTML button was clicked
 // -> often, when events happen, you may want to do something
-// -> javascript lets you execute code when events are detected
+// -> javascript vars you execute code when events are detected
 // -> HTML allows event handler attributes, with javascript code, to be added to HTML elements
 // -> javascript code can be quoted with (single or double) quotes
 // -> like -
@@ -32,24 +32,24 @@ document.body.appendChild(outAB);
 outAB.innerHTML += 'ex-ba : javascript events | HTML events';
 outAB.innerHTML += '<hr >';
 
-let letAA = document.createElement('div');
-letAA.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout responce"');
-outAB.appendChild(letAA);
+var varAA = document.createElement('div');
+varAA.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout responce"');
+outAB.appendChild(varAA);
 
-let letAB = document.createElement('button');
-letAB.setAttribute('onclick', 'outAB.innerHTML += "<br >clickEvent responce"');
-outAB.appendChild(letAB);
+var varAB = document.createElement('button');
+varAB.setAttribute('onclick', 'outAB.innerHTML += "<br >clickEvent responce"');
+outAB.appendChild(varAB);
 outAB.innerHTML += '<br >';
 
 function funcOne() {
-  let local = null;
+  var local = null;
   local = '<br >' + arguments[0] + ' function-responce';
   return local;
 }
 
-let letAC = document.createElement('button');
-letAC.setAttribute('onclick', 'outAB.innerHTML += funcOne("clickEvent")');
-outAB.appendChild(letAC);
+var varAC = document.createElement('button');
+varAC.setAttribute('onclick', 'outAB.innerHTML += funcOne("clickEvent")');
+outAB.appendChild(varAC);
 outAB.innerHTML += '<br >';
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,25 +65,25 @@ outAB.innerHTML += '<br >';
 outAB.innerHTML += '<br >ex-bb : common HTML events';
 outAB.innerHTML += '<hr >';
 
-let letBA = document.createElement('div');
-letBA.setAttribute('onclick', 'outAB.innerHTML += "<br >onclick-event"');
-outAB.appendChild(letBA);
+var varBA = document.createElement('div');
+varBA.setAttribute('onclick', 'outAB.innerHTML += "<br >onclick-event"');
+outAB.appendChild(varBA);
 
-let letBB = document.createElement('div');
-letBB.setAttribute('onmouseover', 'outAB.innerHTML += "<br >onmouseover-event"');
-outAB.appendChild(letBB);
+var varBB = document.createElement('div');
+varBB.setAttribute('onmouseover', 'outAB.innerHTML += "<br >onmouseover-event"');
+outAB.appendChild(varBB);
 
-let letBC = document.createElement('div');
-letBC.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout-event"');
-outAB.appendChild(letBC);
+var varBC = document.createElement('div');
+varBC.setAttribute('onmouseout', 'outAB.innerHTML += "<br >onmouseout-event"');
+outAB.appendChild(varBC);
 
-let letBD = document.createElement('div');
-letBD.setAttribute('onkeydown', 'outAB.innerHTML += "<br >onkeydown-event"');
-outAB.appendChild(letBD);
+var varBD = document.createElement('div');
+varBD.setAttribute('onkeydown', 'outAB.innerHTML += "<br >onkeydown-event"');
+outAB.appendChild(varBD);
 
-let letBE = document.createElement('div');
-letBE.setAttribute('onload', 'outAB.innerHTML += "<br >onload-event"');
-outAB.appendChild(letBE);
+var varBE = document.createElement('div');
+varBE.setAttribute('onload', 'outAB.innerHTML += "<br >onload-event"');
+outAB.appendChild(varBE);
 outAB.innerHTML += '<br >';
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ outAB.innerHTML += '<br >';
 // -> 3. action that should be performed when a user clicks a button
 // -> 4. content that should be verified when a user inputs data
 // -> and more ..
-// -> many different methods can be used to let javascript works with events
+// -> many different methods can be used to var javascript works with events
 // -> 1. HTML event attributes can execute javascript code directly
 // -> 2. HTML event attributes can call javascript functions
 // -> 3. you can assign your own event handler functions to HTML elements
@@ -106,18 +106,18 @@ outAB.innerHTML += '<br >what can javascript do | any different methods can be u
 outAB.innerHTML += '<hr >';
 
 // -> page load (onload - event only works with - body element)
-let letCA = document.createElement('div');
-letCA.setAttribute('onload', 'outAB.innerHTML += <br >page loaded');
-outAB.appendChild(letCA);
+var varCA = document.createElement('div');
+varCA.setAttribute('onload', 'outAB.innerHTML += <br >page loaded');
+outAB.appendChild(varCA);
 
 // -> page closed
-let letCB = document.createElement('div');
-letCB.setAttribute('', 'outAB.innerHTML += <br >page closed');
-outAB.appendChild(letCB);
+var varCB = document.createElement('div');
+varCB.setAttribute('', 'outAB.innerHTML += <br >page closed');
+outAB.appendChild(varCB);
 
 // -> click a button
 // -> user inputes data
-// diffrent procedure used to (let javascript works with events) -
+// diffrent procedure used to (var javascript works with events) -
 // -> direct code execution
 // -> calling function
 // -> own event handler function

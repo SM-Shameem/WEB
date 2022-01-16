@@ -9,7 +9,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outBB = document.createElement('div');
-outBB.setAttribute('id', 'styleTwo');
+outBB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outBB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,7 @@ function ExBB() {
   funcAA(10, 20);
 
   // regular parameter(s) should come before default parameter(s)
-  let constAB = function (argOne = true, argTwo = 'string-one', argThree) {
+  var constAB = function (argOne = true, argTwo = 'string-one', argThree) {
     outBB.innerHTML += '<br >constAB-argOne : ' + argOne;
     outBB.innerHTML += '<br >constAB-argTwo : ' + argTwo;
     outBB.innerHTML += '<br >constAB-argThree : ' + argThree;
@@ -114,7 +114,7 @@ function ExBB() {
   constAB();
   constAB(11, 22, 33);
 
-  let constAC = (arg = 1) => {
+  var constAC = (arg = 1) => {
     outBB.innerHTML += '<br >constAC-arg : ' + arg;
   };
 
@@ -162,7 +162,7 @@ function ExBB() {
   outBB.innerHTML += '<br >';
 
   function funcBD() {
-    for (let i = 0; arguments.length > i; i++)
+    for (var i = 0; arguments.length > i; i++)
       outBB.innerHTML += '<br >funcBD-arguments[' + i + '] : ' + arguments[i];
   }
 
@@ -181,7 +181,7 @@ function ExBB() {
   // NB : default value of (parameter) can not read the (arguments) object
 
   function funcCA(argOne, argTwo = 2, argThree) {
-    for (let i = 0; arguments.length > i; i++)
+    for (var i = 0; arguments.length > i; i++)
       outBB.innerHTML += '<br >funcCA-arguments[' + i + '] : ' + arguments[i];
 
     if (arguments.length < 2) {
@@ -218,9 +218,9 @@ function ExBB() {
 
   // algorithm - arringing numbers - approach two (using - arguments)
   const constCD = function () {
-    let array = [Infinity];
-    for (let i = 0; i < arguments.length; i++) {
-      for (let j = 0; j < arguments.length; j++) {
+    var array = [Infinity];
+    for (var i = 0; i < arguments.length; i++) {
+      for (var j = 0; j < arguments.length; j++) {
         if (arguments[j] < array[i]) {
           if (i == 0) {
             array[i] = arguments[j];
@@ -241,9 +241,9 @@ function ExBB() {
 
   // algorithm - arringing numbers - approach two (using - arguments)
   const constCE = function () {
-    let temp = [null];
-    for (let i = 0; i < arguments.length; i++) {
-      for (let j = i; j < arguments.length; j++) {
+    var temp = [null];
+    for (var i = 0; i < arguments.length; i++) {
+      for (var j = i; j < arguments.length; j++) {
         if (arguments[j] < arguments[i]) {
           temp[0] = arguments[j];
           arguments[j] = arguments[i];
@@ -252,7 +252,7 @@ function ExBB() {
       }
     }
 
-    for (let i = 0; i < arguments.length; i++)
+    for (var i = 0; i < arguments.length; i++)
       temp[i] = arguments[i];
 
     return temp;
@@ -280,9 +280,9 @@ function ExBC() {
   };
 
   constAA(10);
-  let letOne = 11;
-  constAA(letOne);
-  outBB.innerHTML += '<br >letOne : ' + letOne;
+  var varOne = 11;
+  constAA(varOne);
+  outBB.innerHTML += '<br >varOne : ' + varOne;
   outBB.innerHTML += '<br > ';
 
   // -> in javascript, object references are values
@@ -296,13 +296,13 @@ function ExBC() {
     arguments[0].proOne = 'value-changed';
   };
 
-  let letTwo = {
+  var varTwo = {
     proOne: 11,
   };
 
-  outBB.innerHTML += '<br >letTwo.proOne : ' + letTwo.proOne;
-  constAB(letTwo);
-  outBB.innerHTML += '<br >letTwo.proOne : ' + letTwo.proOne;
+  outBB.innerHTML += '<br >varTwo.proOne : ' + varTwo.proOne;
+  constAB(varTwo);
+  outBB.innerHTML += '<br >varTwo.proOne : ' + varTwo.proOne;
   outBB.innerHTML += '<br >';
 
   // # syntax manipulating practice

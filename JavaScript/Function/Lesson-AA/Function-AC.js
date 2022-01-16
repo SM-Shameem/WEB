@@ -20,17 +20,17 @@ document.body.appendChild(outAC);
 function ExCA() {
 
   // arrow function
-  let letAA = () => {
+  var varAA = () => {
     outAC.innerHTML += '<br >arrow function ........';
   };
 
-  let letAB = (argOne, argTwo) => {
+  var varAB = (argOne, argTwo) => {
     outAC.innerHTML += '<br >arrow function ........';
     return argOne + argTwo;
   };
 
-  let letAC = (argOne, argTwo, argThree) => {
-    let local = null;
+  var varAC = (argOne, argTwo, argThree) => {
+    var local = null;
 
     if (argOne < argTwo) return argThree;
     else {
@@ -39,44 +39,44 @@ function ExCA() {
     }
   };
 
-  let letAD = (argOne, argTwo) => {
-    let local = argOne + argTwo;
+  var varAD = (argOne, argTwo) => {
+    var local = argOne + argTwo;
 
     if (local > 50) outAC.innerHTML += '<br >sum is greater-than';
     else outAC.innerHTML += '<br >sum is less-than';
   };
 
-  letAA();
-  letAB();
-  outAC.innerHTML += '<br >letAB-return : ' + letAB(10, 20);
-  outAC.innerHTML += '<br >letAC-return : ' + letAC(10, 20, 0);
-  letAD(20, 40);
+  varAA();
+  varAB();
+  outAC.innerHTML += '<br >varAB-return : ' + varAB(10, 20);
+  outAC.innerHTML += '<br >varAC-return : ' + varAC(10, 20, 0);
+  varAD(20, 40);
   outAC.innerHTML += '<br >';
 
   // shorter arrow function
-  let letAE = (argOne, argTwo) => argOne + argTwo;
-  let letAF = () => 'string-one';
-  let letAG = arg => arg + 10;
-  let letAH = arg => arg;
-  let letAI = arg => {
-    let local = 10;
+  var varAE = (argOne, argTwo) => argOne + argTwo;
+  var varAF = () => 'string-one';
+  var varAG = arg => arg + 10;
+  var varAH = arg => arg;
+  var varAI = arg => {
+    var local = 10;
 
     if (local > arg) outAC.innerHTML += '<br >local is greater-than arg';
     else outAC.innerHTML += '<br >local is less-than arg';
   };
 
-  outAC.innerHTML += '<br >letAE-return : ' + letAE(10, 20);
-  outAC.innerHTML += '<br >letAF-return : ' + letAF();
-  outAC.innerHTML += '<br >letAG-return : ' + letAG(100);
-  outAC.innerHTML += '<br >letAH-return : ' + letAH('string-two');
-  letAI(30);
+  outAC.innerHTML += '<br >varAE-return : ' + varAE(10, 20);
+  outAC.innerHTML += '<br >varAF-return : ' + varAF();
+  outAC.innerHTML += '<br >varAG-return : ' + varAG(100);
+  outAC.innerHTML += '<br >varAH-return : ' + varAH('string-two');
+  varAI(30);
   outAC.innerHTML += '<br >';
 
   // self-invoking arrow function
   (arg => outAC.innerHTML += '<br >self-invoking arrow - value : ' + arg)(10);
 
   outAC.innerHTML += '<br >self-invoking arrow - return : ' + (() => {
-    let local = 10;
+    var local = 10;
 
     if (local > 50) return 'greater-than';
     else return 'less-than';
@@ -97,11 +97,11 @@ function ExCA() {
 function ExCB() {
   // arrow function does not support (arguments) property
 
-  let funcOne = function () {
+  var funcOne = function () {
     outAC.innerHTML += '<br >func-' + arguments[0] + '-object-domain : ' + this;
   };
 
-  let arrowOne = (arg) => {
+  var arrowOne = (arg) => {
     outAC.innerHTML += '<br >arrow-' + arg + '-object-domain : ' + this;
   };
 
@@ -119,7 +119,7 @@ function ExCB() {
 
   outAC.innerHTML += '<br >';
 
-  // let elementOne = document.createElement('button');
+  // var elementOne = document.createElement('button');
   // outAC.appendChild(elementOne);
   // elementOne.addEventListener('click', funcTwo('button'));
 }

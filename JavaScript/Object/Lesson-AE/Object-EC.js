@@ -24,8 +24,8 @@ document.body.appendChild(outEC);
 // NB : ECMAScript5 has methods for both (getting and setting) all property attributes
 
 // javascript objects inherit the properties of their prototype
-// the (delete) keyword does not delete inherited properties,
-// -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)
+// the (devare) keyword does not devare inherited properties,
+// -> but if you devare a (prototype-proeprty), it will affect all (objects-inherited)
 // -----------------------------------------------------------------------------
 
 // # ES5 object methods (managing objects)
@@ -36,7 +36,7 @@ document.body.appendChild(outEC);
 
 function ExCA() {
   // single-object defination - procedure 1 : using (literal) - good practice
-  let letAA = {
+  var varAA = {
     proOne: null,
     proTwo: null,
     method: function () {
@@ -44,12 +44,12 @@ function ExCA() {
     },
   };
 
-  letAA.proOne = 11;
-  letAA.proTwo = 22;
-  outEC.innerHTML += '<br >letAA : ' + letAA.method();
+  varAA.proOne = 11;
+  varAA.proTwo = 22;
+  outEC.innerHTML += '<br >varAA : ' + varAA.method();
 
   // single-object defination - procedure 2 : using (new Object()) method - not good practice
-  let letAB = new Object({
+  var varAB = new Object({
     proOne: null,
     proTwo: null,
     method: function () {
@@ -57,15 +57,15 @@ function ExCA() {
     },
   });
 
-  letAB.proOne = 11;
-  letAB.proTwo = 22;
-  outEC.innerHTML += '<br >letAB : ' + letAB.method();
+  varAB.proOne = 11;
+  varAB.proTwo = 22;
+  outEC.innerHTML += '<br >varAB : ' + varAB.method();
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // 1. creating new object - Object.create();
   // single-object defination - procedure 3
-  let letAC = Object.create({
+  var varAC = Object.create({
     proOne: null,
     proTwo: null,
     method: function () {
@@ -73,9 +73,9 @@ function ExCA() {
     },
   });
 
-  letAC.proOne = 11;
-  letAC.proTwo = 22;
-  outEC.innerHTML += '<br >letAC : ' + letAC.method();
+  varAC.proOne = 11;
+  varAC.proTwo = 22;
+  outEC.innerHTML += '<br >varAC : ' + varAC.method();
 
   // ---------------------------------------------------------------------------
   // 2. adding and changing object-property - Object.defineProperty(object, property, descriptor)
@@ -83,20 +83,20 @@ function ExCA() {
 
   // Object.defineProperty() - add new attribute -------------------------------
   // -> (here property set as non-writable)
-  Object.defineProperty(letAC, 'proThree', { value: null });
-  outEC.innerHTML += '<br >letAC.proThree : ' + letAC.proThree;
+  Object.defineProperty(varAC, 'proThree', { value: null });
+  outEC.innerHTML += '<br >varAC.proThree : ' + varAC.proThree;
 
   // Object.defineProperty() - add new method ----------------------------------
-  Object.defineProperty(letAC, 'methodOne', {
+  Object.defineProperty(varAC, 'methodOne', {
     value: function () {
       return this.method() + this.proThree;
     },
   });
 
-  outEC.innerHTML += '<br >letAC.methodOne : ' + letAC.methodOne();
+  outEC.innerHTML += '<br >varAC.methodOne : ' + varAC.methodOne();
 
   // Object.defineProperty() - add getter and setter ---------------------------
-  Object.defineProperty(letAC, 'getSet', {
+  Object.defineProperty(varAC, 'getSet', {
     set: function () {
       this.proOne = arguments[0].valueOne;
       this.proTwo = arguments[0].valueTwo;
@@ -108,12 +108,12 @@ function ExCA() {
     },
   });
 
-  letAC.getSet = { valueOne: 10, valueTwo: 20, valueThree: 30 };
-  outEC.innerHTML += '<br >letAC.getSet : ' + letAC.getSet;
+  varAC.getSet = { valueOne: 10, valueTwo: 20, valueThree: 30 };
+  outEC.innerHTML += '<br >varAC.getSet : ' + varAC.getSet;
   outEC.innerHTML += '<br >';
 
   // Object.defineProperties() -------------------------------------------------
-  Object.defineProperties(letAC, {
+  Object.defineProperties(varAC, {
     proFour: { value: null, writable: true },
 
     methodTwo: {
@@ -132,22 +132,22 @@ function ExCA() {
       },
 
       get: function () {
-        outEC.innerHTML += '<br >letAC.proOne   : ' + this.proOne;
-        outEC.innerHTML += '<br >letAC.proTwo   : ' + this.proTwo;
-        outEC.innerHTML += '<br >letAC.proThree : ' + this.proThree;
-        outEC.innerHTML += '<br >letAC.proFour  : ' + this.proFour;
+        outEC.innerHTML += '<br >varAC.proOne   : ' + this.proOne;
+        outEC.innerHTML += '<br >varAC.proTwo   : ' + this.proTwo;
+        outEC.innerHTML += '<br >varAC.proThree : ' + this.proThree;
+        outEC.innerHTML += '<br >varAC.proFour  : ' + this.proFour;
       },
     },
   });
 
-  letAC.setGet = { valueOne: 'a', valueTwo: 'b', valueThree: 'c', valueFour: 'd' };
-  letAC.setGet;
-  outEC.innerHTML += '<br >letAC.methodTwo : ' + letAC.methodTwo();
+  varAC.setGet = { valueOne: 'a', valueTwo: 'b', valueThree: 'c', valueFour: 'd' };
+  varAC.setGet;
+  outEC.innerHTML += '<br >varAC.methodTwo : ' + varAC.methodTwo();
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // object-template defination - using (constructor)
-  let LetAD = function () {
+  var VarAD = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     this.method = function () {
@@ -155,8 +155,8 @@ function ExCA() {
     };
   };
 
-  let letAD1 = new LetAD(11, 22);
-  outEC.innerHTML += '<br >letAD : ' + letAD1.method();
+  var varAD1 = new VarAD(11, 22);
+  outEC.innerHTML += '<br >varAD : ' + varAD1.method();
 
   // object-template defination - using (class)
   class ClassAE {
@@ -170,31 +170,31 @@ function ExCA() {
     }
   }
 
-  let letAE = new ClassAE(11, 22);
-  outEC.innerHTML += '<br >letAE : ' + letAE.method();
+  var varAE = new ClassAE(11, 22);
+  outEC.innerHTML += '<br >varAE : ' + varAE.method();
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // javascript objects inherit the properties of their prototype
-  // the (delete) keyword does not delete inherited properties,
-  // -> but if you delete a (prototype-proeprty), it will affect all (objects-inherited)
+  // the (devare) keyword does not devare inherited properties,
+  // -> but if you devare a (prototype-proeprty), it will affect all (objects-inherited)
 
   // adding new (prototype-property-attribute) - constructor -------------------
   // this (proThree) property is not (writable)
-  Object.defineProperty(LetAD.prototype, 'proThree', { value: 33 });
-  outEC.innerHTML += '<br >letAD1.proThree : ' + letAD1.proThree;
+  Object.defineProperty(VarAD.prototype, 'proThree', { value: 33 });
+  outEC.innerHTML += '<br >varAD1.proThree : ' + varAD1.proThree;
 
   // adding new (prototpe-property-method) - constructor -----------------------
-  Object.defineProperty(LetAD.prototype, 'methodOne', {
+  Object.defineProperty(VarAD.prototype, 'methodOne', {
     value: function () {
       return this.method() + this.proThree;
     },
   });
 
-  outEC.innerHTML += '<br >letAD1.methodOne : ' + letAD1.methodOne();
+  outEC.innerHTML += '<br >varAD1.methodOne : ' + varAD1.methodOne();
 
   // adding new (prototype-property-getter/setter) - constructor ---------------
-  Object.defineProperty(LetAD.prototype, 'setGet', {
+  Object.defineProperty(VarAD.prototype, 'setGet', {
     set: function () {
       this.proOne = arguments[0].valueOne;
       this.proTwo = arguments[0].valueTwo;
@@ -206,8 +206,8 @@ function ExCA() {
     },
   });
 
-  letAD1.setGet = { valueOne: 10, valueTwo: 20, valueThree: 0 };
-  outEC.innerHTML += '<br >letAD1.setGet : ' + letAD1.setGet;
+  varAD1.setGet = { valueOne: 10, valueTwo: 20, valueThree: 0 };
+  outEC.innerHTML += '<br >varAD1.setGet : ' + varAD1.setGet;
   outEC.innerHTML += '<br >';
 
   // adding new (prototype-properties : attributes and methods) - class --------
@@ -232,11 +232,11 @@ function ExCA() {
     },
   });
 
-  outEC.innerHTML += '<br >letAE.proThree : ' + letAE.proThree;
-  outEC.innerHTML += '<br >letAE.methodOne : ' + letAE.methodOne();
+  outEC.innerHTML += '<br >varAE.proThree : ' + varAE.proThree;
+  outEC.innerHTML += '<br >varAE.methodOne : ' + varAE.methodOne();
 
-  letAE.setGet = { valueOne: 10, valueTwo: 20, valueThree: 0 };
-  outEC.innerHTML += '<br >letAE.setGet : ' + letAE.setGet;
+  varAE.setGet = { valueOne: 10, valueTwo: 20, valueThree: 0 };
+  outEC.innerHTML += '<br >varAE.setGet : ' + varAE.setGet;
   outEC.innerHTML += '<br >';
 }
 
@@ -251,7 +251,7 @@ function ExCA() {
 
 function ExCB() {
   // single-object declaration -------------------------------------------------
-  let letAA = {
+  var varAA = {
     proOne: 11,
     proTwo: 22,
     method: function () {
@@ -259,17 +259,17 @@ function ExCB() {
     },
   };
 
-  outEC.innerHTML += '<br >letAA.method   : ' + letAA.method();
-  outEC.innerHTML += '<br >letAA.proOne   : ' + Object.getOwnPropertyDescriptor(letAA, 'proOne');
-  outEC.innerHTML += '<br >letAA.proTwo   : ' + Object.getOwnPropertyDescriptor(letAA, 'proTwo');
-  outEC.innerHTML += '<br >letAA.proThree : ' + Object.getOwnPropertyDescriptor(letAA, 'proThree');
-  outEC.innerHTML += '<br >letAA : ' + Object.getPrototypeOf(letAA);
-  outEC.innerHTML += '<br >letAA : ' + Object.getOwnPropertyNames(letAA);
-  outEC.innerHTML += '<br >letAA : ' + Object.keys(letAA);
+  outEC.innerHTML += '<br >varAA.method   : ' + varAA.method();
+  outEC.innerHTML += '<br >varAA.proOne   : ' + Object.getOwnPropertyDescriptor(varAA, 'proOne');
+  outEC.innerHTML += '<br >varAA.proTwo   : ' + Object.getOwnPropertyDescriptor(varAA, 'proTwo');
+  outEC.innerHTML += '<br >varAA.proThree : ' + Object.getOwnPropertyDescriptor(varAA, 'proThree');
+  outEC.innerHTML += '<br >varAA : ' + Object.getPrototypeOf(varAA);
+  outEC.innerHTML += '<br >varAA : ' + Object.getOwnPropertyNames(varAA);
+  outEC.innerHTML += '<br >varAA : ' + Object.keys(varAA);
   outEC.innerHTML += '<br >';
 
   // object-template declaration - constructor ---------------------------------
-  let LetAB = function () {
+  var VarAB = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     this.method = function () {
@@ -277,46 +277,46 @@ function ExCB() {
     };
   };
 
-  let letAB1 = new LetAB(11, 22);
+  var varAB1 = new VarAB(11, 22);
 
-  outEC.innerHTML += '<br >letAB1.method : ' + letAB1.method();
-  outEC.innerHTML += '<br >letAB1 : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >letAB1 : ' + Object.keys(letAB1);
-  outEC.innerHTML += '<br >letAB1 : ' + Object.getOwnPropertyDescriptor(letAB1, 'proTwo');
-  outEC.innerHTML += '<br >letAB1 : ' + Object.getPrototypeOf(letAB1);
+  outEC.innerHTML += '<br >varAB1.method : ' + varAB1.method();
+  outEC.innerHTML += '<br >varAB1 : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >varAB1 : ' + Object.keys(varAB1);
+  outEC.innerHTML += '<br >varAB1 : ' + Object.getOwnPropertyDescriptor(varAB1, 'proTwo');
+  outEC.innerHTML += '<br >varAB1 : ' + Object.getPrototypeOf(varAB1);
   outEC.innerHTML += '<br >';
 
-  outEC.innerHTML += '<br >letAB  : ' + Object.getOwnPropertyNames(LetAB);
-  outEC.innerHTML += '<br >letAB  : ' + Object.keys(LetAB);
-  outEC.innerHTML += '<br >letAB  : ' + Object.getOwnPropertyDescriptor(LetAB, 'proOne');
-  outEC.innerHTML += '<br >letAB  : ' + Object.getPrototypeOf(LetAB);
+  outEC.innerHTML += '<br >varAB  : ' + Object.getOwnPropertyNames(VarAB);
+  outEC.innerHTML += '<br >varAB  : ' + Object.keys(VarAB);
+  outEC.innerHTML += '<br >varAB  : ' + Object.getOwnPropertyDescriptor(VarAB, 'proOne');
+  outEC.innerHTML += '<br >varAB  : ' + Object.getPrototypeOf(VarAB);
   outEC.innerHTML += '<br >';
 
   // add new method to (template-object)
-  letAB1.printValue = function () {
-    outEC.innerHTML += '<br >letAB.proOne : ' + this.proOne;
-    outEC.innerHTML += '<br >letAB.proTwo : ' + this.proTwo;
+  varAB1.printValue = function () {
+    outEC.innerHTML += '<br >varAB.proOne : ' + this.proOne;
+    outEC.innerHTML += '<br >varAB.proTwo : ' + this.proTwo;
   };
 
-  letAB1.printValue();
-  outEC.innerHTML += '<br >letAB1 : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >letAB1 : ' + Object.keys(letAB1);
-  outEC.innerHTML += '<br >letAB  : ' + Object.getOwnPropertyNames(LetAB);
-  outEC.innerHTML += '<br >letAB  : ' + Object.keys(LetAB);
+  varAB1.printValue();
+  outEC.innerHTML += '<br >varAB1 : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >varAB1 : ' + Object.keys(varAB1);
+  outEC.innerHTML += '<br >varAB  : ' + Object.getOwnPropertyNames(VarAB);
+  outEC.innerHTML += '<br >varAB  : ' + Object.keys(VarAB);
   outEC.innerHTML += '<br >';
 
   // add new method to (prototype)
-  Object.defineProperty(LetAB.prototype, 'callMethod', {
+  Object.defineProperty(VarAB.prototype, 'callMethod', {
     vlaue: function () {
-      outEC.innerHTML += '<br >letAB.method * 10 : ' + (this.method() * 10);
+      outEC.innerHTML += '<br >varAB.method * 10 : ' + (this.method() * 10);
     },
   });
 
-  // letAB1.callMethod();
-  outEC.innerHTML += '<br >letAB1 : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >letAB1 : ' + Object.keys(letAB1);
-  outEC.innerHTML += '<br >letAB  : ' + Object.getOwnPropertyNames(LetAB);
-  outEC.innerHTML += '<br >letAB  : ' + Object.keys(LetAB);
+  // varAB1.callMethod();
+  outEC.innerHTML += '<br >varAB1 : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >varAB1 : ' + Object.keys(varAB1);
+  outEC.innerHTML += '<br >varAB  : ' + Object.getOwnPropertyNames(VarAB);
+  outEC.innerHTML += '<br >varAB  : ' + Object.keys(VarAB);
   outEC.innerHTML += '<br >';
 
   // object-template declaration - class ---------------------------------------
@@ -332,29 +332,29 @@ function ExCB() {
     }
   }
 
-  let letAC = new ClassAC(11, 22);
-  letAC.printValue();
+  var varAC = new ClassAC(11, 22);
+  varAC.printValue();
 
-  outEC.innerHTML += '<br >letAC   : ' + Object.getOwnPropertyNames(letAC);
-  outEC.innerHTML += '<br >letAC   : ' + Object.keys(letAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.getOwnPropertyNames(varAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.keys(varAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.getOwnPropertyNames(ClassAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.keys(ClassAC);
   outEC.innerHTML += '<br >';
 
   Object.defineProperty(ClassAC.prototype, 'proThree', { value: 33 });
-  outEC.innerHTML += '<br >letAC.proThree : ' + letAC.proThree;
+  outEC.innerHTML += '<br >varAC.proThree : ' + varAC.proThree;
 
-  outEC.innerHTML += '<br >letAC   : ' + Object.getOwnPropertyNames(letAC);
-  outEC.innerHTML += '<br >letAC   : ' + Object.keys(letAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.getOwnPropertyNames(varAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.keys(varAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.getOwnPropertyNames(ClassAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.keys(ClassAC);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperty(letAC, 'proFour', { value: 44 });
-  outEC.innerHTML += '<br >letAC.proFour : ' + letAC.proFour;
+  Object.defineProperty(varAC, 'proFour', { value: 44 });
+  outEC.innerHTML += '<br >varAC.proFour : ' + varAC.proFour;
 
-  outEC.innerHTML += '<br >letAC   : ' + Object.getOwnPropertyNames(letAC);
-  outEC.innerHTML += '<br >letAC   : ' + Object.keys(letAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.getOwnPropertyNames(varAC);
+  outEC.innerHTML += '<br >varAC   : ' + Object.keys(varAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.getOwnPropertyNames(ClassAC);
   outEC.innerHTML += '<br >ClassAC : ' + Object.keys(ClassAC);
   outEC.innerHTML += '<br >';
@@ -386,7 +386,7 @@ function ExCB() {
 
 function ExCC() {
   // single-object defination
-  let letAA = {
+  var varAA = {
     proOne: 11,
     proTwo: 22,
     proThree: 33,
@@ -396,80 +396,80 @@ function ExCC() {
     },
   };
 
-  outEC.innerHTML += '<br >letAA.method : ' + letAA.method();
-  outEC.innerHTML += '<br >letAA (isExtensible) : ' + Object.isExtensible(letAA);
-  outEC.innerHTML += '<br >letAA (isSealed) : ' + Object.isSealed(letAA);
-  outEC.innerHTML += '<br >letAA (isFrozen) : ' + Object.isFrozen(letAA);
+  outEC.innerHTML += '<br >varAA.method : ' + varAA.method();
+  outEC.innerHTML += '<br >varAA (isExtensible) : ' + Object.isExtensible(varAA);
+  outEC.innerHTML += '<br >varAA (isSealed) : ' + Object.isSealed(varAA);
+  outEC.innerHTML += '<br >varAA (isFrozen) : ' + Object.isFrozen(varAA);
   outEC.innerHTML += '<br >---------------------------------------------------';
 
   // ----------------------------------------------------------
   // (add) off
-  Object.preventExtensions(letAA);
-  outEC.innerHTML += '<br >letAA (names) : ' + Object.getOwnPropertyNames(letAA);
-  outEC.innerHTML += '<br >letAA (isExtensible) : ' + Object.isExtensible(letAA);
-  outEC.innerHTML += '<br >value | configure | delete | (add) - off';
+  Object.preventExtensions(varAA);
+  outEC.innerHTML += '<br >varAA (names) : ' + Object.getOwnPropertyNames(varAA);
+  outEC.innerHTML += '<br >varAA (isExtensible) : ' + Object.isExtensible(varAA);
+  outEC.innerHTML += '<br >value | configure | devare | (add) - off';
   outEC.innerHTML += '<br >';
 
-  Object.defineProperty(letAA, 'proOne', { value: 10 });
-  Object.defineProperty(letAA, 'proTwo', { writable: false });
-  letAA.proTwo = 20;
-  delete(letAA.proThree);
+  Object.defineProperty(varAA, 'proOne', { value: 10 });
+  Object.defineProperty(varAA, 'proTwo', { writable: false });
+  varAA.proTwo = 20;
+  devare(varAA.proThree);
 
-  // Object.defineProperty(letAA, 'proFive', { value: 50 });
+  // Object.defineProperty(varAA, 'proFive', { value: 50 });
 
-  outEC.innerHTML += '<br >letAA.proOne : ' + letAA.proOne;
-  outEC.innerHTML += '<br >letAA.proTwo : ' + letAA.proTwo;
-  outEC.innerHTML += '<br >letAA.proThree : ' + letAA.proThree;
-  outEC.innerHTML += '<br >letAA.proFive : ' + letAA.proFive;
+  outEC.innerHTML += '<br >varAA.proOne : ' + varAA.proOne;
+  outEC.innerHTML += '<br >varAA.proTwo : ' + varAA.proTwo;
+  outEC.innerHTML += '<br >varAA.proThree : ' + varAA.proThree;
+  outEC.innerHTML += '<br >varAA.proFive : ' + varAA.proFive;
   outEC.innerHTML += '<br >................';
 
   // ----------------------------------------------------------
-  // (configure | delete | add) off
-  Object.seal(letAA);
-  outEC.innerHTML += '<br >letAA (names) : ' + Object.getOwnPropertyNames(letAA);
-  outEC.innerHTML += '<br >letAA (isSealed) : ' + Object.isSealed(letAA);
-  outEC.innerHTML += '<br >value | (configure | delete | add) - off';
+  // (configure | devare | add) off
+  Object.seal(varAA);
+  outEC.innerHTML += '<br >varAA (names) : ' + Object.getOwnPropertyNames(varAA);
+  outEC.innerHTML += '<br >varAA (isSealed) : ' + Object.isSealed(varAA);
+  outEC.innerHTML += '<br >value | (configure | devare | add) - off';
   outEC.innerHTML += '<br >';
 
-  Object.defineProperty(letAA, 'proOne', { value: 100 });
+  Object.defineProperty(varAA, 'proOne', { value: 100 });
 
-  // Object.defineProperty(letAA, 'proTwo', { writable: true });
-  letAA.proTwo = 200;       // as previously (writable: false), no effect - but not off
-  delete(letAA.proFour);    // off - but no error
+  // Object.defineProperty(varAA, 'proTwo', { writable: true });
+  varAA.proTwo = 200;       // as previously (writable: false), no effect - but not off
+  devare(varAA.proFour);    // off - but no error
 
-  // Object.defineProperty(letAA, 'proFive', { value: 500 });
+  // Object.defineProperty(varAA, 'proFive', { value: 500 });
 
-  outEC.innerHTML += '<br >letAA.proOne : ' + letAA.proOne;
-  outEC.innerHTML += '<br >letAA.proTwo : ' + letAA.proTwo;
-  outEC.innerHTML += '<br >letAA.proFour : ' + letAA.proFour;
-  outEC.innerHTML += '<br >letAA.proFive : ' + letAA.proFive;
+  outEC.innerHTML += '<br >varAA.proOne : ' + varAA.proOne;
+  outEC.innerHTML += '<br >varAA.proTwo : ' + varAA.proTwo;
+  outEC.innerHTML += '<br >varAA.proFour : ' + varAA.proFour;
+  outEC.innerHTML += '<br >varAA.proFive : ' + varAA.proFive;
   outEC.innerHTML += '<br >.................';
 
   // ----------------------------------------------------------
-  // (value | configure | delete | add) off
-  Object.freeze(letAA);
-  outEC.innerHTML += '<br >letAA (names) : ' + Object.getOwnPropertyNames(letAA);
-  outEC.innerHTML += '<br >letAA (isFrozen) : ' + Object.isFrozen(letAA);
-  outEC.innerHTML += '<br >(value | configure | delete | add) - off';
+  // (value | configure | devare | add) off
+  Object.freeze(varAA);
+  outEC.innerHTML += '<br >varAA (names) : ' + Object.getOwnPropertyNames(varAA);
+  outEC.innerHTML += '<br >varAA (isFrozen) : ' + Object.isFrozen(varAA);
+  outEC.innerHTML += '<br >(value | configure | devare | add) - off';
   outEC.innerHTML += '<br >';
 
-  // Object.defineProperty(letAA, 'proOne', { value: 1 });
-  // Object.defineProperty(letAA, 'proTwo', { configurable: true });
-  // letAA.proTwo = 2;
-  delete(letAA.proFour);    // off - but no erro
+  // Object.defineProperty(varAA, 'proOne', { value: 1 });
+  // Object.defineProperty(varAA, 'proTwo', { configurable: true });
+  // varAA.proTwo = 2;
+  devare(varAA.proFour);    // off - but no erro
 
-  // Object.defineProperty(letAA, 'proFive', { value: 5 });
+  // Object.defineProperty(varAA, 'proFive', { value: 5 });
 
-  outEC.innerHTML += '<br >letAA.proOne : ' + letAA.proOne;
-  outEC.innerHTML += '<br >letAA.proTwo : ' + letAA.proTwo;
-  outEC.innerHTML += '<br >letAA.proFour : ' + letAA.proFour;
-  outEC.innerHTML += '<br >letAA.proFive : ' + letAA.proFive;
-  outEC.innerHTML += '<br >letAA (names) : ' + Object.getOwnPropertyNames(letAA);
+  outEC.innerHTML += '<br >varAA.proOne : ' + varAA.proOne;
+  outEC.innerHTML += '<br >varAA.proTwo : ' + varAA.proTwo;
+  outEC.innerHTML += '<br >varAA.proFour : ' + varAA.proFour;
+  outEC.innerHTML += '<br >varAA.proFive : ' + varAA.proFive;
+  outEC.innerHTML += '<br >varAA (names) : ' + Object.getOwnPropertyNames(varAA);
   outEC.innerHTML += '<br >.................';
 
   // ---------------------------------------------------------------------------
   // object-template defination - constructor
-  let LetAB = function () {
+  var VarAB = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     this.proThree = arguments[2];
@@ -479,147 +479,147 @@ function ExCC() {
     };
   };
 
-  let letAB1 = new LetAB(11, 22, 33, 44);
-  outEC.innerHTML += '<br >letAB.method : ' + letAB1.method();
-  outEC.innerHTML += '<br >letAB1 (isExtensible) : ' + Object.isExtensible(letAB1);
-  outEC.innerHTML += '<br >letAB1 (isSealed) : ' + Object.isSealed(letAB1);
-  outEC.innerHTML += '<br >letAB1 (isFrozen) : ' + Object.isFrozen(letAB1);
-  outEC.innerHTML += '<br >LetAB (isExtensible) : ' + Object.isExtensible(LetAB);
-  outEC.innerHTML += '<br >LetAB (isSealed) : ' + Object.isSealed(LetAB);
-  outEC.innerHTML += '<br >LetAB (isFrozen) : ' + Object.isFrozen(LetAB);
+  var varAB1 = new VarAB(11, 22, 33, 44);
+  outEC.innerHTML += '<br >varAB.method : ' + varAB1.method();
+  outEC.innerHTML += '<br >varAB1 (isExtensible) : ' + Object.isExtensible(varAB1);
+  outEC.innerHTML += '<br >varAB1 (isSealed) : ' + Object.isSealed(varAB1);
+  outEC.innerHTML += '<br >varAB1 (isFrozen) : ' + Object.isFrozen(varAB1);
+  outEC.innerHTML += '<br >VarAB (isExtensible) : ' + Object.isExtensible(VarAB);
+  outEC.innerHTML += '<br >VarAB (isSealed) : ' + Object.isSealed(VarAB);
+  outEC.innerHTML += '<br >VarAB (isFrozen) : ' + Object.isFrozen(VarAB);
   outEC.innerHTML += '<br >---------------------------------------------------';
 
   // ----------------------------------------------------------
-  // value | configuration | delete | add - prototype : all active
-  Object.preventExtensions(LetAB);
-  outEC.innerHTML += '<br >LetAB (names) : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >LetAB (isExtensible) : ' + Object.isExtensible(LetAB);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  // value | configuration | devare | add - prototype : all active
+  Object.preventExtensions(VarAB);
+  outEC.innerHTML += '<br >VarAB (names) : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >VarAB (isExtensible) : ' + Object.isExtensible(VarAB);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  LetAB.prototype.proOne = 10;
-  Object.defineProperty(LetAB.prototype, 'proTwo', { configurable: true, writable: false });
-  LetAB.prototype.proTwo = 20;   // value-on | configure-on, for (writable-false), no-effect
-  LetAB.prototype.proThree = 30;
-  delete(LetAB.prototype.proThree);
-  Object.defineProperty(LetAB.prototype, 'proFive', { value: 50 });
+  VarAB.prototype.proOne = 10;
+  Object.defineProperty(VarAB.prototype, 'proTwo', { configurable: true, writable: false });
+  VarAB.prototype.proTwo = 20;   // value-on | configure-on, for (writable-false), no-effect
+  VarAB.prototype.proThree = 30;
+  devare(VarAB.prototype.proThree);
+  Object.defineProperty(VarAB.prototype, 'proFive', { value: 50 });
 
-  outEC.innerHTML += '<br >LetAB.prototype.proOne : ' + LetAB.prototype.proOne;
-  outEC.innerHTML += '<br >LetAB.prototype.proTwo (con-t | wri-f) : ' + LetAB.prototype.proTwo;
-  outEC.innerHTML += '<br >LetAB.prototype.proThree : ' + LetAB.prototype.proThree;
-  outEC.innerHTML += '<br >LetAB.prototype.proFive : ' + LetAB.prototype.proFive;
+  outEC.innerHTML += '<br >VarAB.prototype.proOne : ' + VarAB.prototype.proOne;
+  outEC.innerHTML += '<br >VarAB.prototype.proTwo (con-t | wri-f) : ' + VarAB.prototype.proTwo;
+  outEC.innerHTML += '<br >VarAB.prototype.proThree : ' + VarAB.prototype.proThree;
+  outEC.innerHTML += '<br >VarAB.prototype.proFive : ' + VarAB.prototype.proFive;
   outEC.innerHTML += '<br >................';
 
   // ----------------------------------------------------------
   // add - prototype-object : inactive
-  Object.preventExtensions(letAB1);
-  outEC.innerHTML += '<br >letAB1 (names) : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >letAB1 (isExtensible) : ' + Object.isExtensible(letAB1);
-  outEC.innerHTML += '<br >value | configure | delete | (add) - off';
+  Object.preventExtensions(varAB1);
+  outEC.innerHTML += '<br >varAB1 (names) : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >varAB1 (isExtensible) : ' + Object.isExtensible(varAB1);
+  outEC.innerHTML += '<br >value | configure | devare | (add) - off';
   outEC.innerHTML += '<br >';
 
-  letAB1.proOne = 11.11;
-  Object.defineProperty(letAB1, 'proTwo', { enumerable: true });
-  letAB1.proThree = 33.33;
-  delete(letAB1.proThree);
+  varAB1.proOne = 11.11;
+  Object.defineProperty(varAB1, 'proTwo', { enumerable: true });
+  varAB1.proThree = 33.33;
+  devare(varAB1.proThree);
 
-  // Object.defineProperty(letAB1, 'proFive', { value: 55.44 });
+  // Object.defineProperty(varAB1, 'proFive', { value: 55.44 });
 
-  outEC.innerHTML += '<br >letAB1.proOne : ' + letAB1.proOne;
-  outEC.innerHTML += '<br >letAB1.proTwo (enu-t) : ' + Object.keys(letAB1);
-  outEC.innerHTML += '<br >letAB1.proThree : ' + letAB1.proThree;
-  outEC.innerHTML += '<br >letAB1.proFive : ' + letAB1.proFive;
+  outEC.innerHTML += '<br >varAB1.proOne : ' + varAB1.proOne;
+  outEC.innerHTML += '<br >varAB1.proTwo (enu-t) : ' + Object.keys(varAB1);
+  outEC.innerHTML += '<br >varAB1.proThree : ' + varAB1.proThree;
+  outEC.innerHTML += '<br >varAB1.proFive : ' + varAB1.proFive;
   outEC.innerHTML += '<br >................';
 
   // ----------------------------------------------------------
-  // value | configure | delete | add - all active
-  let letAB2 = new LetAB(55, 66, 77, 88);
-  Object.seal(LetAB);
-  outEC.innerHTML += '<br >LetAB1 (names) : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >LetAB2 (names) : ' + Object.getOwnPropertyNames(letAB2);
-  outEC.innerHTML += '<br >LetAB (isSealed) : ' + Object.isSealed(LetAB);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  // value | configure | devare | add - all active
+  var varAB2 = new VarAB(55, 66, 77, 88);
+  Object.seal(VarAB);
+  outEC.innerHTML += '<br >VarAB1 (names) : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >VarAB2 (names) : ' + Object.getOwnPropertyNames(varAB2);
+  outEC.innerHTML += '<br >VarAB (isSealed) : ' + Object.isSealed(VarAB);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  LetAB.prototype.proOne = 50;
-  Object.defineProperty(LetAB.prototype, 'proTwo', { writable: true });
-  LetAB.prototype.proTwo = 60;       // as previously (writable: false), no effect - but not off
-  LetAB.prototype.proFour = 80;
-  delete(LetAB.prototype.proFour);    // off - but no error
-  Object.defineProperty(LetAB.prototype, 'proSix', { value: 100 });
+  VarAB.prototype.proOne = 50;
+  Object.defineProperty(VarAB.prototype, 'proTwo', { writable: true });
+  VarAB.prototype.proTwo = 60;       // as previously (writable: false), no effect - but not off
+  VarAB.prototype.proFour = 80;
+  devare(VarAB.prototype.proFour);    // off - but no error
+  Object.defineProperty(VarAB.prototype, 'proSix', { value: 100 });
 
-  outEC.innerHTML += '<br >LetAB.prototype.proOne : ' + LetAB.prototype.proOne;
-  outEC.innerHTML += '<br >LetAB.prototype.proTwo (wri-t) : ' + LetAB.prototype.proTwo;
-  outEC.innerHTML += '<br >LetAB.prototype.proFour : ' + LetAB.prototype.proFour;
-  outEC.innerHTML += '<br >LetAB.prototype.proSix : ' + LetAB.prototype.proSix;
+  outEC.innerHTML += '<br >VarAB.prototype.proOne : ' + VarAB.prototype.proOne;
+  outEC.innerHTML += '<br >VarAB.prototype.proTwo (wri-t) : ' + VarAB.prototype.proTwo;
+  outEC.innerHTML += '<br >VarAB.prototype.proFour : ' + VarAB.prototype.proFour;
+  outEC.innerHTML += '<br >VarAB.prototype.proSix : ' + VarAB.prototype.proSix;
   outEC.innerHTML += '<br >.................';
 
   // ----------------------------------------------------------
-  // delete | add - prototype-object : inactive
-  Object.seal(letAB2);
-  outEC.innerHTML += '<br >letAB1 (names) : ' + Object.getOwnPropertyNames(letAB2);
-  outEC.innerHTML += '<br >letAB1 (isSealed) : ' + Object.isSealed(letAB2);
-  outEC.innerHTML += '<br >value | configure | (delete | add) - off';
+  // devare | add - prototype-object : inactive
+  Object.seal(varAB2);
+  outEC.innerHTML += '<br >varAB1 (names) : ' + Object.getOwnPropertyNames(varAB2);
+  outEC.innerHTML += '<br >varAB1 (isSealed) : ' + Object.isSealed(varAB2);
+  outEC.innerHTML += '<br >value | configure | (devare | add) - off';
   outEC.innerHTML += '<br >';
 
-  letAB2.proOne = 55.55;
+  varAB2.proOne = 55.55;
 
-  // Object.defineProperty(letAB2, 'proTwo', { enumerable: false });
-  letAB2.proThree = 88.88;
-  delete(letAB2.proThree);   // off - but no error
+  // Object.defineProperty(varAB2, 'proTwo', { enumerable: false });
+  varAB2.proThree = 88.88;
+  devare(varAB2.proThree);   // off - but no error
 
-  // Object.defineProperty(letAB2, 'proFive', { value: 99.99 });
+  // Object.defineProperty(varAB2, 'proFive', { value: 99.99 });
 
-  outEC.innerHTML += '<br >letAB2.proOne : ' + letAB2.proOne;
-  outEC.innerHTML += '<br >letAB2.proTwo (enu-t) : ' + Object.keys(letAB2);
-  outEC.innerHTML += '<br >letAB2.proThree : ' + letAB2.proThree;
-  outEC.innerHTML += '<br >letAB2.proFive : ' + letAB2.proFive;
+  outEC.innerHTML += '<br >varAB2.proOne : ' + varAB2.proOne;
+  outEC.innerHTML += '<br >varAB2.proTwo (enu-t) : ' + Object.keys(varAB2);
+  outEC.innerHTML += '<br >varAB2.proThree : ' + varAB2.proThree;
+  outEC.innerHTML += '<br >varAB2.proFive : ' + varAB2.proFive;
   outEC.innerHTML += '<br >................';
 
   // ----------------------------------------------------------
-  // value | configure | delete | add - all active
-  let letAB3 = new LetAB(111, 222, 333, 444);
-  Object.freeze(LetAB);
-  outEC.innerHTML += '<br >LetAB1 (names) : ' + Object.getOwnPropertyNames(letAB1);
-  outEC.innerHTML += '<br >LetAB2 (names) : ' + Object.getOwnPropertyNames(letAB2);
-  outEC.innerHTML += '<br >LetAB3 (names) : ' + Object.getOwnPropertyNames(letAB3);
-  outEC.innerHTML += '<br >LetAB (isFrozen) : ' + Object.isFrozen(LetAB);
-  outEC.innerHTML += '<br >value | configure | add | delete';
+  // value | configure | devare | add - all active
+  var varAB3 = new VarAB(111, 222, 333, 444);
+  Object.freeze(VarAB);
+  outEC.innerHTML += '<br >VarAB1 (names) : ' + Object.getOwnPropertyNames(varAB1);
+  outEC.innerHTML += '<br >VarAB2 (names) : ' + Object.getOwnPropertyNames(varAB2);
+  outEC.innerHTML += '<br >VarAB3 (names) : ' + Object.getOwnPropertyNames(varAB3);
+  outEC.innerHTML += '<br >VarAB (isFrozen) : ' + Object.isFrozen(VarAB);
+  outEC.innerHTML += '<br >value | configure | add | devare';
   outEC.innerHTML += '<br >';
 
-  LetAB.prototype.proOne = 100;
-  Object.defineProperty(LetAB.prototype, 'proTwo', { writable: false });
-  LetAB.prototype.proTwo = 200;       // as previously (writable: false), no effect - but not off
-  LetAB.prototype.proFour = 400;
-  delete(LetAB.prototype.proFour);    // off - but no error
-  Object.defineProperty(LetAB.prototype, 'proSeven', { value: 700 });
+  VarAB.prototype.proOne = 100;
+  Object.defineProperty(VarAB.prototype, 'proTwo', { writable: false });
+  VarAB.prototype.proTwo = 200;       // as previously (writable: false), no effect - but not off
+  VarAB.prototype.proFour = 400;
+  devare(VarAB.prototype.proFour);    // off - but no error
+  Object.defineProperty(VarAB.prototype, 'proSeven', { value: 700 });
 
-  outEC.innerHTML += '<br >LetAB.prototype.proOne : ' + LetAB.prototype.proOne;
-  outEC.innerHTML += '<br >LetAB.prototype.proTwo (wri-f) : ' + LetAB.prototype.proTwo;
-  outEC.innerHTML += '<br >LetAB.prototype.proFour : ' + LetAB.prototype.proFour;
-  outEC.innerHTML += '<br >LetAB.prototype.proSeven : ' + LetAB.prototype.proSeven;
+  outEC.innerHTML += '<br >VarAB.prototype.proOne : ' + VarAB.prototype.proOne;
+  outEC.innerHTML += '<br >VarAB.prototype.proTwo (wri-f) : ' + VarAB.prototype.proTwo;
+  outEC.innerHTML += '<br >VarAB.prototype.proFour : ' + VarAB.prototype.proFour;
+  outEC.innerHTML += '<br >VarAB.prototype.proSeven : ' + VarAB.prototype.proSeven;
   outEC.innerHTML += '<br >.................';
 
   // ----------------------------------------------------------
-  // value | configure | delete | add - prototype-object : inactive
-  Object.freeze(letAB3);
-  outEC.innerHTML += '<br >letAB3 (names) : ' + Object.getOwnPropertyNames(letAB3);
-  outEC.innerHTML += '<br >letAB3 (isFrozen) : ' + Object.isFrozen(letAB3);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  // value | configure | devare | add - prototype-object : inactive
+  Object.freeze(varAB3);
+  outEC.innerHTML += '<br >varAB3 (names) : ' + Object.getOwnPropertyNames(varAB3);
+  outEC.innerHTML += '<br >varAB3 (isFrozen) : ' + Object.isFrozen(varAB3);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  // letAB3.proOne = 111.11;
-  // Object.defineProperty(letAB3, 'proTwo', { enumerable: false });
+  // varAB3.proOne = 111.11;
+  // Object.defineProperty(varAB3, 'proTwo', { enumerable: false });
 
-  letAB3.proFour = 444.44;
-  delete(letAB3.proFour);   // off - but not error
+  varAB3.proFour = 444.44;
+  devare(varAB3.proFour);   // off - but not error
 
-  // Object.defineProperty(letAB3, 'proFive', { value: 555.55 });
+  // Object.defineProperty(varAB3, 'proFive', { value: 555.55 });
 
-  outEC.innerHTML += '<br >letAB3.proOne : ' + letAB3.proOne;
-  outEC.innerHTML += '<br >letAB3.proTwo (con-n) : ' + Object.keys(letAB3);
-  outEC.innerHTML += '<br >letAB3.proFour : ' + letAB3.proFour;
-  outEC.innerHTML += '<br >letAB3.proFive : ' + letAB3.proFive;
+  outEC.innerHTML += '<br >varAB3.proOne : ' + varAB3.proOne;
+  outEC.innerHTML += '<br >varAB3.proTwo (con-n) : ' + Object.keys(varAB3);
+  outEC.innerHTML += '<br >varAB3.proFour : ' + varAB3.proFour;
+  outEC.innerHTML += '<br >varAB3.proFive : ' + varAB3.proFive;
   outEC.innerHTML += '<br >................';
 
   // ---------------------------------------------------------------------------
@@ -644,70 +644,70 @@ function ExCC() {
 
   // ---------------------------------------------------------------------------
   // add - class-object - inactive
-  let letAC1 = new ClassAC(11, 22, 33, 44);
-  Object.preventExtensions(letAC1);
-  outEC.innerHTML += '<br >letAC1 (names) : ' + Object.getOwnPropertyNames(letAC1);
-  outEC.innerHTML += '<br >letAC1 (isExtensible) : ' + Object.isExtensible(letAC1);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  var varAC1 = new ClassAC(11, 22, 33, 44);
+  Object.preventExtensions(varAC1);
+  outEC.innerHTML += '<br >varAC1 (names) : ' + Object.getOwnPropertyNames(varAC1);
+  outEC.innerHTML += '<br >varAC1 (isExtensible) : ' + Object.isExtensible(varAC1);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  letAC1.proOne = 11.11;
-  Object.defineProperty(letAC1, 'proTwo', { enumerable: false });
-  letAC1.proThree = 33.33;
-  delete(letAC1.proThree);
+  varAC1.proOne = 11.11;
+  Object.defineProperty(varAC1, 'proTwo', { enumerable: false });
+  varAC1.proThree = 33.33;
+  devare(varAC1.proThree);
 
-  // Object.defineProperty(letAC1, 'proFive', { value: 55.55 });
+  // Object.defineProperty(varAC1, 'proFive', { value: 55.55 });
 
-  outEC.innerHTML += '<br >letAC1.proOne   : ' + letAC1.proOne;
-  outEC.innerHTML += '<br >letAC1.proTwo (enu-f) : ' + Object.keys(letAC1);
-  outEC.innerHTML += '<br >letAC1.proThree : ' + letAC1.proThree;
-  outEC.innerHTML += '<br >letAC1.proFive  : ' + letAC1.proFive;
+  outEC.innerHTML += '<br >varAC1.proOne   : ' + varAC1.proOne;
+  outEC.innerHTML += '<br >varAC1.proTwo (enu-f) : ' + Object.keys(varAC1);
+  outEC.innerHTML += '<br >varAC1.proThree : ' + varAC1.proThree;
+  outEC.innerHTML += '<br >varAC1.proFive  : ' + varAC1.proFive;
   outEC.innerHTML += '<br >................';
 
   // ---------------------------------------------------------------------------
-  // configure | delete | add - class-object - inactive
-  let letAC2 = new ClassAC(55, 66, 77, 88);
-  Object.seal(letAC2);
-  outEC.innerHTML += '<br >letAC2 (names) : ' + Object.getOwnPropertyNames(letAC2);
-  outEC.innerHTML += '<br >letAC2 (isSealed) : ' + Object.isSealed(letAC2);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  // configure | devare | add - class-object - inactive
+  var varAC2 = new ClassAC(55, 66, 77, 88);
+  Object.seal(varAC2);
+  outEC.innerHTML += '<br >varAC2 (names) : ' + Object.getOwnPropertyNames(varAC2);
+  outEC.innerHTML += '<br >varAC2 (isSealed) : ' + Object.isSealed(varAC2);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  letAC2.proOne = 55.55;
+  varAC2.proOne = 55.55;
 
-  // Object.defineProperty(letAC2, 'proTwo', { enumerable: false });
-  letAC2.proThree = 77.77;    // inactive - no error
-  delete(letAC2.proThree);
+  // Object.defineProperty(varAC2, 'proTwo', { enumerable: false });
+  varAC2.proThree = 77.77;    // inactive - no error
+  devare(varAC2.proThree);
 
-  // Object.defineProperty(letAC2, 'proFive', { value: 99.99 });
+  // Object.defineProperty(varAC2, 'proFive', { value: 99.99 });
 
-  outEC.innerHTML += '<br >letAC2.proOne   : ' + letAC2.proOne;
-  outEC.innerHTML += '<br >letAC2.proTwo (enu-f) : ' + Object.keys(letAC2);
-  outEC.innerHTML += '<br >letAC2.proThree : ' + letAC2.proThree;
-  outEC.innerHTML += '<br >letAC2.proFive  : ' + letAC2.proFive;
+  outEC.innerHTML += '<br >varAC2.proOne   : ' + varAC2.proOne;
+  outEC.innerHTML += '<br >varAC2.proTwo (enu-f) : ' + Object.keys(varAC2);
+  outEC.innerHTML += '<br >varAC2.proThree : ' + varAC2.proThree;
+  outEC.innerHTML += '<br >varAC2.proFive  : ' + varAC2.proFive;
   outEC.innerHTML += '<br >................';
 
   // ---------------------------------------------------------------------------
-  // value | configure | delete | add - class-object - inactive
-  let letAC3 = new ClassAC(111, 222, 333, 444);
-  Object.freeze(letAC3);
-  outEC.innerHTML += '<br >letAC3 (names) : ' + Object.getOwnPropertyNames(letAC3);
-  outEC.innerHTML += '<br >letAC3 (isFrozen) : ' + Object.isFrozen(letAC3);
-  outEC.innerHTML += '<br >value | configure | delete | add';
+  // value | configure | devare | add - class-object - inactive
+  var varAC3 = new ClassAC(111, 222, 333, 444);
+  Object.freeze(varAC3);
+  outEC.innerHTML += '<br >varAC3 (names) : ' + Object.getOwnPropertyNames(varAC3);
+  outEC.innerHTML += '<br >varAC3 (isFrozen) : ' + Object.isFrozen(varAC3);
+  outEC.innerHTML += '<br >value | configure | devare | add';
   outEC.innerHTML += '<br >';
 
-  letAC3.proOne = 55.55;
+  varAC3.proOne = 55.55;
 
-  // Object.defineProperty(letAC3, 'proTwo', { enumerable: false });
-  letAC3.proThree = 77.77;    // inactive - no error
-  delete(letAC3.proThree);
+  // Object.defineProperty(varAC3, 'proTwo', { enumerable: false });
+  varAC3.proThree = 77.77;    // inactive - no error
+  devare(varAC3.proThree);
 
-  // Object.defineProperty(letAC3, 'proFive', { value: 99.99 });
+  // Object.defineProperty(varAC3, 'proFive', { value: 99.99 });
 
-  outEC.innerHTML += '<br >letAC3.proOne   : ' + letAC3.proOne;
-  outEC.innerHTML += '<br >letAC3.proTwo (enu-f) : ' + Object.keys(letAC3);
-  outEC.innerHTML += '<br >letAC3.proThree : ' + letAC3.proThree;
-  outEC.innerHTML += '<br >letAC3.proFive  : ' + letAC3.proFive;
+  outEC.innerHTML += '<br >varAC3.proOne   : ' + varAC3.proOne;
+  outEC.innerHTML += '<br >varAC3.proTwo (enu-f) : ' + Object.keys(varAC3);
+  outEC.innerHTML += '<br >varAC3.proThree : ' + varAC3.proThree;
+  outEC.innerHTML += '<br >varAC3.proFive  : ' + varAC3.proFive;
   outEC.innerHTML += '<br >................';
 }
 
@@ -720,7 +720,7 @@ function ExCC() {
 // -> only (value attributes) can be changable (if the property is - writable)
 
 // -> configrable : if (true), then the (property-descriptor) can (change) and
-// the (property) can (delete) from the corresponding object
+// the (property) can (devare) from the corresponding object
 // default value is (false)
 // -> enumerable : if (true), then (property) shows up during (enumeration) ot the
 // properties on the corresponding object
@@ -742,145 +742,145 @@ function ExCC() {
 function ExCD() {
   // single-object defination
   // in-case of (literal) definaion, property-attributes has default value is (true)
-  let letAA = {
+  var varAA = {
     proOne: 11,
     proTwo: 22,
     method: function () {
-      outEC.innerHTML += '<br >letAA.proOne : ' + this.proOne;
-      outEC.innerHTML += '<br >letAA.proTwo : ' + this.proTwo;
+      outEC.innerHTML += '<br >varAA.proOne : ' + this.proOne;
+      outEC.innerHTML += '<br >varAA.proTwo : ' + this.proTwo;
     },
   };
 
-  letAA.method();
+  varAA.method();
   outEC.innerHTML += '<br >';
 
-  letAA.proTwo = 33;
-  delete(letAA.proOne);
-  letAA.method();
+  varAA.proTwo = 33;
+  devare(varAA.proOne);
+  varAA.method();
   outEC.innerHTML += '<br >';
 
   // in-case of (Object) method defination, property-attributes has default value is (false)
   // property-attribute has defualt value for (data) is (ture)
-  let letAB = Object.create({
+  var varAB = Object.create({
     proOne: 10,
     proTwo: 20,
     method: function () {
-      outEC.innerHTML += '<br >letAB.proOne : ' + this.proOne;
-      outEC.innerHTML += '<br >letAB.proTwo : ' + this.proTwo;
+      outEC.innerHTML += '<br >varAB.proOne : ' + this.proOne;
+      outEC.innerHTML += '<br >varAB.proTwo : ' + this.proTwo;
     },
   });
 
-  letAB.method();
+  varAB.method();
   outEC.innerHTML += '<br >';
 
-  letAB.proTwo = 30;
-  delete(letAB.proOne);
-  letAB.method();
+  varAB.proTwo = 30;
+  devare(varAB.proOne);
+  varAB.method();
   outEC.innerHTML += '<br >';
 
   // in-case of (defineProperty) method, all attribute has default value is (false)
-  let letAC = { };
-  Object.defineProperties(letAC, {
+  var varAC = { };
+  Object.defineProperties(varAC, {
     proOne: { value: 11 },
     proTwo: { value: 22, configurable: true },
     method: {
       value: function () {
-        outEC.innerHTML += '<br >letAC.proOne : ' + this.proOne;
-        outEC.innerHTML += '<br >letAC.proTwo : ' + this.proTwo;
+        outEC.innerHTML += '<br >varAC.proOne : ' + this.proOne;
+        outEC.innerHTML += '<br >varAC.proTwo : ' + this.proTwo;
       },
     },
   });
 
   outEC.innerHTML += '<br ># proOne - all default | proTwo - configurable';
-  letAC.method();
+  varAC.method();
   outEC.innerHTML += '<br >';
 
-  outEC.innerHTML += '<br >> proOne - delete | proTwo - change';
-  letAC.proTwo = 33;
-  delete(letAC.proOne);
-  letAC.method();
+  outEC.innerHTML += '<br >> proOne - devare | proTwo - change';
+  varAC.proTwo = 33;
+  devare(varAC.proOne);
+  varAC.method();
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------
-  Object.defineProperties(letAC, {
+  Object.defineProperties(varAC, {
     proThree: { value: 33, writable: true },
     proFour: { value: 44, configurable: true },
     methodTwo: {
       value: function () {
-        outEC.innerHTML += '<br >letAC.proThree : ' + this.proThree;
-        outEC.innerHTML += '<br >letAC.proFour : ' + this.proFour;
+        outEC.innerHTML += '<br >varAC.proThree : ' + this.proThree;
+        outEC.innerHTML += '<br >varAC.proFour : ' + this.proFour;
       },
     },
   });
 
   outEC.innerHTML += '<br ># proThree - writable | proFour - configurable | all value change';
-  letAC.proThree = 30;
-  letAC.proFour = 40;
-  letAC.methodTwo();
+  varAC.proThree = 30;
+  varAC.proFour = 40;
+  varAC.methodTwo();
   outEC.innerHTML += '<br >';
 
-  outEC.innerHTML += '<br >> all delete';
-  delete(letAC.proThree);
-  delete(letAC.proFour);
-  letAC.methodTwo();
+  outEC.innerHTML += '<br >> all devare';
+  devare(varAC.proThree);
+  devare(varAC.proFour);
+  varAC.methodTwo();
   outEC.innerHTML += '<br >';
 
   // ------------------------------------------
-  Object.defineProperties(letAC, {
+  Object.defineProperties(varAC, {
     proThree: { writable: false },
     proFour: { value: 40, configurable: true },
   });
 
   outEC.innerHTML += '<br ># proThree - not-writable | proFour - configurable | all value change';
-  letAC.proThree = 111;
-  letAC.proFour = 222;
-  letAC.methodTwo();
+  varAC.proThree = 111;
+  varAC.proFour = 222;
+  varAC.methodTwo();
   outEC.innerHTML += '<br >';
 
-  Object.defineProperty(letAC, 'proFour', { writable: true });
+  Object.defineProperty(varAC, 'proFour', { writable: true });
 
   outEC.innerHTML += '<br >> proThree - not-writable | proFour - configurable > writable';
-  letAC.proThree = 333;
-  letAC.proFour = 444;
-  letAC.methodTwo();
+  varAC.proThree = 333;
+  varAC.proFour = 444;
+  varAC.methodTwo();
   outEC.innerHTML += '<br >';
 
   // ------------------------------------------
-  let letAD = Object.create({});
+  var varAD = Object.create({});
 
-  Object.defineProperties(letAD, {
+  Object.defineProperties(varAD, {
     proOne: { value: 11 },
     proTwo: { value: 22 },
     method: {
       value: function () {
-        outEC.innerHTML += '<br >letAD.proOne : ' + this.proOne;
-        outEC.innerHTML += '<br >letAD.proTwo : ' + this.proTwo;
+        outEC.innerHTML += '<br >varAD.proOne : ' + this.proOne;
+        outEC.innerHTML += '<br >varAD.proTwo : ' + this.proTwo;
       },
     },
   });
 
   outEC.innerHTML += '<br ># proOne - default | proTwo - default';
-  outEC.innerHTML += '<br >letAD : ' + Object.getOwnPropertyNames(letAD);
-  outEC.innerHTML += '<br >letAD : ' + Object.keys(letAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.getOwnPropertyNames(varAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.keys(varAD);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperties(letAD, {
+  Object.defineProperties(varAD, {
     proThree: { value: 33, configurable: true },
     proFour: { value: 44, enumerable: true },
     methodOne: {
       value: function () {
-        outEC.innerHTML += '<br >letAD.proThree : ' + this.proThree;
-        outEC.innerHTML += '<br >letAD.proFour : ' + this.proFour;
+        outEC.innerHTML += '<br >varAD.proThree : ' + this.proThree;
+        outEC.innerHTML += '<br >varAD.proFour : ' + this.proFour;
       },
     },
   });
 
   outEC.innerHTML += '<br ># proThree - configurable | proFour - enumerable';
-  outEC.innerHTML += '<br >letAD : ' + Object.getOwnPropertyNames(letAD);
-  outEC.innerHTML += '<br >letAD : ' + Object.keys(letAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.getOwnPropertyNames(varAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.keys(varAD);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperties(letAD, {
+  Object.defineProperties(varAD, {
     proThree: { enumerable: true },
 
     // proFour: { writable: true },
@@ -888,8 +888,8 @@ function ExCD() {
   });
 
   outEC.innerHTML += '<br >> proThree - enumerable | proFour - writable | methodOne - enumerable';
-  outEC.innerHTML += '<br >letAD : ' + Object.getOwnPropertyNames(letAD);
-  outEC.innerHTML += '<br >letAD : ' + Object.keys(letAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.getOwnPropertyNames(varAD);
+  outEC.innerHTML += '<br >varAD : ' + Object.keys(varAD);
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -905,43 +905,43 @@ function ExCD() {
     }
   }
 
-  let letAE = new ClassAE(10, 20);
+  var varAE = new ClassAE(10, 20);
 
-  // let letAE = {
+  // var varAE = {
   //   proOne: 10,
   //   proTwo: 20,
   //   method: function () {
-  //     outEC.innerHTML += '<br >letAE.proOne : ' + this.proOne;
-  //     outEC.innerHTML += '<br >letAE.proTwo : ' + this.proTwo;
+  //     outEC.innerHTML += '<br >varAE.proOne : ' + this.proOne;
+  //     outEC.innerHTML += '<br >varAE.proTwo : ' + this.proTwo;
   //   },
   // };
 
-  // let letAE = new Object({
+  // var varAE = new Object({
   //   proOne: 10,
   //   proTwo: 20,
   //   method: function () {
-  //     outEC.innerHTML += '<br >letAE.proOne : ' + this.proOne;
-  //     outEC.innerHTML += '<br >letAE.proTwo : ' + this.proTwo;
+  //     outEC.innerHTML += '<br >varAE.proOne : ' + this.proOne;
+  //     outEC.innerHTML += '<br >varAE.proTwo : ' + this.proTwo;
   //   },
   // });
 
-  // let letAE = Object.create({
+  // var varAE = Object.create({
   //   proOne: 10,
   //   proTwo: 20,
   //   method: function () {
-  //     outEC.innerHTML += '<br >letAE.proOne : ' + this.proOne;
-  //     outEC.innerHTML += '<br >letAE.proTwo : ' + this.proTwo;
+  //     outEC.innerHTML += '<br >varAE.proOne : ' + this.proOne;
+  //     outEC.innerHTML += '<br >varAE.proTwo : ' + this.proTwo;
   //   },
   // });
 
-  // let letAE = {};
-  // Object.defineProperties(letAE, {
+  // var varAE = {};
+  // Object.defineProperties(varAE, {
   //   proOne: { vlaue: 30 },
   //   proTwo: { value: 40 },
   //   method: {
   //     value: function () {
-  //       outEC.innerHTML += '<br >letAE.proOne : ' + this.proOne;
-  //       outEC.innerHTML += '<br >letAE.proTwo : ' + this.proTwo;
+  //       outEC.innerHTML += '<br >varAE.proOne : ' + this.proOne;
+  //       outEC.innerHTML += '<br >varAE.proTwo : ' + this.proTwo;
   //     },
   //   },
   // });
@@ -955,62 +955,62 @@ function ExCD() {
 
   outEC.innerHTML += '<br >classAE - ' + Object.getOwnPropertyNames(ClassAE);
   outEC.innerHTML += '<br >classAE - ' + Object.keys(ClassAE);
-  outEC.innerHTML += '<br >letAE (names) - ' + Object.getOwnPropertyNames(letAE);
-  outEC.innerHTML += '<br >letAE (keys) - ' + Object.keys(letAE);
+  outEC.innerHTML += '<br >varAE (names) - ' + Object.getOwnPropertyNames(varAE);
+  outEC.innerHTML += '<br >varAE (keys) - ' + Object.keys(varAE);
   outEC.innerHTML += '<br >';
 
   // ---------------------------------------------
-  Object.defineProperties(letAE, {
+  Object.defineProperties(varAE, {
     proOne: { value: 111 },
     proTwo: { value: 222 },
   });
 
   outEC.innerHTML += '<br ># attribute - true | method - false | value - change';
-  outEC.innerHTML += '<br >letAE.method : ' + letAE.method();
-  outEC.innerHTML += '<br >letAE (names): ' + Object.getOwnPropertyNames(letAE);
-  outEC.innerHTML += '<br >letAE (keys) : ' + Object.keys(letAE);
+  outEC.innerHTML += '<br >varAE.method : ' + varAE.method();
+  outEC.innerHTML += '<br >varAE (names): ' + Object.getOwnPropertyNames(varAE);
+  outEC.innerHTML += '<br >varAE (keys) : ' + Object.keys(varAE);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperties(letAE, {
+  Object.defineProperties(varAE, {
     proOne: { writable: false },
     proTwo: { enumerable: false },
 
     // method: { configurable: true },
   });
 
-  letAE.proOne = 100;
-  letAE.proTwo = 200;
+  varAE.proOne = 100;
+  varAE.proTwo = 200;
 
   outEC.innerHTML += '<br >proOne - non-writable | proTwo - non-enumerable';
-  outEC.innerHTML += '<br >letAE.method : ' + letAE.method();
-  outEC.innerHTML += '<br >letAE (names): ' + Object.getOwnPropertyNames(letAE);
-  outEC.innerHTML += '<br >letAE (keys) : ' + Object.keys(letAE);
+  outEC.innerHTML += '<br >varAE.method : ' + varAE.method();
+  outEC.innerHTML += '<br >varAE (names): ' + Object.getOwnPropertyNames(varAE);
+  outEC.innerHTML += '<br >varAE (keys) : ' + Object.keys(varAE);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperties(letAE, {
+  Object.defineProperties(varAE, {
     proOne: { configurable: false },
     proTwo: { writable: false },
   });
 
-  delete(letAE.proOne);
-  delete(letAE.proTwo);
-  outEC.innerHTML += '<br >proOne - non-configurable | proTwo - non-writable | delete all';
-  outEC.innerHTML += '<br >letAE.method : ' + letAE.method();
-  outEC.innerHTML += '<br >letAE (names): ' + Object.getOwnPropertyNames(letAE);
-  outEC.innerHTML += '<br >letAE (keys) : ' + Object.keys(letAE);
+  devare(varAE.proOne);
+  devare(varAE.proTwo);
+  outEC.innerHTML += '<br >proOne - non-configurable | proTwo - non-writable | devare all';
+  outEC.innerHTML += '<br >varAE.method : ' + varAE.method();
+  outEC.innerHTML += '<br >varAE (names): ' + Object.getOwnPropertyNames(varAE);
+  outEC.innerHTML += '<br >varAE (keys) : ' + Object.keys(varAE);
   outEC.innerHTML += '<br >';
 
-  Object.defineProperties(letAE, {
+  Object.defineProperties(varAE, {
     // proOne: { configurable: true },
     proTwo: { value: 300 },
   });
 
-  delete(letAE.proOne);
-  delete(letAE.proTwo);
-  outEC.innerHTML += '<br >proOne - configurable | proTwo - defineProperty | delete all';
-  outEC.innerHTML += '<br >letAE.method : ' + letAE.method();
-  outEC.innerHTML += '<br >letAE (names): ' + Object.getOwnPropertyNames(letAE);
-  outEC.innerHTML += '<br >letAE (keys) : ' + Object.keys(letAE);
+  devare(varAE.proOne);
+  devare(varAE.proTwo);
+  outEC.innerHTML += '<br >proOne - configurable | proTwo - defineProperty | devare all';
+  outEC.innerHTML += '<br >varAE.method : ' + varAE.method();
+  outEC.innerHTML += '<br >varAE (names): ' + Object.getOwnPropertyNames(varAE);
+  outEC.innerHTML += '<br >varAE (keys) : ' + Object.keys(varAE);
   outEC.innerHTML += '<br >';
 }
 

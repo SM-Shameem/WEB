@@ -4,7 +4,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outDB = document.createElement('div');
-outDB.setAttribute('id', 'styleTwo');
+outDB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outDB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ function ExBA() {
     }
   }
 
-  let carOne = new CarInfo('Ford', 'Mustang');
+  var carOne = new CarInfo('Ford', 'Mustang');
   carOne.showInfo();
   outDB.innerHTML += '<br >';
 
@@ -76,10 +76,10 @@ function ExBA() {
 
   }
 
-  let letAA1 = new DrivedAA();
-  let letAA2 = new DrivedAA(11, 22);
-  letAA1.printValue('letAA1');
-  letAA2.printValue('letAA2');
+  var varAA1 = new DrivedAA();
+  var varAA2 = new DrivedAA(11, 22);
+  varAA1.printValue('varAA1');
+  varAA2.printValue('varAA2');
   outDB.innerHTML += '<br >';
 
   // drived class two - only constructor .................
@@ -93,10 +93,10 @@ function ExBA() {
     }
   }
 
-  let letAB1 = new DrivedAB();
-  let letAB2 = new DrivedAB(33, 44);
-  letAB1.printValue('letAB1');
-  letAB2.printValue('letAB2');
+  var varAB1 = new DrivedAB();
+  var varAB2 = new DrivedAB(33, 44);
+  varAB1.printValue('varAB1');
+  varAB2.printValue('varAB2');
   outDB.innerHTML += '<br >';
 
   // drived class three - only constructor (new propert) and (super() with arguments)
@@ -113,12 +113,12 @@ function ExBA() {
     }
   }
 
-  let letAC1 = new DrivedAC();
-  let letAC2 = new DrivedAC(10, 11, 22);
-  letAC1.printValue('letAC1');
-  letAC2.printValue('letAC2');
-  outDB.innerHTML += '<br >proThree : ' + letAC1.proThree;
-  outDB.innerHTML += '<br >proThree : ' + letAC2.proThree;
+  var varAC1 = new DrivedAC();
+  var varAC2 = new DrivedAC(10, 11, 22);
+  varAC1.printValue('varAC1');
+  varAC2.printValue('varAC2');
+  outDB.innerHTML += '<br >proThree : ' + varAC1.proThree;
+  outDB.innerHTML += '<br >proThree : ' + varAC2.proThree;
   outDB.innerHTML += '<br >';
 
   // drived class three - only constructor (calling base-method without super-arguments)
@@ -131,8 +131,8 @@ function ExBA() {
     }
   }
 
-  let letAD1 = new DrivedAD();
-  let letAD2 = new DrivedAD(33, 44);
+  var varAD1 = new DrivedAD();
+  var varAD2 = new DrivedAD(33, 44);
   outDB.innerHTML += '<br >';
 
   // drived class four - only constructor (calling base-method with super-arguments)
@@ -144,10 +144,10 @@ function ExBA() {
     }
   }
 
-  let letAE1 = new DrivedAE();
-  let letAE2 = new DrivedAE(55, 66, 77);
-  outDB.innerHTML += '<br >letAE1.proThree : ' + letAE1.proThree;
-  outDB.innerHTML += '<br >letAE2.proThree : ' + letAE2.proThree;
+  var varAE1 = new DrivedAE();
+  var varAE2 = new DrivedAE(55, 66, 77);
+  outDB.innerHTML += '<br >varAE1.proThree : ' + varAE1.proThree;
+  outDB.innerHTML += '<br >varAE2.proThree : ' + varAE2.proThree;
   outDB.innerHTML += '<br >';
 
   // drived class five - only method with (adding new property)
@@ -162,10 +162,10 @@ function ExBA() {
     }
   }
 
-  let letAF1 = new DrivedAF();
-  let letAF2 = new DrivedAF(88, 99);
-  letAF1.callBase(100);
-  letAF2.callBase(200);
+  var varAF1 = new DrivedAF();
+  var varAF2 = new DrivedAF(88, 99);
+  varAF1.callBase(100);
+  varAF2.callBase(200);
   outDB.innerHTML += '<hr >';
 
   // ---------------------------------------------------------------------------
@@ -187,9 +187,9 @@ function ExBA() {
 
   }
 
-  let letBA = new DrivedBA(100, 200);
-  letBA.setProperty(11, 22);
-  letBA.printValue('letBA');
+  var varBA = new DrivedBA(100, 200);
+  varBA.setProperty(11, 22);
+  varBA.printValue('varBA');
   outDB.innerHTML += '<br >';
 
   // drived class two
@@ -205,7 +205,7 @@ function ExBA() {
     }
   }
 
-  let letBB = new DrivedBB(33, 44, 'letBB');
+  var varBB = new DrivedBB(33, 44, 'varBB');
   outDB.innerHTML += '<br >';
 
   // drived class three
@@ -217,8 +217,8 @@ function ExBA() {
     }
   }
 
-  let letBC = new DrivedBC(55, 66);
-  letBC.callBase(55, 66, 'letBC');
+  var varBC = new DrivedBC(55, 66);
+  varBC.callBase(55, 66, 'varBC');
   outDB.innerHTML += '<br >';
 }
 
@@ -252,8 +252,8 @@ function ExBB() {
     }
   }
 
-  let letAA = new DrivedAA(11, 22);
-  letAA.callBaseAA(33, 'letAA');
+  var varAA = new DrivedAA(11, 22);
+  varAA.callBaseAA(33, 'varAA');
   outDB.innerHTML += '<br >';
 
   // drived class inheritance ..................................................
@@ -273,11 +273,11 @@ function ExBB() {
     }
   }
 
-  let letAB = new DrivedAB(10, 20);
-  letAB.callDrivedAA(30, 'letAB');
+  var varAB = new DrivedAB(10, 20);
+  varAB.callDrivedAA(30, 'varAB');
   outDB.innerHTML += '<br >';
 
-  letAB.callProperties('letAB');
+  varAB.callProperties('varAB');
   outDB.innerHTML += '<br >';
 
   // drived constructor and inheritance ........................................
@@ -298,8 +298,8 @@ function ExBB() {
     }
   }
 
-  let letAC = new DrivedAC(11, 22, 33, 44);
-  letAC.printDrivedAC('letAC');
+  var varAC = new DrivedAC(11, 22, 33, 44);
+  varAC.printDrivedAC('varAC');
   outDB.innerHTML += '<br >';
 
   // drived class and inheritance ..............................................
@@ -314,8 +314,8 @@ function ExBB() {
     }
   }
 
-  let letAD = new DrivedAD(101, 202, 303, 404);
-  letAD.printDrivedAD('letAD');
+  var varAD = new DrivedAD(101, 202, 303, 404);
+  varAD.printDrivedAD('varAD');
   outDB.innerHTML += '<br >';
 
   // drived class and inheritance ..............................................
@@ -334,8 +334,8 @@ function ExBB() {
     }
   }
 
-  let letAE = new DrivedAE(111, 222, 333, 444);
-  letAE.printDrivedAE('letAE');
+  var varAE = new DrivedAE(111, 222, 333, 444);
+  varAE.printDrivedAE('varAE');
   outDB.innerHTML += '<hr >';
 
   // ---------------------------------------------------------------------------
@@ -367,9 +367,9 @@ function ExBB() {
     }
   }
 
-  let letBA = new DrivedBA(11, 22);
-  letBA.setProperties(33, 44);
-  letBA.printDrivedBA('letBA');
+  var varBA = new DrivedBA(11, 22);
+  varBA.setProperties(33, 44);
+  varBA.printDrivedBA('varBA');
   outDB.innerHTML += '<br >';
 
   // drived class - (constructor-properties) recognized by (auto-constructor)
@@ -383,9 +383,9 @@ function ExBB() {
     }
   }
 
-  let letBB = new DrivedBB(10, 20);
-  // letBB.setProperties(30, 40);
-  letBB.printDrivedBB('letBB', 300, 400);
+  var varBB = new DrivedBB(10, 20);
+  // varBB.setProperties(30, 40);
+  varBB.printDrivedBB('varBB', 300, 400);
   outDB.innerHTML += '<br >';
 
   // drived class - (constructor-properties) recognized by (super)
@@ -403,8 +403,8 @@ function ExBB() {
     }
   }
 
-  let letBC = new DrivedBC(11, 22, 33, 44, 55);
-  letBC.printDrivedBC('letBC');
+  var varBC = new DrivedBC(11, 22, 33, 44, 55);
+  varBC.printDrivedBC('varBC');
   outDB.innerHTML += '<br >';
 
   // drived class - (constructor/method-properties) are recognized by (auto/super-constructor)
@@ -419,8 +419,8 @@ function ExBB() {
     }
   }
 
-  let letBD = new DrivedBD(10, 20, 30, 40, 50);
-  letBD.printDrivedBD('letBD');
+  var varBD = new DrivedBD(10, 20, 30, 40, 50);
+  varBD.printDrivedBD('varBD');
   outDB.innerHTML += '<br >';
 }
 

@@ -103,9 +103,9 @@ function ExCC() {
   };
 
   constAA.method();
-  let letAB = new ConstAB();
-  let letAC = new ConstAC();
-  letAC.method();
+  var varAB = new ConstAB();
+  var varAC = new ConstAC();
+  varAC.method();
   outBC.innerHTML += '<br >';
 }
 

@@ -36,13 +36,13 @@ document.body.appendChild(outEA);
 function ExAA() {
 
   // declare a set
-  const letters = new Set(['a', 'b', 'c']);
+  const varters = new Set(['a', 'b', 'c']);
 
   // create iterator object of set (to access set-values)
-  let setIterator = letters.values();
+  var setIterator = varters.values();
 
   // accessing set values
-  outEA.innerHTML += '<br >letters : ' + letters;
+  outEA.innerHTML += '<br >varters : ' + varters;
   outEA.innerHTML += '<br >setIterator : ' + setIterator;
   outEA.innerHTML += '<br >set-items : ' + setIterator.next();
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -50,15 +50,15 @@ function ExAA() {
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >';
 
-  outEA.innerHTML += '<br >letters (typeof) : ' + typeof (letters);
-  outEA.innerHTML += '<br >letters (instanceof) : ';
-  outEA.innerHTML += letters instanceof Set;
+  outEA.innerHTML += '<br >varters (typeof) : ' + typeof (varters);
+  outEA.innerHTML += '<br >varters (instanceof) : ';
+  outEA.innerHTML += varters instanceof Set;
   outEA.innerHTML += '<br >';
 
   // add new items (same type) in existing set
-  letters.add('d');
-  letters.add('e');
-  setIterator = letters.values();
+  varters.add('d');
+  varters.add('e');
+  setIterator = varters.values();
 
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -68,9 +68,9 @@ function ExAA() {
   outEA.innerHTML += '<br >';
 
   // add new items (different type) in existing set
-  letters.add(1);
-  letters.add(true);
-  setIterator = letters.values();
+  varters.add(1);
+  varters.add(true);
+  setIterator = varters.values();
 
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -82,11 +82,11 @@ function ExAA() {
   outEA.innerHTML += '<br >';
 
   // add new iters (as variable) in existing set
-  let setArray = [11.11, 22.22, 33.33];
-  letters.add(setArray[0]);
-  letters.add(setArray[1]);
-  letters.add(setArray[2]);
-  setIterator = letters.values();
+  var setArray = [11.11, 22.22, 33.33];
+  varters.add(setArray[0]);
+  varters.add(setArray[1]);
+  varters.add(setArray[2]);
+  setIterator = varters.values();
 
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -100,9 +100,9 @@ function ExAA() {
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >';
 
-  let letArray = [10, 20, 30];
-  letters.add(letArray);
-  setIterator = letters.values();
+  var varArray = [10, 20, 30];
+  varters.add(varArray);
+  setIterator = varters.values();
 
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -118,11 +118,11 @@ function ExAA() {
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >';
 
-  let letObject = { proOne: 111, proTwo: 222 };
-  letters.add(letObject);
-  letters.add(letObject.proOne);
-  letters.add(letObject.proTwo);
-  setIterator = letters.values();
+  var varObject = { proOne: 111, proTwo: 222 };
+  varters.add(varObject);
+  varters.add(varObject.proOne);
+  varters.add(varObject.proTwo);
+  setIterator = varters.values();
 
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
   outEA.innerHTML += '<br >set-items-value : ' + setIterator.next().value;
@@ -149,22 +149,22 @@ function ExAA() {
   // set only accept array-literal and array-variable or empty-set
   // single-value or object does not accept to (create) a set but can (add them) as an (element)
   const setOne = new Set();
-  let iteratorOne = setOne.values();
+  var iteratorOne = setOne.values();
 
   const setTwo = new Set([]);
-  let iteratorTwo = setTwo.values();
+  var iteratorTwo = setTwo.values();
 
   var varOne;
   const setThree = new Set(varOne);
-  let iteratorThree = setThree.values();
+  var iteratorThree = setThree.values();
 
   var varTwo = [1, 2];
   const setFour = new Set(varTwo);
-  let iteratorFour = setFour.values();
+  var iteratorFour = setFour.values();
 
   // var varThree = { proOne: 11, proTwo: 22 };
   // const setFive = new Set(varThree);
-  // let iteratorFive = setFive.values();
+  // var iteratorFive = setFive.values();
 
   outEA.innerHTML += '<br >setOne-item   : ' + iteratorOne.next().value;
   outEA.innerHTML += '<br >setTwo-item   : ' + iteratorTwo.next().value;
@@ -212,7 +212,7 @@ function ExAA() {
   setEight.add('string');
   setEight.add(11.11);
 
-  let iterator = setEight.values();
+  var iterator = setEight.values();
   outEA.innerHTML += '<br >setEight-item : ' + iterator.next().value;
 
   var varOne = 22;
@@ -237,7 +237,7 @@ function ExAA() {
 
   // ---------------------------------------------------------------------------
   const setNine = new Set([1, 2, 2, 3]);
-  let snIterator = setNine.values();
+  var snIterator = setNine.values();
 
   outEA.innerHTML += '<br >setNine-item : ' + snIterator.next().value;
   outEA.innerHTML += '<br >setNine-item : ' + snIterator.next().value;
@@ -249,17 +249,17 @@ function ExAA() {
   setNine.add('b');
   setNine.add(true);
 
-  let letOne = 'string';
-  let letTwo = false;
-  let letThree = 'string';
-  let letFour = [11, 22];
-  let letFive = [11, 22];
+  var varOne = 'string';
+  var varTwo = false;
+  var varThree = 'string';
+  var varFour = [11, 22];
+  var varFive = [11, 22];
 
-  setNine.add(letOne);
-  setNine.add(letTwo);
-  setNine.add(letThree);
-  setNine.add(letFour);
-  setNine.add(letFive);
+  setNine.add(varOne);
+  setNine.add(varTwo);
+  setNine.add(varThree);
+  setNine.add(varFour);
+  setNine.add(varFive);
 
   snIterator = setNine.values();
 
@@ -284,7 +284,7 @@ function ExAA() {
 // javascript (set) methods are below -
 // -> 1. new Set() - creats a new set
 // -> 2. add() - adds a new element to the set
-// -> 3. delete() - removes an element from a set
+// -> 3. devare() - removes an element from a set
 // -> 4. has() - returns true if a value exists
 // -> 5. clear() - removes all elements from a set
 // -> 6. forEach() - invokes a callback for each element
@@ -306,9 +306,9 @@ function ExAA() {
 // -> forEach() - invodes a function for each (set-element)
 
 function ExAB() {
-  let arrayOne = [11, 22];
+  var arrayOne = [11, 22];
   const setOne = new Set(arrayOne);
-  let setIterator = setOne.values();
+  var setIterator = setOne.values();
 
   outEA.innerHTML += '<br >setOne-element : ' + setIterator.next().value;
   outEA.innerHTML += '<br >setOne-element : ' + setIterator.next().value;
@@ -321,7 +321,7 @@ function ExAB() {
   outEA.innerHTML += '<br >setOne-element : ' + setIterator.next().value;
   outEA.innerHTML += '<br >setOne-element : ' + setIterator.next().value;
 
-  let arrayTwo = [55, 66];
+  var arrayTwo = [55, 66];
   setOne.add(arrayTwo);
   setIterator = setOne.values();
 
@@ -351,8 +351,8 @@ function ExAB() {
 
   // element-display (procedure 1) - set.values() | set.next().value;
   // values() | keys() | entries()
-  // let stIterator = setTwo.values();
-  let stIterator = setTwo.keys();
+  // var stIterator = setTwo.values();
+  var stIterator = setTwo.keys();
   outEA.innerHTML += '<br >keys-next.value - setTwo-element : ' + stIterator.next().value;
   outEA.innerHTML += '<br >keys-next.value - setTwo-element : ' + stIterator.next().value;
   outEA.innerHTML += '<br >keys-next.value - setTwo-element : ' + stIterator.next().value;
@@ -361,7 +361,7 @@ function ExAB() {
   // element-display (procedure 2) - set.values() | for..of
   // values() | keys() | entries() -
   stIterator = setTwo.entries();
-  for (let x of stIterator)
+  for (var x of stIterator)
     outEA.innerHTML += '<br >entries-loop-value - setTwo-element : ' + x;
   outEA.innerHTML += '<br >';
 
@@ -380,7 +380,7 @@ function ExAB() {
 
 function ExAC() {
 
-  // size | has() | delete() | clear()
+  // size | has() | devare() | clear()
   const setThree = new Set();
   setThree.add(11);
   setThree.add(22);
@@ -393,7 +393,7 @@ function ExAC() {
   outEA.innerHTML += '<br >setThree : ' + setThree.has(22);
   outEA.innerHTML += '<br >setThree : ' + setThree.has(44);
 
-  setThree.delete(22);
+  setThree.devare(22);
   setThree.forEach(function (arg) { outEA.innerHTML += '<br >setThree : ' + arg; });
 
   outEA.innerHTML += '<br >setThree (size) : ' + setThree.size;
@@ -410,5 +410,5 @@ outEA.innerHTML += 'ex-aa : javascript sets | how to create a set | sets are obj
 outEA.innerHTML += '<hr >'; ExAA();
 outEA.innerHTML += '<br >ex-ab : set methods & (add | forEach | values | key | entries)';
 outEA.innerHTML += '<hr >'; ExAB();
-outEA.innerHTML += '<br >ex-ac : size | has | delete | clear';
+outEA.innerHTML += '<br >ex-ac : size | has | devare | clear';
 outEA.innerHTML += '<hr >'; ExAC();

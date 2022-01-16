@@ -11,7 +11,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outAD = document.createElement('div');
-outAD.setAttribute('id', 'styleTwo');
+outAD.setAttribute('id', 'styvarwo');
 document.body.appendChild(outAD);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ function ExDA() {
 // and each (name:value) pairs are seperated by (comma)
 // NB: so, javascript object is a collection of (named values)
 // NB: it is a common practice to declare objects with the (const) keyword
-// NB: though we can declare any object as (var | let)
+// NB: though we can declare any object as (var | var)
 
 // these (name:value) pairs are called (properties)
 // and all (properties) are defined inside (curly-brackets)
@@ -107,27 +107,27 @@ function ExDB() {
 
   // javascript variable (contain many values), called object
   var varAD = { proOne: 11, proTwo: false };
-  let letAE = { proOne: 10, proTwo: 20 };
+  var varAE = { proOne: 10, proTwo: 20 };
   const constAF = { proOne: true, proTwo: false };
 
   outAD.innerHTML += '<br >varAD.proOne   : ' + varAD.proOne;
   outAD.innerHTML += '<br >varAD.proTwo   : ' + varAD.proTwo;
-  outAD.innerHTML += '<br >letAE.proOne   : ' + letAE.proOne;
-  outAD.innerHTML += '<br >letAE.proTwo   : ' + letAE.proTwo;
+  outAD.innerHTML += '<br >varAE.proOne   : ' + varAE.proOne;
+  outAD.innerHTML += '<br >varAE.proTwo   : ' + varAE.proTwo;
   outAD.innerHTML += '<br >constAF.proOne : ' + constAF.proOne;
   outAD.innerHTML += '<br >constAF.proTwo : ' + constAF.proTwo;
   outAD.innerHTML += '<br >';
 
-  // object (var | let | const), changing (property and property-values)
+  // object (var | var | const), changing (property and property-values)
   varAD.proThree = null;
   varAD.proOne = 111;
   outAD.innerHTML += '<br >varAD.proOne   : ' + varAD.proOne;
   outAD.innerHTML += '<br >varAD.proThree : ' + varAD.proThree;
 
-  letAE.proThree = null;
-  letAE.proOne = 222;
-  outAD.innerHTML += '<br >letAE.proOne   : ' + letAE.proOne;
-  outAD.innerHTML += '<br >letAE.proThree : ' + letAE.proThree;
+  varAE.proThree = null;
+  varAE.proOne = 222;
+  outAD.innerHTML += '<br >varAE.proOne   : ' + varAE.proOne;
+  outAD.innerHTML += '<br >varAE.proThree : ' + varAE.proThree;
 
   constAF.proThree = null;
 

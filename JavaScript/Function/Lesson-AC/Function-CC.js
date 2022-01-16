@@ -3,14 +3,14 @@
 // 02. Strict
 
 ////////////////////////////////////////////////////////////////////////////////
-let outCC = document.createElement('div');
+var outCC = document.createElement('div');
 outCC.setAttribute('id', 'styleOne');
 document.body.appendChild(outCC);
 
 ////////////////////////////////////////////////////////////////////////////////
 // # hoisting
 // 01. javascript declarations are hoisted
-// 02. the (let and const) keywords
+// 02. the (var and const) keywords
 // 03. javascript initializations are not hoisted
 // 04. declare your variables at the top
 function ExCA() {
@@ -49,22 +49,22 @@ function ExCA() {
     // outCC.innerHTML += '<br >localThree (undeclared) : ' + localThree;
     outCC.innerHTML += '<br >';
 
-    // # THE (LET & CONST) KEYWORDS
-    // -> variables defined with (let and const) are hoisted to the top of the block
+    // # THE (VAR & CONST) KEYWORDS
+    // -> variables defined with (var and const) are hoisted to the top of the block
     // -- but not initialized 
     // -> meaning, the block of code is aware of the variable 
     // -- but cannot be used until it has been declared 
-    // -> using a (let) variable before it is declared will result in a (ReferenceError)
+    // -> using a (var) variable before it is declared will result in a (ReferenceError)
     // NB: variable is in (temporal dead zone) from the start of the block until it is declared
-    // -- in case of (let) it will be (ReferenceError) and in case of (const) will not run
+    // -- in case of (var) it will be (ReferenceError) and in case of (const) will not run
 
     varAA = 10;
     outCC.innerHTML += '<br >varAA : ' + varAA;
     var varAA;
 
-    letAA = 20;
-    outCC.innerHTML += '<br >letAA : ' + letAA;
-    // let letAA;       // referenceError
+    varAA = 20;
+    outCC.innerHTML += '<br >varAA : ' + varAA;
+    // var varAA;       // referenceError
 
     constAA = 30;
     outCC.innerHTML += '<br >constAA : ' + constAA;
@@ -134,8 +134,9 @@ function ExCB() {
     // -> declared inside a function, it has local scope (only the code inside the function is in - strict - mode) 
     // NB : you can not declare any code before (use strict) statement of (global or function) scope
     // -- so the (use strict) statement must declare at the first of any scope
+    // NB : the ("use strict") directive is only recognized at the (beginning) of a (script or function)
 
-     // # THE ("use strict";) SYNTAX & NOT ALLOWED IN (strict) MODE & FUTURE PROOF
+    // # THE ("use strict";) SYNTAX & NOT ALLOWED IN (strict) MODE & FUTURE PROOF
     // -> the syntax, for declaring strict mode, was designed to be compatible with older versions of javascript 
     // -> compiling a numeric literal (4 + 5) or string literal ('john dee') in a javascript program has no side effect. 
     // -- it simply compiles to a non existing variable and dies 
@@ -180,7 +181,7 @@ function ExCB() {
 
         // delete varAA;    // deleting (variable) - in-general is reference-error but in-strict mode is script-error
         // delete objAA;    // deleting (object) - in-general is reference-error but in-strict mode is script-error
-        // delete funcAA;   // deleting (function) - in-general is referenc-error but in-strict mode is script-error
+        // delete funcAA;   // deleting (function) - in-general is reference-error but in-strict mode is script-error
         delete objAA.proOne;
 
         outCC.innerHTML += '<br >varAA : ' + varAA;
@@ -199,7 +200,7 @@ function ExCB() {
     function funcAC() {
         'use strict';
         
-        // var varBA = 011;    // in (strict) mode - octal numeber is not acceptable
+        // var varBA = 011;    // in (strict) mode - octal number is not acceptable
         // var varBB = '\012'; // in (strict) mode - octal escape character is nto acceptable 
 
         // outCC.innerHTML += '<br >varBA : ' + varBA;
@@ -241,17 +242,36 @@ function ExCB() {
     }
 
     // -> 11. for security reasons, (eval()) is not allowed to create variables in the scope from which it was called     
-    // -> 12. the word (eval) cannot be used as a variable     
-    // -> 13. the word (arguments) cannot be used as a variable 
-    // -> 14. the (with) statement is not allowed 
+    // -> 12. the (with) statement is not allowed 
+    // -> 13. the word (eval) cannot be used as a variable     
+    // -> 14. the word (arguments) cannot be used as a variable 
+    // -> 15. keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
+    // -- these are (implements | interface | var | package | private | protected | public | static | yield)
     
     function funcAD() {
         // 'use strict';
         var eval = 111;         // in (strict) mode - (eval) keyword can not be used as variable name
         var arguments = 222;    // in (strict) mode - (arguments) property can not be used as variable name
+        // in (strict) mode - below keywords can not be used as variable name        
+        var implements = null;  
+        var interface = null;
+        var package = null;
+        var private = null;
+        var protected = null;
+        var public = null;
+        var static = null;
+        var yield = null;
 
         outCC.innerHTML += '<br >eval : ' + eval;
         outCC.innerHTML += '<br >arguments : ' + arguments;
+        outCC.innerHTML += '<br >implements : ' + implements;
+        outCC.innerHTML += '<br >interface : ' + interface;
+        outCC.innerHTML += '<br >package : ' + package;
+        outCC.innerHTML += '<br >protected : ' + protected;
+        outCC.innerHTML += '<br <>public : ' + public;
+        outCC.innerHTML += '<br >private : ' + private;
+        outCC.innerHTML += '<br >static : ' + static;
+        outCC.innerHTML += '<br >yield : ' + yield;
 
         // in (strict) mode - (with) statement is not allowed
         with (Math) {
@@ -263,21 +283,16 @@ function ExCB() {
         // outCC.innerHTML += '<br >varAC : ' + eval('4 + 2');
     }
 
-    // -> 15. the (this) keyword in function behaves differently in (strict) mode
-    // -> 16. the (this) keyword refers to the object that called the function 
-    
+    // -> 15. the (this) keyword refers to the object that called the function
+    // -- but in (strict) mode, the (this) keyword in function behaves differently
+    // -- if the object is not specified, function in (strict) mode will return (undefined) 
+    // -- and function in (normal) mode will return (global object - window) 
+   
     function funcAE() {
         'use strict';
-
+        outCC.innerHTML += '<br >this : ' + this;    
     }
-
-    // -> 17. if the object is not specified, function in (strict) mode will return (undefined) 
-    // -- and function in (normal) mode will return (global object - window) 
-    // -> 18. keywords reserved for future javascript versions can NOT be used as variable names in (strict) mode 
-    // -- these are (implements | interface | let | package | private | protected | public | static | yield)
-    
-    // NB : the ("use strict") directive is only recognized at the (beginning) of a (script or function)
-
+ 
     funcAA(); outCC.innerHTML += '<br >';
     funcAB(); outCC.innerHTML += '<br >';
     funcAC(); outCC.innerHTML += '<br >';

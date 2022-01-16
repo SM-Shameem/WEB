@@ -46,7 +46,7 @@ function ExCA() {
   outBC.innerHTML += '<br >';
 
   // using (for .. in) loop
-  for (let x in constAA)
+  for (var x in constAA)
     outBC.innerHTML += '<br >constAA.' + x + ' : ' + constAA[x];
   outBC.innerHTML += '<br >';
 }
@@ -74,17 +74,17 @@ function ExCB() {
   outBC.innerHTML += '<br >';
 
   // Object.values() - convert an object to an array
-  let letAA = Object.values(constAA);
-  outBC.innerHTML += '<br >letAA : ' + letAA;
-  outBC.innerHTML += '<br >letAA[0]     : ' + letAA[0];
-  outBC.innerHTML += '<br >letAA.proTwo : ' + letAA.proTwo;
-  outBC.innerHTML += '<br >letAA[2]     : ' + letAA[2];
+  var varAA = Object.values(constAA);
+  outBC.innerHTML += '<br >varAA : ' + varAA;
+  outBC.innerHTML += '<br >varAA[0]     : ' + varAA[0];
+  outBC.innerHTML += '<br >varAA.proTwo : ' + varAA.proTwo;
+  outBC.innerHTML += '<br >varAA[2]     : ' + varAA[2];
   outBC.innerHTML += '<br >';
 
   // JSON.stringify() - convert an object to an string as JSON notation
   // JSON.stringify cannot stringify any (object-method)
-  let letAB = JSON.stringify(constAA);
-  outBC.innerHTML += '<br >letAB : ' + letAB;
+  var varAB = JSON.stringify(constAA);
+  outBC.innerHTML += '<br >varAB : ' + varAB;
   outBC.innerHTML += '<br >';
 }
 
@@ -129,14 +129,14 @@ function ExCC() {
     },
   };
 
-  let letAA = JSON.stringify(constAA);
-  outBC.innerHTML += '<br >letAA : ' + letAA;
-  let letAB = JSON.stringify(constAB);
-  outBC.innerHTML += '<br >letAB : ' + letAB;
-  let letAC = JSON.stringify(constAC);
-  outBC.innerHTML += '<br >letAC : ' + letAC;
-  let letAD = JSON.stringify(constAD);
-  outBC.innerHTML += '<br >letAD : ' + letAD;
+  var varAA = JSON.stringify(constAA);
+  outBC.innerHTML += '<br >varAA : ' + varAA;
+  var varAB = JSON.stringify(constAB);
+  outBC.innerHTML += '<br >varAB : ' + varAB;
+  var varAC = JSON.stringify(constAC);
+  outBC.innerHTML += '<br >varAC : ' + varAC;
+  var varAD = JSON.stringify(constAD);
+  outBC.innerHTML += '<br >varAD : ' + varAD;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

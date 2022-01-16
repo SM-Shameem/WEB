@@ -6,7 +6,7 @@
 // 5. Map.set()
 // 6. Map.get()
 // 7. Map.size
-// 8. Map.delete
+// 8. Map.devare
 // 9. Map.clear()
 // 0. Map.has()
 // 11. maps are objects
@@ -19,7 +19,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outEB = document.createElement('div');
-outEB.setAttribute('id', 'styleTwo');
+outEB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outEB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -97,11 +97,11 @@ function ExBA() {
 
   // ---------------------------------------------------------------------------
   // creating (map) with (two-dimentional) array-variable
-  let arrayOne = [[1, 'a']];
+  var arrayOne = [[1, 'a']];
   const mapTwo = new Map(arrayOne);
   outEB.innerHTML += '<br >mapTwo-item : ' + mapTwo.get(1);
 
-  let arrayTwo = [[1, 'a'], [2, 'b'], [3, 'c']];
+  var arrayTwo = [[1, 'a'], [2, 'b'], [3, 'c']];
   const mapThree = new Map(arrayTwo);
 
   // adding new elements to existing map (created with variable)
@@ -109,7 +109,7 @@ function ExBA() {
   mapThree.set(5, 'e');
 
   // Map.set() method does not accept variable
-  let mapElement = [[6, 'f']];
+  var mapElement = [[6, 'f']];
   mapThree.set(mapElement);
 
   outEB.innerHTML += '<br >mapThree-item : ' + mapThree.get(1);
@@ -123,8 +123,8 @@ function ExBA() {
   // ---------------------------------------------------------------------------
   // map element as (object) | (key and value) both are variable
   const mapFour = new Map();
-  let key = [1, 2, 3];
-  let value = ['A', 'B', 'C'];
+  var key = [1, 2, 3];
+  var value = ['A', 'B', 'C'];
   mapFour.set(key[0], value[0]);
   mapFour.set(key[1], value[1]);
   mapFour.set(key[2], value[2]);
@@ -133,7 +133,7 @@ function ExBA() {
   outEB.innerHTML += '<br >mapFour-item : ' + mapFour.get(2);
   outEB.innerHTML += '<br >mapFour-item : ' + mapFour.get(key[2]);
 
-  let object = { proOne: 11, proTwo: 22 };
+  var object = { proOne: 11, proTwo: 22 };
   mapFour.set(object);
   outEB.innerHTML += '<br >mapFour-item : ' + mapFour.get(object.proOne);
   outEB.innerHTML += '<br >mapFour-item : ' + mapFour.get(object.proTwo);
@@ -141,13 +141,13 @@ function ExBA() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # map methods & (set | get | delete | clear | has | size)
+// # map methods & (set | get | devare | clear | has | size)
 // javascript (map) methods are below -
 // -> 1. new Map() - create a new (map) object
 // -> 2. set() - sets the (value) for a (key) in a (map)
 // -> 3. get() - gets the (value) for a (key) in a (map)
 // -> 4. clear() - removes all the elements from a (map)
-// -> 5. delete() - removes a (map) element specified by a (key)
+// -> 5. devare() - removes a (map) element specified by a (key)
 // -> 6. has() - returns (true) if a (key) exists in a (map)
 // -> 7. forEach() - invokes a callback for each (key/value) pair in a (map)
 // -> 8. entries() - returns an iterator object with the [key, value] pairs in a (map)
@@ -159,7 +159,7 @@ function ExBA() {
 // Map.set() - you can (add elements) to a (map) with the (set()) method
 // --> the (set()) method can also be used to change existing (Map) values
 // Map.get() - the (get()) method (gets the value) to a (key) in a (map)
-// Map.delete() - the (delete()) method removes a (map element)
+// Map.devare() - the (devare()) method removes a (map element)
 // Map.clear() - the (clear()) method (removes all) the (elements) form a (map)
 // Map.has() - the (has()) method returns (ture) if a (key exists) in a (map)
 // Map.size - the (size) property (returns) the (number) of (elements) in a (map)
@@ -180,7 +180,7 @@ function ExBB() {
   outEB.innerHTML += '<br >mapOne (size) : ' + mapOne.size;
 
   outEB.innerHTML += '<br >mapOne (has)    : ' + mapOne.has(5);
-  outEB.innerHTML += '<br >mapOne (delete) : ' + mapOne.delete(2);
+  outEB.innerHTML += '<br >mapOne (devare) : ' + mapOne.devare(2);
   outEB.innerHTML += '<br >mpaOne (has)    : ' + mapOne.has(2);
   outEB.innerHTML += '<br >mapOne (size)   : ' + mapOne.size;
 
@@ -222,7 +222,7 @@ function ExBC() {
 
   outEB.innerHTML += '<br >';
 
-  let iterator = mapOne.values();
+  var iterator = mapOne.values();
   outEB.innerHTML += '<br >mapOne : ' + mapOne;
   outEB.innerHTML += '<br >mapOne.values() : ' + mapOne.values();
 
@@ -275,19 +275,19 @@ function ExBD() {
   const setOne = new Set([11, 22]);
   const mapOne = new Map([['proOne', 11], ['proTwo', 22]]);
 
-  let object = new ClassOne(11, 22);
+  var object = new ClassOne(11, 22);
   object.printValue();
-  let setIterator = setOne.entries();
+  var setIterator = setOne.entries();
   outEB.innerHTML += '<br >setOne-item : ' + setIterator.next().value;
   outEB.innerHTML += '<br >setOne-iter : ' + setIterator.next().value;
-  let mapIterator = mapOne.entries();
+  var mapIterator = mapOne.entries();
   outEB.innerHTML += '<br >mapOne-item : ' + mapIterator.next().value;
   outEB.innerHTML += '<br >mapOne-item : ' + mapIterator.next().value;
   outEB.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // size property - object does not have | map has
-  // outEB.innerHTML += '<br >letAA (size) : ' + letAA.size;
+  // outEB.innerHTML += '<br >varAA (size) : ' + varAA.size;
   outEB.innerHTML += '<br >mapOne (size) : ' + mapOne.size;
   outEB.innerHTML += '<br >setOne (size) : ' + setOne.size;
   outEB.innerHTML += '<br >';
@@ -300,28 +300,28 @@ function ExBD() {
   outEB.innerHTML += '<br >';
 
   // iterating map -----------------
-  for (let x of mapOne.keys())
-    for (let y of mapOne.values())
+  for (var x of mapOne.keys())
+    for (var y of mapOne.values())
       outEB.innerHTML += '<br >mapOne-[' + x + '] : ' + y;
   outEB.innerHTML += '<br >';
 
   // iterating set ------------------
-  for (let y of setOne)
+  for (var y of setOne)
     outEB.innerHTML += '<br >setOne- ' + y;
   outEB.innerHTML += '<br >';
 
   // iterating string ---------------
-  for (let a of 'ab')
+  for (var a of 'ab')
     outEB.innerHTML += '<br >string - ' + a;
   outEB.innerHTML += '<br >';
 
   // iterating array ----------------
-  for (let b of [11, 22])
+  for (var b of [11, 22])
     outEB.innerHTML += '<br >array - ' + b;
   outEB.innerHTML += '<br >';
 
   // iterating object ---------------
-  // for (let c of object)
+  // for (var c of object)
   //   outEB.innerHTML += '<br >object - ' + object;
   outEB.innerHTML += '<br >object - is not directly iterable';
   outEB.innerHTML += '<br >';
@@ -330,7 +330,7 @@ function ExBD() {
 ////////////////////////////////////////////////////////////////////////////////
 outEB.innerHTML += 'ex-ba : javascript Maps | how to create a map | maps are objects';
 outEB.innerHTML += '<hr >'; ExBA();
-outEB.innerHTML += '<br >ex-bb : map methods & (set | get | clear | has | size | delete)';
+outEB.innerHTML += '<br >ex-bb : map methods & (set | get | clear | has | size | devare)';
 outEB.innerHTML += '<hr >'; ExBB();
 outEB.innerHTML += '<br >ex-bc : forEach | keys | values | entries';
 outEB.innerHTML += '<hr >'; ExBC();

@@ -8,7 +8,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outBB = document.createElement('div');
-outBB.setAttribute('id', 'styleTwo');
+outBB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outBB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -22,7 +22,7 @@ document.body.appendChild(outBB);
 // -> if any method called without parentheses (like attribute), then it will show its defination
 
 function ExBA() {
-  let letAA = {
+  var varAA = {
     method: function () {
       var varAA = 11;
       var varAB = 22;
@@ -31,8 +31,8 @@ function ExBA() {
   };
 
   // procedure of calling method through (object)
-  letAA.method();
-  outBB.innerHTML += '<br >letAA.method : ' + letAA.method;
+  varAA.method();
+  outBB.innerHTML += '<br >varAA.method : ' + varAA.method;
   outBB.innerHTML += '<br >';
 }
 
@@ -45,7 +45,7 @@ function ExBA() {
 function ExBB() {
   // procedure of calling method (through object) and (inside object)
   // using method (arguments and return) statements
-  let letAB = {
+  var varAB = {
     methodOne: function () {
       this.proOne = arguments[0];
       this.proTwo = arguments[1];
@@ -61,7 +61,7 @@ function ExBB() {
     },
   };
 
-  letAB.methodOne(11, 22);
+  varAB.methodOne(11, 22);
   outBB.innerHTML += '<br >';
 }
 
@@ -75,7 +75,7 @@ function ExBB() {
 // follow the object reference for (methods and properties)
 
 function ExBC() {
-  let letAA = {
+  var varAA = {
     methodOne: function () {
       this.proOne = arguments[0];
       this.proTwo = arguments[1];
@@ -84,23 +84,23 @@ function ExBC() {
   };
 
   // add new methods to an existing object
-  letAA.methodTwo = function () {
+  varAA.methodTwo = function () {
     return this.proOne + this.proTwo;
   },
 
-  letAA.methodThree = function () {
+  varAA.methodThree = function () {
     outBB.innerHTML += '<br >proOne : ' + this.proOne;
     outBB.innerHTML += '<br >proTwo : ' + this.proTwo;
     outBB.innerHTML += '<br >proOne + proTwo : ' + this.methodTwo();
   },
 
-  letAA.methodOne(11, 22);
+  varAA.methodOne(11, 22);
   outBB.innerHTML += '<br >';
 
   // use (built-in) method and properties
-  let letAB = 'string';
-  outBB.innerHTML += '<br >letAB.toUpperCase : ' + letAB.toUpperCase();
-  outBB.innerHTML += '<br >letAB.length : ' + letAB.length;
+  var varAB = 'string';
+  outBB.innerHTML += '<br >varAB.toUpperCase : ' + varAB.toUpperCase();
+  outBB.innerHTML += '<br >varAB.length : ' + varAB.length;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

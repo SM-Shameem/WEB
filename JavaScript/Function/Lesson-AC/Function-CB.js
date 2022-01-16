@@ -3,7 +3,7 @@
 // 02. Scope
 
 ////////////////////////////////////////////////////////////////////////////////
-let outCB = document.createElement('div');
+var outCB = document.createElement('div');
 outCB.setAttribute('id', 'styleTwo');
 document.body.appendChild(outCB);
 
@@ -26,7 +26,7 @@ function ExBA() {
   // # global variables live until the page is discarded,
   // - like when you navigate to another page or close window
   // -> local variables have short lives
-  // -> they are created when the function is invoked and deleted when the function is finished
+  // -> they are created when the function is invoked and devared when the function is finished
 
   // GLOBAL VARIABLE
   // # a function can access all the variables defined (inside and outside) the function
@@ -37,27 +37,27 @@ function ExBA() {
   // - it is hidden from other function and script code
   // -> global and local variables with the same name are different variables
   // - medifing one, does not modifing other
-  // NB: variable created without declaration keyword (var, let, and const) are always (global)
+  // NB: variable created without declaration keyword (var, var, and const) are always (global)
   // - even if they are created inside a (function)
 
-  let letGlobal = 10;
-  let letAA = 20;
+  var varGlobal = 10;
+  var varAA = 20;
   global = 30;
 
   function funcAA() {
-    let letLocal = 11;
-    let letAA = 22;
+    var varLocal = 11;
+    var varAA = 22;
     local = 33;
 
-    outCB.innerHTML += '<br >funcAA-letGlobal : ' + letGlobal;
-    outCB.innerHTML += '<br >funcAA-letLocal  : ' + letLocal;
-    outCB.innerHTML += '<br >funcAA-letAA     : ' + letAA;
+    outCB.innerHTML += '<br >funcAA-varGlobal : ' + varGlobal;
+    outCB.innerHTML += '<br >funcAA-varLocal  : ' + varLocal;
+    outCB.innerHTML += '<br >funcAA-varAA     : ' + varAA;
     outCB.innerHTML += '<br >funcAA-local     : ' + local;
     outCB.innerHTML += '<br >funcAA-global    : ' + global;
   }
 
   funcAA();
-  outCB.innerHTML += '<br >letAA  : ' + letAA;
+  outCB.innerHTML += '<br >varAA  : ' + varAA;
   outCB.innerHTML += '<br >local  : ' + local;
   outCB.innerHTML += '<br >global : ' + global;
   outCB.innerHTML += '<br >';
@@ -71,7 +71,7 @@ function ExBA() {
   // - without calling (add) function
   // -> the (counter) should be (local) to the (add) function, to prevent other code from change it
   // -> it did not work because we display the (global) counter instead of the (local) counter
-  // -> can remove (global) counter and access (local) counter by letting the function return it
+  // -> can remove (global) counter and access (local) counter by varting the function return it
   // -> it did not work because we reset the (local) counter every time we call the function
   // NB: javascript (inner function) can solve this
 
@@ -85,7 +85,7 @@ function ExBA() {
   // NB: so we need a (closure)
 
   // (counterOne) will work but is (global) and any code of it (script) can change its value
-  let counterOne = 0;
+  var counterOne = 0;
 
   function addOne() {
     counterOne += 1;
@@ -99,10 +99,10 @@ function ExBA() {
   // ----------------------------------------------------------
   // though (counterTwo) is as (global) as (local) of (addTwo) function
   // - it will not increase the value of (counterTwo)
-  let counterTwo = 0;
+  var counterTwo = 0;
 
   function addTwo() {
-    let counterTwo = 0;
+    var counterTwo = 0;
     counterTwo++;
     return counterTwo;
   }
@@ -116,7 +116,7 @@ function ExBA() {
   // ----------------------------------------------------------
   // (addTwo and addThree) are same
   function addThree() {
-    let counter = 0;
+    var counter = 0;
     counter++;
     return counter;
   }
@@ -130,7 +130,7 @@ function ExBA() {
   // - but out of the parent, it can give the last record
   // - and cannot increase the value, if call the parent agin the (counter) will start from 0
   function addFour() {
-    let counter = 0;
+    var counter = 0;
     function plus() {
       counter++;
     }
@@ -158,7 +158,7 @@ function ExBA() {
   // - even after the (parent) function has (closed)
 
   const add = (function () {
-    let counter = 0;
+    var counter = 0;
     return function () {
       counter++;
       return counter;
@@ -178,7 +178,7 @@ function ExBA() {
   // - we can use (self-invoking) procedure to a closure
 
   const ConstBA = function () {
-    let counter = 0;
+    var counter = 0;
     return {
       method: function () {
         counter++;
@@ -187,27 +187,27 @@ function ExBA() {
     };
   };
 
-  let letBA = new ConstBA();
-  outCB.innerHTML += '<br >letBA : ' + letBA.method().value;
-  outCB.innerHTML += '<br >letBA : ' + letBA.method().value;
-  outCB.innerHTML += '<br >letBA : ' + letBA.method().value;
+  var varBA = new ConstBA();
+  outCB.innerHTML += '<br >varBA : ' + varBA.method().value;
+  outCB.innerHTML += '<br >varBA : ' + varBA.method().value;
+  outCB.innerHTML += '<br >varBA : ' + varBA.method().value;
   outCB.innerHTML += '<br >';
 
   const ConstBB = function () {
-    let counter = 0;
+    var counter = 0;
     return function () {
       counter++;
       return counter;
     };
   };
 
-  let letBB = new ConstBB();
-  outCB.innerHTML += '<br >letBB : ' + letBB();
-  outCB.innerHTML += '<br >letBB : ' + letBB();
+  var varBB = new ConstBB();
+  outCB.innerHTML += '<br >varBB : ' + varBB();
+  outCB.innerHTML += '<br >varBB : ' + varBB();
   outCB.innerHTML += '<br >';
 
   const ConstBC = (function () {
-    let counter = 0;
+    var counter = 0;
     return function () {
       counter++;
       return counter;
@@ -325,8 +325,8 @@ function ExBA() {
 
   // ---------------------------------------------------------------------------
   // closure - emulating private method and closures (object-creating)
-  let counterExp = function () {
-    let privateCounter = 0;
+  var counterExp = function () {
+    var privateCounter = 0;
 
     function adder(arg) {
       privateCounter += arg;
@@ -347,8 +347,8 @@ function ExBA() {
     };
   };
 
-  let counterExp1 = counterExp();
-  let counterExp2 = counterExp();
+  var counterExp1 = counterExp();
+  var counterExp2 = counterExp();
 
   outCB.innerHTML += '<br >counterExp1.value : ' + counterExp1.value();
   counterExp1.increment();
@@ -361,7 +361,7 @@ function ExBA() {
 
   // ---------------------------------------------------------------------------
   // closure - scope chain (procedure one)
-  let varOne = 10;
+  var varOne = 10;
 
   function sum(a) {
     return function (b) {
@@ -374,8 +374,8 @@ function ExBA() {
   }
 
   outCB.innerHTML += '<br >sum(1)(2)(3)(4) : ' + sum(1)(2)(3)(4);
-  let letSum = sum(10);
-  outCB.innerHTML += '<br >sum(10).letSum(20)(30)(40) : ' + letSum(20)(30)(40);
+  var varSum = sum(10);
+  outCB.innerHTML += '<br >sum(10).varSum(20)(30)(40) : ' + varSum(20)(30)(40);
 
   function addFunc(a) {
     return function (b) {
@@ -384,8 +384,8 @@ function ExBA() {
   }
 
   outCB.innerHTML += '<br >addFunc(10)(20) : ' + addFunc(10)(20);
-  let letAdd = addFunc(10);
-  outCB.innerHTML += '<br >addFunc(10)-letAdd(20) : ' + letAdd(20);
+  var varAdd = addFunc(10);
+  outCB.innerHTML += '<br >addFunc(10)-varAdd(20) : ' + varAdd(20);
   outCB.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -400,12 +400,12 @@ function ExBA() {
     };
   }
 
-  let letOne = funcOne(10);
-  let letTwo = letOne(20);
-  let letThree = letTwo(30);
-  let letFour = letThree(40);
+  var varOne = funcOne(10);
+  var varTwo = varOne(20);
+  var varThree = varTwo(30);
+  var varFour = varThree(40);
 
-  outCB.innerHTML += '<br >letFour : ' + letFour;
+  outCB.innerHTML += '<br >varFour : ' + varFour;
   outCB.innerHTML += '<br >';
 }
 
@@ -436,26 +436,26 @@ function ExBB() {
   // - from different parts of the code
   // LIFE-TIME OF VARIABLE -------------------
   // -> the life-time of a variable starts when it is declared
-  // -> function (local) variables are deleted when the function is completed
-  // -> in web browsers, global variables are deleted when close the browser window or tab
+  // -> function (local) variables are devared when the function is compvared
+  // -> in web browsers, global variables are devared when close the browser window or tab
 
-  let funcGlobalAA = 11;  // global scope
+  var funcGlobalAA = 11;  // global scope
   
   function funcAA() {
-    let localAA = 22;     // local scope
+    var localAA = 22;     // local scope
     var localAB = 20;
     outCB.innerHTML += '<br >localScope - localAA : ' + localAA;
     outCB.innerHTML += '<br >localScope - localAB : ' + localAB;
   }
   
   { 
-    let blockAA = 33;     // block scope
+    var blockAA = 33;     // block scope
     var blockAB = 30;
     outCB.innerHTML += '<br >blockScope - blockAA : ' + blockAA;
     outCB.innerHTML += '<br >blockScope - blockAB : ' + blockAB;
   }   
   
-  for (let blockAC = 0; blockAC < 5; blockAC++) {
+  for (var blockAC = 0; blockAC < 5; blockAC++) {
     blockAC;              // block scope
     outCB.innerHTML += '<br >loopScope - bolckAC : ' + blockAC;
   }
@@ -473,11 +473,11 @@ function ExBB() {
 
   // ---------------------------------------------------------
   function funcAB(arg) {
-    let local = arg + 10;
+    var local = arg + 10;
     return local;
   }
 
-  let letAA = {
+  var varAA = {
     proOne: 11,
     proTwo: 22,
     method: function () {
@@ -486,14 +486,14 @@ function ExBB() {
   };
 
   outCB.innerHTML += '<br >functionVariable - funcAB     : ' + funcAB(20);
-  outCB.innerHTML += '<br >objectVariable - letAA.proOne : ' + letAA.proOne;
-  outCB.innerHTML += '<br >objectVariable - letAA.proTwo : ' + letAA.proTwo; 
-  outCB.innerHTML += '<br >objectVariable - letAA.method : ' + letAA.method();
+  outCB.innerHTML += '<br >objectVariable - varAA.proOne : ' + varAA.proOne;
+  outCB.innerHTML += '<br >objectVariable - varAA.proTwo : ' + varAA.proTwo; 
+  outCB.innerHTML += '<br >objectVariable - varAA.method : ' + varAA.method();
   outCB.innerHTML += '<br >';
 
   // BLOCK SCOPE ----------------
   // -> before (ES6) 2015, javascript had only (Global Scope) and (Function Scope)
-  // -> ES6 introduced two important new javascript keywords (let and const)
+  // -> ES6 introduced two important new javascript keywords (var and const)
   // -> these two keywords provide (Block Scope) in javascript 
   // -> variables declared inside a {} block cannot be accessed from outside the block
   // -> variables declared with the (var) keyword can NOT have block scope 
@@ -505,70 +505,70 @@ function ExBB() {
   // -> NB: they can only be accessed from within the function
   // -> since local variables are only recognized inside their function, 
   // -> variables with the same name can be used in different functions 
-  // -> local variables are created when a function starts, and declared when the function is completed
+  // -> local variables are created when a function starts, and declared when the function is compvared
 
   // -> javascript has function scope : each function creates a new scope 
   // -> variables defined inside a function are not accessible (visible) from outside the function 
-  // -> variables declared with (var, let, and const) are quite similar when declared inside a function 
+  // -> variables declared with (var, var, and const) are quite similar when declared inside a function 
   // -> they all have (function scope)
 
   // -> function arguments (parameters) work as (local variables) inside functions 
 
   { 
-    let letBA = 11; 
+    var varBA = 11; 
     const constBA = 22;
     var varBA = 33;
 
-    outCB.innerHTML += '<br >block-scope (letBA)   : ' + letBA;
+    outCB.innerHTML += '<br >block-scope (varBA)   : ' + varBA;
     outCB.innerHTML += '<br >block-scope (constBA) : ' + constBA;
     outCB.innerHTML += '<br >block-scope (varBA)   : ' + varBA;
   }
 
-  // outCB.innerHTML += '<br >letBA   : ' + letBA;
+  // outCB.innerHTML += '<br >varBA   : ' + varBA;
   // outCB.innerHTML += '<br >constBA : ' + constBA;
   outCB.innerHTML += '<br >varBA   : ' + varBA;
   outCB.innerHTML += '<br >';
 
-  for (let i = 0; i < 1; i++) {
-    let letBB = 10;
+  for (var i = 0; i < 1; i++) {
+    var varBB = 10;
     const constBB = 20;
     var varBB = 30;
 
-    outCB.innerHTML += '<br >loop-scope (letBB)   : ' + letBB;
+    outCB.innerHTML += '<br >loop-scope (varBB)   : ' + varBB;
     outCB.innerHTML += '<br >loop-scope (constBB) : ' + constBB;
     outCB.innerHTML += '<br >loop-scope (varBB)   : ' + varBB;
   }
 
-  // outCB.innerHTML += '<br >letBB   : ' + letBB;
+  // outCB.innerHTML += '<br >varBB   : ' + varBB;
   // outCB.innerHTML += '<br >constBB : ' + constBB;
   outCB.innerHTML += '<br >varBB   : ' + varBB;
   outCB.innerHTML += '<br >';
 
   if (1 == 1) {
-    let letBC = 100;
+    var varBC = 100;
     const constBC = 200;
     var varBC = 300;
 
-    outCB.innerHTML += '<br >condition-scope (letBC)   : ' + letBC;
+    outCB.innerHTML += '<br >condition-scope (varBC)   : ' + varBC;
     outCB.innerHTML += '<br >condition-scope (constBC) : ' + constBC;
     outCB.innerHTML += '<br >condition-scope (varBC)   : ' + varBC;
   }
 
-  // outCB.innerHTML += '<br >letBC  : ' + letBC;
+  // outCB.innerHTML += '<br >varBC  : ' + varBC;
   // outCB.innerHTML += '<br >contBC : ' + constBC;
   outCB.innerHTML += '<br >varBC  : ' + varBC;
   outCB.innerHTML += '<br >';
 
   // ----------------------------------------------------------------
   function funcBA(arg) {
-    let letLocal = 10;
+    var varLocal = 10;
     const constLocal = 20;
     var varLocal = 30;
     local = 40;
     this.proOne = 50;
     
     outCB.innerHTML += '<br >localScope-arg        : ' + arg;
-    outCB.innerHTML += '<br >localScope-letLocal   : ' + letLocal;
+    outCB.innerHTML += '<br >localScope-varLocal   : ' + varLocal;
     outCB.innerHTML += '<br >localScope-constLocal : ' + constLocal;
     outCB.innerHTML += '<br >localScope-varLocal   : ' + varLocal;
     outCB.innerHTML += '<br >localScope-local      : ' + local;
@@ -577,7 +577,7 @@ function ExBB() {
 
   funcBA(60);
   // outCB.innerHTML += '<br >arg        : ' + arg;
-  // outCB.innerHTML += '<br >letLocal   : ' + letLocal;
+  // outCB.innerHTML += '<br >varLocal   : ' + varLocal;
   // outCB.innerHTML += '<br >constLocal : ' + constLocal;
   // outCB.innerHTML += '<br >varLocal   : ' + varLocal;
   outCB.innerHTML += '<br >local      : ' + local;
@@ -591,7 +591,7 @@ function ExBB() {
 
   // -> variables declared GLOBALLY (outside any function) have (global scope)
   // -> GLOBAL variables can be accessed from anywhere in a javascript program 
-  // -> variables declared with (var, let and const) are quite similar when declared outside a block
+  // -> variables declared with (var, var and const) are quite similar when declared outside a block
 
   // -> if you assign a value to a variable that has not been declared, 
   // -- it will automatically become a GLOBAL variable 
@@ -600,7 +600,7 @@ function ExBB() {
   // -> with javascript, the (global scope) is the javascript environment 
   // -> in HTML, the (global scope) is the window-object 
   // -> global variables defined with the (var) keyword belong to the window-object
-  // -> global variables defined with the (let) keyword do not belong to the window-object
+  // -> global variables defined with the (var) keyword do not belong to the window-object
 
   // -> NB: do not create (global) variables unless you intend to 
   // -> NB: your (global) variables (or function) can overwrite window variables (of functions)
@@ -608,21 +608,21 @@ function ExBB() {
 
   function funcCA() {
     outCB.innerHTML += '<br >funcCA-globalVar   : ' + globalVar;
-    outCB.innerHTML += '<br >funcCA-globalLet   : ' + globalLet;
+    outCB.innerHTML += '<br >funcCA-globalVar   : ' + globalVar;
     outCB.innerHTML += '<br >funcCA-globalConst : ' + globalConst;
     outCB.innerHTML += '<br >funcCA-global      : ' + global;
     // outCB.innerHTML += '<br >funcCA-localGlobal : ' + localGlobal;
   }
 
   var globalVar = 111;
-  let globalLet = 222;
+  var globalVar = 222;
   const globalConst = 333;
   global = 444;
 
   function funcCB() {
     localGlobal = 555;
     outCB.innerHTML += '<br >funcCB-globalVar   : ' + globalVar;
-    outCB.innerHTML += '<br >funcCB-globalLet   : ' + globalLet;
+    outCB.innerHTML += '<br >funcCB-globalVar   : ' + globalVar;
     outCB.innerHTML += '<br >funcCB-globalConst : ' + globalConst;
     outCB.innerHTML += '<br >funcCB-global      : ' + global;
     outCB.innerHTML += '<br >funcCB-localGlobal : ' + localGlobal;
@@ -631,17 +631,17 @@ function ExBB() {
   funcCA();
   funcCB();
   outCB.innerHTML += '<br >globalVar   : ' + globalVar;
-  outCB.innerHTML += '<br >globalLet   : ' + globalLet;
+  outCB.innerHTML += '<br >globalVar   : ' + globalVar;
   outCB.innerHTML += '<br >globalConst : ' + globalConst;
   outCB.innerHTML += '<br >global      : ' + global;
   outCB.innerHTML += '<br >localGlobal : ' + localGlobal;
   outCB.innerHTML += '<br >';
 
   var varGlobal = this;
-  let letGlobal = this;
+  var varGlobal = this;
   const constGlobal = this;
   outCB.innerHTML += '<br >varGlobal   : ' + varGlobal;
-  outCB.innerHTML += '<br >letGlobal   : ' + letGlobal;
+  outCB.innerHTML += '<br >varGlobal   : ' + varGlobal;
   outCB.innerHTML += '<br >constGlobal : ' + constGlobal;
   outCB.innerHTML += '<br >globalScope : ' + this;
   outCB.innerHTML += '<br >';

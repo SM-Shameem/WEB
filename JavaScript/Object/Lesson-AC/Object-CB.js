@@ -6,7 +6,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outCB = document.createElement('div');
-outCB.setAttribute('id', 'styleTwo');
+outCB.setAttribute('id', 'styvarwo');
 document.body.appendChild(outCB);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -117,16 +117,16 @@ function ExBB() {
     this.proTwo = arguments[1];
   };
 
-  let letAA = new VarAA(11, 22, 33);   // third argument is unusable
-  let letAB = new VarAA(10, 20, 30);   // third argument is unusable
+  var varAA = new VarAA(11, 22, 33);   // third argument is unusable
+  var varAB = new VarAA(10, 20, 30);   // third argument is unusable
 
   // adding new method to declared object
-  letAA.returnMethod = function () {
+  varAA.returnMethod = function () {
     return this.proOne + this.proTwo;
   };
 
   // adding new method to declared object
-  letAB.returnMethod = function () {
+  varAB.returnMethod = function () {
     return this.proOne - this.proTwo;
   };
 
@@ -134,8 +134,8 @@ function ExBB() {
   VarAA.prototype.proThree = arguments[2];  // arguments[] property only usable inside function
 
   // accessing new property of constructor through objects
-  letAA.proThree = 33;
-  letAB.proThree = 30;
+  varAA.proThree = 33;
+  varAB.proThree = 30;
 
   // adding new method to existing constructor using (prototype)
   VarAA.prototype.method = function () {
@@ -145,12 +145,12 @@ function ExBB() {
   };
 
   // accessing new method through objects
-  letAA.method();
-  letAB.method();
+  varAA.method();
+  varAB.method();
 
   // accessing new methods of individual object through them
-  outCB.innerHTML += '<br >proOne + proTwo : ' + letAA.returnMethod();
-  outCB.innerHTML += '<br >proOne - proTwo : ' + letAB.returnMethod();
+  outCB.innerHTML += '<br >proOne + proTwo : ' + varAA.returnMethod();
+  outCB.innerHTML += '<br >proOne - proTwo : ' + varAB.returnMethod();
   outCB.innerHTML += '<br >';
 }
 

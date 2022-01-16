@@ -38,8 +38,8 @@ function ExAA() {
     }
   }
 
-  let studentOne = new Student('Sumon', 23);
-  let studentTwo = new Student('Palash', 22);
+  var studentOne = new Student('Sumon', 23);
+  var studentTwo = new Student('Palash', 22);
   outDA.innerHTML += '<br >';
 }
 
@@ -76,8 +76,8 @@ function ExAB() {
     }
   }
 
-  let letAA = new ClassAA(20);
-  letAA.printValue();
+  var varAA = new ClassAA(20);
+  varAA.printValue();
   outDA.innerHTML += '<br >';
 
   // class with - undefined constructor
@@ -97,9 +97,9 @@ function ExAB() {
     }
   }
 
-  let letAB = new ClassAB();
-  letAB.getValue(22, 33);
-  letAB.printValue();
+  var varAB = new ClassAB();
+  varAB.getValue(22, 33);
+  varAB.printValue();
   outDA.innerHTML += '<br >';
 
   // class with - class-properties must be method
@@ -129,7 +129,7 @@ function ExAB() {
     }
   }
 
-  let letAC = new ClassAC(111, 222);
+  var varAC = new ClassAC(111, 222);
   outDA.innerHTML += '<br >';
 
   // class with - arguments and returns
@@ -159,8 +159,8 @@ function ExAB() {
     }
   }
 
-  let letAD = new ClassAD(101, 202, 303);
-  letAD.printValue();
+  var varAD = new ClassAD(101, 202, 303);
+  varAD.printValue();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

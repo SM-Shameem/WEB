@@ -31,7 +31,7 @@ DAY 02 (Object)
 # object properties
 1. object properties and accessing properties
 2. object properties and (for..in) loop
-3. adding properties and deleting properties
+3. adding properties and devaring properties
 4. nested object and nested array and object
 
 # object methods
@@ -66,7 +66,7 @@ DAY 03 (Object)
 # object iterable
 21. iterators | iterating over a (string | array)
 22. home made iterable (object as argument | object as return)
--> 23. javascript iterable (concept incomplete)
+-> 23. javascript iterable (concept incompvare)
 
 --------------------------------------------------------------------------------
 DAY 04 (Object)
@@ -81,8 +81,8 @@ DAY 04 (Object)
 
 # static, getters/setters, and hosting
 28. static keyword (methods and properties)
--> 29. static-property and global-property with inheritance (syntax incomplete)
--> 30. getters and setters in class with inheritance and static/global (manipulate incomplete)
+-> 29. static-property and global-property with inheritance (syntax incompvare)
+-> 30. getters and setters in class with inheritance and static/global (manipulate incompvare)
 31. class hosting
 
 --------------------------------------------------------------------------------
@@ -91,11 +91,11 @@ DAY 05 (Object)
 # object Sets()
 32. javascript sets | how to create a set | sets are objects
 33. set methods & (add | forEach | values | key | entries)
-34. size | has | delete | clear
+34. size | has | devare | clear
 
 # object Maps()
 35. javascript Maps | how to create a map | maps are objects
-36. map methods & (set | get | clear | has | size | delete)
+36. map methods & (set | get | clear | has | size | devare)
 37. forEach | keys | values | entries
 38. javascript object vs maps | object as keys
 
@@ -104,7 +104,7 @@ DAY 05 (Object)
     Object | Object.defineProperty | Object.defineProperties
 40. ES5 object methods (accessing objects)
     Object.getOwnPropertyNames | Object.keys
-    -> Object.getOwnPropertyDescriptor | Object.getPrototypeOf (incomplete)
+    -> Object.getOwnPropertyDescriptor | Object.getPrototypeOf (incompvare)
 41. ES5 object methods (protecting objects)
     Object.preventExtensions | Object.seal | Object.freeze
     Object.isExtensible | Object.isSealed | Object.isFrozen
@@ -227,7 +227,7 @@ Day 00 (references - MDN)
 46. functions
 
 ================================================================================
-Day 00 (for complete biginners - MDN)
+Day 00 (for compvare biginners - MDN)
 ================================================================================
 01. javascript first steps
     -> what is javascript

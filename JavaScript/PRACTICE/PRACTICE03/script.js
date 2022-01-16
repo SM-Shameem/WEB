@@ -27,9 +27,9 @@ object.style.color = 'white';
 object.style.paddingTop = '45px';
 object.style.position = 'absolute';
 
-let id = null;
-let x = 0, y = 0;
-let xLock = 0, yLock = 0;
+var id = null;
+var x = 0, y = 0;
+var xLock = 0, yLock = 0;
 // clearInterval(id);
 id = setInterval(frame, 5);
 

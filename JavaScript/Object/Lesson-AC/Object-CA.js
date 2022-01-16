@@ -20,7 +20,7 @@ document.body.appendChild(outCA);
 // we can create more than one object of the the same type by creating object-constructor
 // -> the way to create an (object-type), is to use an (object-constructor-function)
 // -> objects of same type are created by calling the constructor function with (new) keyword
-// NB : it is good practice to name constructor functions with an (upper-case first) letter
+// NB : it is good practice to name constructor functions with an (upper-case first) varter
 
 // in javascript, the thing called (this) is the object that owns the code
 // the value of (this), when used in an object, is the object itself
@@ -51,7 +51,7 @@ function ExAA() {
 
   // object constructor defination
   var VarAB = function () {
-    let localOne = 1;
+    var localOne = 1;
     globalOne = 2;
     this.proOne = 3;
     this.proTwo = 4;
@@ -241,45 +241,45 @@ function ExAC() {
 
 function ExAD() {
   var varAA = new String('string');   // string object (do not use string constructor)
-  let letAA = 'string';               // string literal is more faster than string object
+  var varAA = 'string';               // string literal is more faster than string object
 
   var varAB = new Number(11);         // number object (do not use number constructor)
-  let letAB = 11;                     // number literal is more faster than number object
+  var varAB = 11;                     // number literal is more faster than number object
 
   var varAC = new Boolean(true);      // boolean object (do not use boolean constructor)
-  let letAC = false;                  // boolean literal is more faster than boolean object
+  var varAC = false;                  // boolean literal is more faster than boolean object
 
   var varAD = new RegExp();
 
   var varAE = new Date();             // date object (date constructor)
-  let letAE = Date();                 // date literal is more faster than date object
+  var varAE = Date();                 // date literal is more faster than date object
 
   var varAF = new Function();         // function object (function constructor)
-  let letAF = function () {};         // function expression is more faster than function object
+  var varAF = function () {};         // function expression is more faster than function object
 
   var varAG = new Array([]);          // array object (array constructor)
-  let letAG = [];                     // array literal is more faster than array object
+  var varAG = [];                     // array literal is more faster than array object
 
   var varAH = new Object({});         // object object (object constructor)
-  let letAH = { };                    // object literal is more faster than object object
+  var varAH = { };                    // object literal is more faster than object object
 
   outCA.innerHTML += '<br >string-object (varAA)  : ' + varAA;
-  outCA.innerHTML += '<br >string-literal (letAA) : ' + letAA;
+  outCA.innerHTML += '<br >string-literal (varAA) : ' + varAA;
   outCA.innerHTML += '<br >number-object (varAB)  : ' + varAB;
-  outCA.innerHTML += '<br >number-literal (letAB) : ' + letAB;
+  outCA.innerHTML += '<br >number-literal (varAB) : ' + varAB;
   outCA.innerHTML += '<br >bool-object (varAC)    : ' + varAC;
-  outCA.innerHTML += '<br >bool-literal (letAC)   : ' + letAC;
+  outCA.innerHTML += '<br >bool-literal (varAC)   : ' + varAC;
   outCA.innerHTML += '<br >';
 
   outCA.innerHTML += '<br >regExp-object (varAD)    : ' + varAD;
   outCA.innerHTML += '<br >date-object (varAE)      : ' + varAE;
-  outCA.innerHTML += '<br >date-literal (letAE)     : ' + letAE;
+  outCA.innerHTML += '<br >date-literal (varAE)     : ' + varAE;
   outCA.innerHTML += '<br >function-object (varAF)  : ' + varAF;
-  outCA.innerHTML += '<br >function-literal (letAF) : ' + letAF;
+  outCA.innerHTML += '<br >function-literal (varAF) : ' + varAF;
   outCA.innerHTML += '<br >array-object (varAG)     : ' + varAG;
-  outCA.innerHTML += '<br >array-literal (letAG)    : ' + letAG;
+  outCA.innerHTML += '<br >array-literal (varAG)    : ' + varAG;
   outCA.innerHTML += '<br >object-object (varAH)    : ' + varAH;
-  outCA.innerHTML += '<br >object-literal (letAH)   : ' + letAH;
+  outCA.innerHTML += '<br >object-literal (varAH)   : ' + varAH;
   outCA.innerHTML += '<br >';
 }
 

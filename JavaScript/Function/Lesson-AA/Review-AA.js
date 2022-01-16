@@ -5,7 +5,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 var outAD = document.createElement('div');
-outAD.setAttribute('id', 'styleTwo');
+outAD.setAttribute('id', 'styvarwo');
 document.body.appendChild(outAD);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -14,13 +14,13 @@ document.body.appendChild(outAD);
 // function
 function ExDA() {
   function funcOne() {
-    let local = arguments[0] * 2;
+    var local = arguments[0] * 2;
     outAD.innerHTML += '<br >function statement - ';
     return local;
   }
 
   // single object
-  let letAA = {
+  var varAA = {
     proOne: null,
     proTwo: null,
     method: function () {
@@ -31,9 +31,9 @@ function ExDA() {
   };
 
   // constructor - (proOne) is a property using (this)
-  // constructor name should start with the capital letter
+  // constructor name should start with the capital varter
   function FuncTwo() {
-    let local = 2;
+    var local = 2;
     this.proOne = arguments[0] * local;
     outAD.innerHTML += '<br >constructor statement - ';
     return this.proOne;
@@ -58,7 +58,7 @@ function ExDA() {
   outAD.innerHTML += '<br >proTwo : ' + this.proTwo;
   outAD.innerHTML += '<br >method : ' + this.method(10, 20);
 
-  let letAB = new FuncTwo(30);
+  var varAB = new FuncTwo(30);
   outAD.innerHTML += '<br >';
 }
 

@@ -23,7 +23,7 @@ document.body.appendChild(outAA);
 // # javascript object
 // javascript variable are containers for data values
 // javascript objects are variable too, but object can contain many values
-// to declare an (object), first (var | let | const) keyword, then (objectName),
+// to declare an (object), first (var | var | const) keyword, then (objectName),
 // -> then (=) operator, then (object-defination) start with (second-bracket)
 // in object defination, values are written as (name:value) pair
 // -> (name) and (value) are seperated by a (colon)

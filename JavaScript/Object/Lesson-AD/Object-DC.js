@@ -28,7 +28,7 @@ function ExCA() {
     }
   }
 
-  let carOne = new Car('Toyota');
+  var carOne = new Car('Toyota');
   outDC.innerHTML += 'carOne : ' + Car.print();
   outDC.innerHTML += '<br >carOne : ' + Car.printInfo(carOne);
   outDC.innerHTML += '<br >';
@@ -57,10 +57,10 @@ function ExCA() {
     }
   }
 
-  let letAA = new ClassAA(11);
-  letAA.callStatic();
-  ClassAA.printValue(letAA);
-  outDC.innerHTML += '<br >letAA : ' + ClassAA.printValue(letAA);
+  var varAA = new ClassAA(11);
+  varAA.callStatic();
+  ClassAA.printValue(varAA);
+  outDC.innerHTML += '<br >varAA : ' + ClassAA.printValue(varAA);
   outDC.innerHTML += '<br >';
 }
 
@@ -68,7 +68,7 @@ function ExCA() {
 // # static-property, global-property, constructor, method, static-method and inheritance
 // class properties must be method
 // we can declare class-global (property) as (simple or static)
-// -> do not use (var | let | const | this) keywords to declare class-global (properties)
+// -> do not use (var | var | const | this) keywords to declare class-global (properties)
 // -> it may show syntax error but it will works, basically class expect only (methods)
 
 // static-property can call through its (className) instead (objectName)
@@ -119,8 +119,8 @@ function ExCB() {
     }
   }
 
-  let letAA = new DrivedAA();
-  letAA.printBase('letAA');
+  var varAA = new DrivedAA();
+  varAA.printBase('varAA');
   outDC.innerHTML += '<br >';
 
   // global-property and static-property with inherited-class (wih constructor)
@@ -141,12 +141,12 @@ function ExCB() {
     }
   }
 
-  let letAB = new DrivedAB('letAB');
+  var varAB = new DrivedAB('varAB');
   outDC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // different types of property | different types of scope | constructor | chain-inheritance
-  // .......................... incomplet
+  // .......................... incompvar
   class BaseAB {
     globalPro = null;
     static staticPro = null;
@@ -187,14 +187,14 @@ function ExCB() {
     }
   }
 
-  let letBA = new DrivedBA(11);
-  letBA.globalPro = 22;
+  var varBA = new DrivedBA(11);
+  varBA.globalPro = 22;
   DrivedBA.staticPro = 33;
-  letBA.getProperty(44);
-  DrivedBA.sgetProperty(letBA, 55);
+  varBA.getProperty(44);
+  DrivedBA.sgetProperty(varBA, 55);
 
-  letBA.printValue('NS-letBA');
-  DrivedBA.sprintValue('ST-letBA', letBA);
+  varBA.printValue('NS-varBA');
+  DrivedBA.sprintValue('ST-varBA', varBA);
   outDC.innerHTML += '<br >';
 
   // with constructor
@@ -220,14 +220,14 @@ function ExCB() {
     }
   }
 
-  let letBB = new DrivedBB(10);
-  letBB.globalPro = 20;
+  var varBB = new DrivedBB(10);
+  varBB.globalPro = 20;
   DrivedBB.staticPro = 30;
-  letBB.getProperty(40);
-  DrivedBB.sgetProperty(letBA, 50);
+  varBB.getProperty(40);
+  DrivedBB.sgetProperty(varBA, 50);
 
-  letBB.printValue('NS-letBB');
-  DrivedBB.sprintValue('ST-letBB', letBB);
+  varBB.printValue('NS-varBB');
+  DrivedBB.sprintValue('ST-varBB', varBB);
   outDC.innerHTML += '<br >';
 
   // assigning value through constructor
@@ -255,8 +255,8 @@ function ExCB() {
     }
   }
 
-  let letBC = new DrivedBC(111);
-  letBC.printValue('NS-DrivedBC');
+  var varBC = new DrivedBC(111);
+  varBC.printValue('NS-DrivedBC');
   DrivedBC.sprintValue('ST-DrivedBC', DrivedBC);
   outDC.innerHTML += '<br >';
 
@@ -278,9 +278,9 @@ function ExCB() {
     }
   }
 
-  let letBD = new DrivedBD(11);
-  letBD.printValue('NS-letBD');
-  DrivedBD.sprintValue('ST-letBD', letBD);
+  var varBD = new DrivedBD(11);
+  varBD.printValue('NS-varBD');
+  DrivedBD.sprintValue('ST-varBD', varBD);
   outDC.innerHTML += '<br >';
 }
 
@@ -312,7 +312,7 @@ function ExCC() {
     }
   }
 
-  let carOne = new Car('Toyota');
+  var carOne = new Car('Toyota');
   outDC.innerHTML += '<br >car name : ' + carOne.getSet;
 
   carOne.getSet = 'Honda';
@@ -332,7 +332,7 @@ function ExCC() {
     }
   }
 
-  let carInfo = new Model('Toyota', 'lexus');
+  var carInfo = new Model('Toyota', 'lexus');
   carInfo.printValue();
   outDC.innerHTML += '<br >';
 
@@ -358,9 +358,9 @@ function ExCC() {
     }
   }
 
-  let letAA = new BaseAA();
-  letAA.getSet = { proValue: 11, staticValue: 22 };
-  outDC.innerHTML += '<br >propertyOne + staticOne : ' + letAA.getSet;
+  var varAA = new BaseAA();
+  varAA.getSet = { proValue: 11, staticValue: 22 };
+  outDC.innerHTML += '<br >propertyOne + staticOne : ' + varAA.getSet;
   outDC.innerHTML += '<br >';
 
   // without constructor
@@ -379,9 +379,9 @@ function ExCC() {
     }
   }
 
-  let letAB = new DrivedAA();
-  letAB.callBase('NS-letAB');
-  DrivedAA.scallBase('ST-letAB', letAB);
+  var varAB = new DrivedAA();
+  varAB.callBase('NS-varAB');
+  DrivedAA.scallBase('ST-varAB', varAB);
   outDC.innerHTML += '<br >';
 
   // with constructor
@@ -404,9 +404,9 @@ function ExCC() {
     }
   }
 
-  let letAC = new DrivedAB();
-  letAC.printBase('NS-letAC');
-  DrivedAB.sprintBase('ST-letAC', letAC);
+  var varAC = new DrivedAB();
+  varAC.printBase('NS-varAC');
+  DrivedAB.sprintBase('ST-varAC', varAC);
   outDC.innerHTML += '<br >';
 }
 
@@ -421,7 +421,7 @@ function ExCC() {
 function ExCD() {
 
   // class-declaration is not hosted, so can not use any class before declaring it
-  // let carTwo = new Car('Honda');
+  // var carTwo = new Car('Honda');
   // carTwo.print('carTwo');
   // outDC.innerHTML += '<br >';
   class Car {
@@ -434,7 +434,7 @@ function ExCD() {
     }
   }
 
-  let carOne = new Car('Toyota');
+  var carOne = new Car('Toyota');
   carOne.print('carOne');
   outDC.innerHTML += '<br >';
 }

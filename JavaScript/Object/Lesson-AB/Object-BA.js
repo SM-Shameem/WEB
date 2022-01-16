@@ -3,7 +3,7 @@
 // 2. accessing javascript properties
 // 3. javascript (for..in) loop
 // 4. adding new properties
-// 5. deleting properties
+// 5. devaring properties
 // 6. nested object
 // 7. nested arrays and objects
 // 8. property attributes
@@ -19,7 +19,7 @@ document.body.appendChild(outBA);
 // properties are the most important part of any javascript object
 // properties are the values associated with a javascript object
 // a javascript object is a collection of unordered properties
-// properties can usually be changed, added and deleted, but some are read only
+// properties can usually be changed, added and devared, but some are read only
 
 // the syntax for accessing the property of an object is -
 // -> objectName.propertyName
@@ -68,24 +68,24 @@ function ExAB() {
   };
 
   // using (for..in) loop to access object (properties)
-  for (let x in constAA)
+  for (var x in constAA)
     outBA.innerHTML += '<br >constAA.' + x + ' : ' + constAA[x];
   outBA.innerHTML += '<br >';
 
   // using (for..in) loop to access array (indexes)
   var varAA = [1, 2, 3, 4, 5];
-  for (let x in varAA)
+  for (var x in varAA)
     outBA.innerHTML += '<br >varAA[' + x + '] : ' + varAA[x];
   outBA.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # adding properties | deleting properties
+// # adding properties | devaring properties
 // we can add an new property to an existing object by simply giving it a value
-// the (delete) keyword deletes a property for an object
-// -> after delete a property, it can not be used, till it is added back again
-// -> the (delete) operator is only worked on (object-property), not for (variable or function)
-// -> the (delete) should not used on (built-in) javascript (object-properties), it will crash
+// the (devare) keyword devares a property for an object
+// -> after devare a property, it can not be used, till it is added back again
+// -> the (devare) operator is only worked on (object-property), not for (variable or function)
+// -> the (devare) should not used on (built-in) javascript (object-properties), it will crash
 
 function ExAC() {
   const constAA = {
@@ -101,16 +101,16 @@ function ExAC() {
   outBA.innerHTML += '<br >constAA.proThree : ' + constAA.proThree;
   outBA.innerHTML += '<br >';
 
-  // delete existing and added-new properties
-  delete constAA.proTwo;
-  delete constAA['proThree'];
+  // devare existing and added-new properties
+  devare constAA.proTwo;
+  devare constAA['proThree'];
 
   outBA.innerHTML += '<br >constAA.proOne   : ' + constAA.proOne;
   outBA.innerHTML += '<br >constAA.proTwo   : ' + constAA.proTwo;
   outBA.innerHTML += '<br >constAA.proThree : ' + constAA.proThree;
   outBA.innerHTML += '<br >';
 
-  // re-added deleted properties
+  // re-added devared properties
   constAA.proTwo = 20;
   constAA.proThree = 30;
 
@@ -135,7 +135,7 @@ function ExAC() {
 
 function ExAD() {
 
-  let letAA = ['a', ['b', 'c']];
+  var varAA = ['a', ['b', 'c']];
   const constAA = { proOne: 11, proTwo: [1, 2] };
 
   // nested objec and array
@@ -146,10 +146,10 @@ function ExAD() {
     proTwo: { NestOne: 10, NestTwo: 20, },
     proThree: [101, 202],
     proFour: constAA,
-    proFive: letAA,
+    proFive: varAA,
   };
 
-  outBA.innerHTML += '<br >letAA : ' + letAA;
+  outBA.innerHTML += '<br >varAA : ' + varAA;
   outBA.innerHTML += '<br >constAA : ' + constAA;
   outBA.innerHTML += '<br >constAA.proOne : ' + constAA.proOne;
   outBA.innerHTML += '<br >constAA.proTwo : ' + constAA.proTwo;
@@ -179,7 +179,7 @@ function ExAD() {
     proOne: { nestOne: 11, nestTwo: 22 },
     proTwo: [1, 2],
     proThree: constAA,
-    proFour: letAA,
+    proFour: varAA,
   };
 
   outBA.innerHTML += '<br >constAC.proOne.nestOne : ' + constAC.proOne.nestOne;
@@ -204,8 +204,8 @@ function ExAD() {
     proTwo: [10, 20],
   };
 
-  for (let x in constAD) {
-    for (let y in constAD[x])
+  for (var x in constAD) {
+    for (var y in constAD[x])
       outBA.innerHTML += '<br >constAD.' + x + '.' + y + ' : ' + constAD[x][y];
   }
 
@@ -217,7 +217,7 @@ outBA.innerHTML += 'ex-aa : object properties | accessing properties';
 outBA.innerHTML += '<hr >'; ExAA();
 outBA.innerHTML += '<br >ex-ab : object properties and (for..in) loop';
 outBA.innerHTML += '<hr >'; ExAB();
-outBA.innerHTML += '<br >ex-ac : adding properties | deleting properties';
+outBA.innerHTML += '<br >ex-ac : adding properties | devaring properties';
 outBA.innerHTML += '<hr >'; ExAC();
 outBA.innerHTML += '<br >ex-ad : nested object | nested array and object';
 outBA.innerHTML += '<hr >'; ExAD();

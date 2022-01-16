@@ -25,7 +25,7 @@ function object() {
   elementTwo.style.fontWeight = 'bold';
   elementTwo.style.color = 'white';
 
-  let color = 0;
+  var color = 0;
   if (arguments[0] == color) {
     elementTwo.style.backgroundColor = '#336699';
     color = 1;
@@ -34,16 +34,16 @@ function object() {
   return elementTwo;
 }
 
-let lock = 0;
+var lock = 0;
 
 function animation() {
-  let id = null;
-  let xAxis = 0;
-  let yAxis = 0;
-  let xLock = 0;
-  let yLock = 0;
-  let colorOne = 0;
-  let colorTwo = 0;
+  var id = null;
+  var xAxis = 0;
+  var yAxis = 0;
+  var xLock = 0;
+  var yLock = 0;
+  var colorOne = 0;
+  var colorTwo = 0;
 
   if (arguments[0] == lock) {
     id = setInterval(frame, 10);

@@ -12,8 +12,8 @@
   const buffer = new Uint8Array(instance.exports.memory.buffer);
   const pointer = instance.exports.hellowworld();
 
-  let string = null;
-  for (let i = pointer; buffer[i]; i++)
+  var string = null;
+  for (var i = pointer; buffer[i]; i++)
     string += String.fromCharCode(buffer[i]);
 
   document.getElementById('container').innerHTML = string;

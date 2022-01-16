@@ -22,7 +22,7 @@
 // # object properties
 // 1. object properties and accessing properties
 // 2. object properties and (for..in) loop
-// 3. adding properties and deleting properties
+// 3. adding properties and devaring properties
 // 4. nested object and nested array and object
 //
 // # object methods
@@ -54,7 +54,7 @@
 // # object iterable
 // 21. iterabors | iterating over a (string | array)
 // 22. home made iterable (object as argument | object as return)
-// -> 23. javascript iterable (concept incomplete)
+// -> 23. javascript iterable (concept incompvare)
 //
 // # class fundamental
 // 10. javascript class and using a class
@@ -70,18 +70,18 @@
 //
 // # static, getters/setters, and hosting
 // 28. static keyword (methods and properties)
-// -> 29. static-property and global-property with inheritance (syntax incomplete)
-// -> 30. getters and setters in class with inheritance and static/global (manipulate incomplete)
+// -> 29. static-property and global-property with inheritance (syntax incompvare)
+// -> 30. getters and setters in class with inheritance and static/global (manipulate incompvare)
 // 31. class hosting
 //
 // # object Sets()
 // 32. javascript sets | how to create a set | sets are objects
 // 33. set methods & (add | forEach | values | key | entries)
-// 34. size | has | delete | clear
+// 34. size | has | devare | clear
 //
 // # object Maps()
 // 35. javascript Maps | how to create a map | maps are objects
-// 36. map methods & (set | get | clear | has | size | delete)
+// 36. map methods & (set | get | clear | has | size | devare)
 // 37. forEach | keys | values | entries
 // 38. javascript object vs maps | object as keys
 //
@@ -90,7 +90,7 @@
 //     Object | Object.defineProperty | Object.defineProperties
 // 40. ES5 object methods (accessing objects)
 //     Object.getOwnPropertyNames | Object.keys
-//     -> Object.getOwnPropertyDescriptor | Object.getPrototypeOf (incomplete)
+//     -> Object.getOwnPropertyDescriptor | Object.getPrototypeOf (incompvare)
 // 41. ES5 object methods (protecting objects)
 //     Object.preventExtensions | Object.seal | Object.freeze
 //     Object.isExtensible | Object.isSealed | Object.isFrozen
@@ -99,8 +99,8 @@
 //     configurable | enumerable
 
 ////////////////////////////////////////////////////////////////////////////////
-let outBD = document.createElement('div');
-outBD.setAttribute('id', 'styleTwo');
+var outBD = document.createElement('div');
+outBD.setAttribute('id', 'styvarwo');
 document.body.appendChild(outBD);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +108,7 @@ document.body.appendChild(outBD);
 // object accessors | object constructor | object prototype
 
 function ExDA() {
-  let letAA = {
+  var varAA = {
     proOne: null,
     proTwo: null,
     method: function () {
@@ -121,55 +121,55 @@ function ExDA() {
     },
 
     get setGet() {
-      outBD.innerHTML += '<br >letAA.proOne    : ' + this.proOne;
-      outBD.innerHTML += '<br >letAA.proTwo    : ' + this.proTwo;
+      outBD.innerHTML += '<br >varAA.proOne    : ' + this.proOne;
+      outBD.innerHTML += '<br >varAA.proTwo    : ' + this.proTwo;
       outBD.innerHTML += '<br >proOne + proTwo : ' + this.method();
     },
   };
 
-  letAA.setGet = { valueOne: 11, valueTwo: 22 };
-  letAA.setGet;
+  varAA.setGet = { valueOne: 11, valueTwo: 22 };
+  varAA.setGet;
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
 
-  letAB = { };
-  letAB.proOne = 10;
-  letAB.proTwo = 20;
-  letAB.method = function () {
+  varAB = { };
+  varAB.proOne = 10;
+  varAB.proTwo = 20;
+  varAB.method = function () {
     outBD.innerHTML += '<br >proOne + proTwo : ' + (this.proOne + this.proTwo);
   };
 
-  letAB.method();
-  delete(letAB.proOne);
-  letAB.method();
-  letAB.method;
-  letAB['proOne'] = 30;
-  letAB.method();
+  varAB.method();
+  devare(varAB.proOne);
+  varAB.method();
+  varAB.method;
+  varAB['proOne'] = 30;
+  varAB.method();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
 
-  let letAC = new Object({});
-  let letAD = Object.create({});  // using second-brackets inside parentheses is required
+  var varAC = new Object({});
+  var varAD = Object.create({});  // using second-brackets inside parentheses is required
 
-  letAC.proOne = null;
-  letAC.proTwo = null;
-  letAC.method = function () {
+  varAC.proOne = null;
+  varAC.proTwo = null;
+  varAC.method = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     outBD.innerHTML += '<br >proOne + proTwo : ' + (this.proOne + this.proTwo);
   };
 
-  letAD.proOne = null;
-  letAD.proTwo = null;
-  letAD.method = function () {
+  varAD.proOne = null;
+  varAD.proTwo = null;
+  varAD.method = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     outBD.innerHTML += '<br >proOne + proTwo : ' + (this.proOne + this.proTwo);
   };
 
-  let letAE = new Object({
+  var varAE = new Object({
     proOne: 10,
     proTwo: 20,
     method: function () {
@@ -177,7 +177,7 @@ function ExDA() {
     },
   });
 
-  let letAF = Object.create({
+  var varAF = Object.create({
     proOne: 11,
     proTwo: 22,
     method: function () {
@@ -185,15 +185,15 @@ function ExDA() {
     },
   });
 
-  letAC.method(11, 22);
-  letAD.method(33, 44);
-  letAE.method();
-  letAF.method();
+  varAC.method(11, 22);
+  varAD.method(33, 44);
+  varAE.method();
+  varAF.method();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
 
-  let LetAG = function () {
+  var VarAG = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     this.method = function () {
@@ -201,39 +201,39 @@ function ExDA() {
     };
   };
 
-  let letAG1 = new LetAG(11, 22);
-  let letAG2 = new LetAG(33, 44);
-  outBD.innerHTML += '<br >letAG1.method : ' + letAG1.method();
-  outBD.innerHTML += '<br >letAG2.method : ' + letAG2.method();
+  var varAG1 = new VarAG(11, 22);
+  var varAG2 = new VarAG(33, 44);
+  outBD.innerHTML += '<br >varAG1.method : ' + varAG1.method();
+  outBD.innerHTML += '<br >varAG2.method : ' + varAG2.method();
   outBD.innerHTML += '<br >';
 
-  letAG1.methodTwo = function () {
+  varAG1.methodTwo = function () {
     return (this.proOne - this.proTwo);
   };
 
-  letAG2.methodTwo = function () {
+  varAG2.methodTwo = function () {
     return (this.proTwo - this.proOne);
   };
 
-  outBD.innerHTML += '<br >letAG1.methodTwo : ' + letAG1.methodTwo();
-  outBD.innerHTML += '<br >letAG2.methodTwo : ' + letAG2.methodTwo();
+  outBD.innerHTML += '<br >varAG1.methodTwo : ' + varAG1.methodTwo();
+  outBD.innerHTML += '<br >varAG2.methodTwo : ' + varAG2.methodTwo();
 
   // after defining additional prototype property, value will be defined at declaration is constant
   // it will not assignable through the constructor arguments
-  LetAG.prototype.proThree = 10;
-  LetAG.prototype.printValue = function () {
-    outBD.innerHTML += '<br > LetAG.proOne   : ' + this.proOne;
-    outBD.innerHTML += '<br > LetAG.proTwo   : ' + this.proTwo;
-    outBD.innerHTML += '<br > LetAG.proThree : ' + this.proThree;
+  VarAG.prototype.proThree = 10;
+  VarAG.prototype.printValue = function () {
+    outBD.innerHTML += '<br > VarAG.proOne   : ' + this.proOne;
+    outBD.innerHTML += '<br > VarAG.proTwo   : ' + this.proTwo;
+    outBD.innerHTML += '<br > VarAG.proThree : ' + this.proThree;
   };
 
-  let letAG3 = new LetAG(10, 20, 30);
-  letAG3.printValue();
+  var varAG3 = new VarAG(10, 20, 30);
+  varAG3.printValue();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
 
-  let letAH = {
+  var varAH = {
     proOne: [1, 2, 3],
     proTwo: {
       nstOne: 10,
@@ -241,8 +241,8 @@ function ExDA() {
     },
   };
 
-  let LetAI = function () {
-    this.proOne = letAH;
+  var VarAI = function () {
+    this.proOne = varAH;
     this.proTwo = [
       11, 22,
       {
@@ -264,50 +264,50 @@ function ExDA() {
     };
   };
 
-  let letAI = new LetAI();
-  let letAJ = letAI;    // objects are mutable
-  letAI.method();
-  letAJ.method();
+  var varAI = new VarAI();
+  var varAJ = varAI;    // objects are mutable
+  varAI.method();
+  varAJ.method();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // self-referencing object and constructor and class
   // self-reference must assign later after defining object
-  // in-case of self-referencing use (var) instead of (let) for (object)
-  // -> but we can assign (self-reference) value later, if object defined with (let)
+  // in-case of self-referencing use (var) instead of (var) for (object)
+  // -> but we can assign (self-reference) value later, if object defined with (var)
 
-  let letAK = {
+  var varAK = {
     proOne: 11,
     proTwo: 22,
   }
 
-  let letAL = {
-    proThree: letAK,
+  var varAL = {
+    proThree: varAK,
     proFour: null,
   }
 
-  // letAL.proThree = letAK;
-  letAL.proFour = letAL;
+  // varAL.proThree = varAK;
+  varAL.proFour = varAL;
 
-  outBD.innerHTML += '<br >letAL.proThree.proOne : ' + letAL.proThree.proOne;
-  outBD.innerHTML += '<br >letAL.proThree.proTwo : ' + letAL.proThree.proTwo;
-  outBD.innerHTML += '<br >letAL.proFour.proThree.proOne : ' + letAL.proFour.proThree.proOne;
-  outBD.innerHTML += '<br >letAL.proFour.proThree.proTwo : ' + letAL.proFour.proThree.proTwo;
+  outBD.innerHTML += '<br >varAL.proThree.proOne : ' + varAL.proThree.proOne;
+  outBD.innerHTML += '<br >varAL.proThree.proTwo : ' + varAL.proThree.proTwo;
+  outBD.innerHTML += '<br >varAL.proFour.proThree.proOne : ' + varAL.proFour.proThree.proOne;
+  outBD.innerHTML += '<br >varAL.proFour.proThree.proTwo : ' + varAL.proFour.proThree.proTwo;
   outBD.innerHTML += '<br >';
 
-  let LetAM = function () {
+  var VarAM = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
   };
 
-  let letAN = {
-    proThree: new LetAM(10, 20),
+  var varAN = {
+    proThree: new VarAM(10, 20),
     proFour: null,
   };
 
-  letAN.proFour = letAN;
-  outBD.innerHTML += '<br >letAN.proFour.proThree.proOne : ' + letAN.proFour.proThree.proOne;
-  outBD.innerHTML += '<br >letAN.proFour.proThree.proTwo : ' + letAN.proFour.proThree.proTwo;
+  varAN.proFour = varAN;
+  outBD.innerHTML += '<br >varAN.proFour.proThree.proOne : ' + varAN.proFour.proThree.proOne;
+  outBD.innerHTML += '<br >varAN.proFour.proThree.proTwo : ' + varAN.proFour.proThree.proTwo;
   outBD.innerHTML += '<br >';
 
   class ClassAO {
@@ -317,14 +317,14 @@ function ExDA() {
     }
   }
 
-  let letAP = {
+  var varAP = {
     proThree: new ClassAO(111, 222),
     proFour: null,
   };
 
-  letAP.proFour = letAP;
-  outBD.innerHTML += '<br >letAP.proFour.proThree.proOne : ' + letAP.proFour.proThree.proOne;
-  outBD.innerHTML += '<br >letAP.proFour.proThree.proTwo : ' + letAP.proFour.proThree.proTwo;
+  varAP.proFour = varAP;
+  outBD.innerHTML += '<br >varAP.proFour.proThree.proOne : ' + varAP.proFour.proThree.proOne;
+  outBD.innerHTML += '<br >varAP.proFour.proThree.proTwo : ' + varAP.proFour.proThree.proTwo;
   outBD.innerHTML += '<br >';
 }
 
@@ -333,19 +333,19 @@ function ExDA() {
 
 function ExDB() {
   // object | object-constructor can not hoisted
-  // let letALhost = new LetAL(letAK);
-  // let letAMhost = new LetAM();
-  // outBD.innerHTML += '<br >letAK.proOne : ' + letAK.proOne;
-  // outBD.innerHTML += '<br >letALhost.method : ' + letALhost.method();
-  // outBD.innerHTML += '<br >letAMhost.method : ' + letAMhost.method();
+  // var varALhost = new VarAL(varAK);
+  // var varAMhost = new VarAM();
+  // outBD.innerHTML += '<br >varAK.proOne : ' + varAK.proOne;
+  // outBD.innerHTML += '<br >varALhost.method : ' + varALhost.method();
+  // outBD.innerHTML += '<br >varAMhost.method : ' + varAMhost.method();
   // outBD.innerHTML += '<br >';
 
-  let letAK = {
+  var varAK = {
     proOne: null,
     proTwo: null,
   };
 
-  let LetAL = function () {
+  var VarAL = function () {
     this.proOne = arguments[0];
     this.method = function () {
       outBD.innerHTML += '<br >proOne.proOne : ' + this.proOne.proOne;
@@ -353,9 +353,9 @@ function ExDB() {
     };
   };
 
-  let LetAM = function () {
-    this.proOne = letAK;
-    this.proTwo = new LetAL(letAK);
+  var VarAM = function () {
+    this.proOne = varAK;
+    this.proTwo = new VarAL(varAK);
     this.method = function () {
       this.proOne.proOne = 10;
       this.proOne.proTwo = 20;
@@ -363,16 +363,16 @@ function ExDB() {
     };
   };
 
-  letAK.proOne = 11;
-  letAK.proTwo = 22;
-  outBD.innerHTML += '<br >letAK.proOne : ' + letAK.proOne;
-  outBD.innerHTML += '<br >letAK.proTwo : ' + letAK.proTwo;
+  varAK.proOne = 11;
+  varAK.proTwo = 22;
+  outBD.innerHTML += '<br >varAK.proOne : ' + varAK.proOne;
+  outBD.innerHTML += '<br >varAK.proTwo : ' + varAK.proTwo;
 
-  let letAL = new LetAL(letAK);
-  letAL.method();
+  var varAL = new VarAL(varAK);
+  varAL.method();
 
-  let letAM = new LetAM();
-  letAM.method();
+  var varAM = new VarAM();
+  varAM.method();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -384,23 +384,23 @@ function ExDB() {
     return arg;
   };
 
-  outBD.innerHTML += '<br >conatAA(letAK).proOne (return) : ' + constAA(letAK).proOne;
-  outBD.innerHTML += '<br >conatAA(letAK).proTwo (return) : ' + constAA(letAK).proTwo;
-  outBD.innerHTML += '<br >letAK.proOne (reference)       : ' + letAK.proOne;
-  outBD.innerHTML += '<br >letAK.proTwo (reference)       : ' + letAK.proTwo;
+  outBD.innerHTML += '<br >conatAA(varAK).proOne (return) : ' + constAA(varAK).proOne;
+  outBD.innerHTML += '<br >conatAA(varAK).proTwo (return) : ' + constAA(varAK).proTwo;
+  outBD.innerHTML += '<br >varAK.proOne (reference)       : ' + varAK.proOne;
+  outBD.innerHTML += '<br >varAK.proTwo (reference)       : ' + varAK.proTwo;
   outBD.innerHTML += '<br >';
 
   // arguments-return and reference as object-constructor
   const constAB = function () {
-    let local = new LetAL(letAK);
+    var local = new VarAL(varAK);
     local.proOne.proOne = 110;
     local.proOne.proTwo = 220;
     return local;
   };
 
   constAB();
-  outBD.innerHTML += '<br >letAK.proOne   : ' + letAK.proOne;
-  outBD.innerHTML += '<br >letAK.proTwo   : ' + letAK.proTwo;
+  outBD.innerHTML += '<br >varAK.proOne   : ' + varAK.proOne;
+  outBD.innerHTML += '<br >varAK.proTwo   : ' + varAK.proTwo;
   outBD.innerHTML += '<br >constAB.method : ' + constAB().proOne.proOne;
   outBD.innerHTML += '<br >constAB.method : ' + constAB().proOne.proTwo;
 
@@ -410,18 +410,18 @@ function ExDB() {
 
   // ---------------------------------------------------------------------------
 
-  let letArray = [1, 2, 3];
-  let letString = 'string';
+  var varArray = [1, 2, 3];
+  var varString = 'string';
 
-  for (let i = 0; i < letArray.length; i++)
-    outBD.innerHTML += '<br >letArray[' + i + '] : ' + letArray[i];
+  for (var i = 0; i < varArray.length; i++)
+    outBD.innerHTML += '<br >varArray[' + i + '] : ' + varArray[i];
 
-  for (let i = 0; i < letString.length; i++)
-    outBD.innerHTML += '<br >letString[' + i + '] : ' + letString[i];
+  for (var i = 0; i < varString.length; i++)
+    outBD.innerHTML += '<br >varString[' + i + '] : ' + varString[i];
 
   // home made iterable
-  let LetObject = function () {
-    let n = arguments[0];
+  var VarObject = function () {
+    var n = arguments[0];
     return {
       method: function () {
         n++;
@@ -430,7 +430,7 @@ function ExDB() {
     };
   };
 
-  let constructor = new LetObject(10);
+  var constructor = new VarObject(10);
   outBD.innerHTML += '<br >constructor.method.value : ' + constructor.method().value;
   outBD.innerHTML += '<br >constructor.method.value : ' + constructor.method().value;
   outBD.innerHTML += '<br >constructor.method.value : ' + constructor.method().value;
@@ -458,8 +458,8 @@ function ExDC() {
     }
   }
 
-  let letBA = new ClassBA(11, 22);
-  letBA.printValue();
+  var varBA = new ClassBA(11, 22);
+  varBA.printValue();
 
   class ClassBB {
     setValue() {
@@ -473,9 +473,9 @@ function ExDC() {
     }
   }
 
-  let letBB = new ClassBB();
-  letBB.setValue(11, 22);
-  letBB.printValue();
+  var varBB = new ClassBB();
+  varBB.setValue(11, 22);
+  varBB.printValue();
 
   // ---------------------------------------------------------------------------
   // inheritance
@@ -487,7 +487,7 @@ function ExDC() {
     }
 
     calculate() {
-      let result = this.proOne + this.proTwo + this.proThree;
+      var result = this.proOne + this.proTwo + this.proThree;
       return result;
     }
 
@@ -498,8 +498,8 @@ function ExDC() {
     }
   }
 
-  let letInheritBA = new ClassInheritBA(11, 22, 33);
-  letInheritBA.print();
+  var varInheritBA = new ClassInheritBA(11, 22, 33);
+  varInheritBA.print();
 
   class ClassInheritBB extends ClassBA {
     setValue() {
@@ -512,9 +512,9 @@ function ExDC() {
     }
   }
 
-  let letInheritBB = new ClassInheritBB(10, 20);
-  letInheritBB.setValue(30);
-  letInheritBB.print();
+  var varInheritBB = new ClassInheritBB(10, 20);
+  varInheritBB.setValue(30);
+  varInheritBB.print();
 
   class ClassInheritBC extends ClassBB {
     constructor() {
@@ -529,8 +529,8 @@ function ExDC() {
     }
   }
 
-  let letInheritBC = new ClassInheritBC(111, 222, 333);
-  letInheritBC.print();
+  var varInheritBC = new ClassInheritBC(111, 222, 333);
+  varInheritBC.print();
 
   class ClassInheritBD extends ClassBB {
     print() {
@@ -541,8 +541,8 @@ function ExDC() {
     }
   }
 
-  let letInheritBD = new ClassInheritBD();
-  letInheritBD.print(100, 200, 300);
+  var varInheritBD = new ClassInheritBD();
+  varInheritBD.print(100, 200, 300);
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -568,8 +568,8 @@ function ExDC() {
     }
   }
 
-  let letCA = new ClassCA();
-  letCA.methodOne();
+  var varCA = new ClassCA();
+  varCA.methodOne();
   ClassCA.methodTwo();
 
   class ClassCB {
@@ -594,16 +594,16 @@ function ExDC() {
     }
   }
 
-  let letCB = new ClassCB();
-  letCB.methodOne();
-  outBD.innerHTML += '<br >object.global-proOne   : ' + letCB.proOne;
+  var varCB = new ClassCB();
+  varCB.methodOne();
+  outBD.innerHTML += '<br >object.global-proOne   : ' + varCB.proOne;
   outBD.innerHTML += '<br >class.static.proTwo   : ' + ClassCB.proTwo;
 
   // global property must accessed through (object)
   // outBD.innerHTML += '<br >global-proOne- : ' + this.proOne;
 
   // private field cannot access through object
-  // outBD.innerHTML += '<br >proThree : ' + letCB.#proThree;
+  // outBD.innerHTML += '<br >proThree : ' + varCB.#proThree;
   // outBD.innerHTML += '<br >proFour  : ' + ClassCB.#proFour;
 
   outBD.innerHTML += '<br >ClassCB.calculate(22, 11)- : ' + ClassCB.calculate(22, 11);
@@ -623,8 +623,8 @@ function ExDC() {
     }
   }
 
-  let letCC = new ClassCC();
-  letCC.showValue();
+  var varCC = new ClassCC();
+  varCC.showValue();
 
   // inheritance and static with constructor
   // super is required to access (global-property) if declaring constructor or base class
@@ -641,7 +641,7 @@ function ExDC() {
     }
   }
 
-  let letCD = new ClassCD();
+  var varCD = new ClassCD();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -658,9 +658,9 @@ function ExDC() {
     }
   }
 
-  let letCE = new ClassCE();
-  letCE.getSet = { valueOne: 11, valueTwo: 22 };
-  letCE.getSet;
+  var varCE = new ClassCE();
+  varCE.getSet = { valueOne: 11, valueTwo: 22 };
+  varCE.getSet;
 
   class ClassCF extends ClassCE {
     setProperty() {
@@ -675,9 +675,9 @@ function ExDC() {
     }
   }
 
-  let letCF = new ClassCF();
-  letCF.setProperty(10, 20, 30, 40);
-  letCF.showValue();
+  var varCF = new ClassCF();
+  varCF.setProperty(10, 20, 30, 40);
+  varCF.showValue();
 
   class ClassCG extends ClassCF {
     constructor() {
@@ -687,7 +687,7 @@ function ExDC() {
     }
   }
 
-  let letCG = new ClassCG(1, 2, 3, 4);
+  var varCG = new ClassCG(1, 2, 3, 4);
   outBD.innerHTML += '<br >';
 }
 
@@ -695,7 +695,7 @@ function ExDC() {
 // ES5 object-methods
 
 function ExDD() {
-  let letAA = {
+  var varAA = {
     proOne: null,
     proTwo: null,
     set setGet(arg) {
@@ -710,33 +710,33 @@ function ExDD() {
   // defineProperty - ES5 method
   // - to add new property and change property value
   // - set property attribute
-  Object.defineProperty(letAA, 'setGet', {
+  Object.defineProperty(varAA, 'setGet', {
     get: function () {
       return (this.proOne - this.proTwo);
     }
   });
 
   // literal add new property and set value
-  letAA.proThree = letAA.setGet;
+  varAA.proThree = varAA.setGet;
 
   // defineProperty - ES5 method
-  Object.defineProperty(letAA, 'methodTwo', {
+  Object.defineProperty(varAA, 'methodTwo', {
     value: function () {
       return this.method() + this.proThree;
     }
   });
 
   // literal add new method
-  letAA.methodThree = function () {
-    outBD.innerHTML += '<br >letAA.proOne    : ' + this.proOne;
-    outBD.innerHTML += '<br >letAA.proTwo    : ' + this.proTwo;
-    outBD.innerHTML += '<br >letAA.proThree  : ' + this.proThree;
-    outBD.innerHTML += '<br >letAA.methodTwo : ' + this.methodTwo();
+  varAA.methodThree = function () {
+    outBD.innerHTML += '<br >varAA.proOne    : ' + this.proOne;
+    outBD.innerHTML += '<br >varAA.proTwo    : ' + this.proTwo;
+    outBD.innerHTML += '<br >varAA.proThree  : ' + this.proThree;
+    outBD.innerHTML += '<br >varAA.methodTwo : ' + this.methodTwo();
   }
 
   // defineProperties - ES5 method - add and modify object-properties
   // and set attributes
-  Object.defineProperties(letAA, {
+  Object.defineProperties(varAA, {
     proFour: { value: null, writable: true },
     proFive: { value: null, writable: true },
     methodFour: {
@@ -757,23 +757,23 @@ function ExDD() {
     },
   });
 
-  letAA.setGet = { valueOne: 11, valueTwo: 22 };
-  letAA.methodThree();
-  outBD.innerHTML += '<br >letAA.methodFour : ' + letAA.methodFour(10, 20);
-  letAA.getSet = { valueOne: 111, valueTwo: 222 };
-  outBD.innerHTML += '<br >letAA.getSet : ' + letAA.getSet;
+  varAA.setGet = { valueOne: 11, valueTwo: 22 };
+  varAA.methodThree();
+  outBD.innerHTML += '<br >varAA.methodFour : ' + varAA.methodFour(10, 20);
+  varAA.getSet = { valueOne: 111, valueTwo: 222 };
+  outBD.innerHTML += '<br >varAA.getSet : ' + varAA.getSet;
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
 
   // create - ES5 method - create new object
-  let letAB = Object.create({
+  var varAB = Object.create({
     proOne: null,
     proTwo: null,
     method: function () {
-      outBD.innerHTML += '<br >letAB.proOne : ' + this.proOne;
-      outBD.innerHTML += '<br >letAB.proTwo : ' + this.proTwo;
-      outBD.innerHTML += '<br >letAB.setGet : ' + this.setGet;
+      outBD.innerHTML += '<br >varAB.proOne : ' + this.proOne;
+      outBD.innerHTML += '<br >varAB.proTwo : ' + this.proTwo;
+      outBD.innerHTML += '<br >varAB.setGet : ' + this.setGet;
     },
     set setGet(arg) {
       this.proOne = arg.valueOne;
@@ -785,51 +785,51 @@ function ExDD() {
   });
 
   // getOwnPropertyDescriptor and getPrototypeOf - ES5 methods
-  outBD.innerHTML += '<br >letAB : ' + Object.getOwnPropertyDescriptor(letAB, 'proOne');
-  outBD.innerHTML += '<br >letAB : ' + Object.getPrototypeOf(letAB);
+  outBD.innerHTML += '<br >varAB : ' + Object.getOwnPropertyDescriptor(varAB, 'proOne');
+  outBD.innerHTML += '<br >varAB : ' + Object.getPrototypeOf(varAB);
   outBD.innerHTML += '<br >';
 
   // isExtensible | isSealed | isFrozen - ES5 methods
-  outBD.innerHTML += '<br >letAB (extensible) : ' + Object.isExtensible(letAB);
-  outBD.innerHTML += '<br >letAB (sealed)     : ' + Object.isSealed(letAB);
-  outBD.innerHTML += '<br >letAB (frozen)     : ' + Object.isFrozen(letAB);
+  outBD.innerHTML += '<br >varAB (extensible) : ' + Object.isExtensible(varAB);
+  outBD.innerHTML += '<br >varAB (sealed)     : ' + Object.isSealed(varAB);
+  outBD.innerHTML += '<br >varAB (frozen)     : ' + Object.isFrozen(varAB);
   outBD.innerHTML += '<br >';
 
   // changing properties
-  letAB.setGet = { valueOne: 11, valueTwo: 22 };
-  letAB.method();
+  varAB.setGet = { valueOne: 11, valueTwo: 22 };
+  varAB.method();
   outBD.innerHTML += '<br >';
 
-  letAB.proThree = 33;
-  Object.defineProperty(letAB, 'proFour', { value: 44, enumerable: true });
-  Object.defineProperty(letAB, 'proThree', { enumerable: false });
-  letAB.methodOne = function () {
-    outBD.innerHTML += '<br >letAB.proOne : ' + letAB.proOne;
-    outBD.innerHTML += '<br >letAB.proTwo : ' + letAB.proTwo;
-    outBD.innerHTML += '<br >letAB.proThree : ' + letAB.proThree;
-    outBD.innerHTML += '<br >letAB.proFour : ' + letAB.proFour;
+  varAB.proThree = 33;
+  Object.defineProperty(varAB, 'proFour', { value: 44, enumerable: true });
+  Object.defineProperty(varAB, 'proThree', { enumerable: false });
+  varAB.methodOne = function () {
+    outBD.innerHTML += '<br >varAB.proOne : ' + varAB.proOne;
+    outBD.innerHTML += '<br >varAB.proTwo : ' + varAB.proTwo;
+    outBD.innerHTML += '<br >varAB.proThree : ' + varAB.proThree;
+    outBD.innerHTML += '<br >varAB.proFour : ' + varAB.proFour;
   }
 
-  Object.defineProperty(letAB, 'method', { enumerable: false });
-  Object.defineProperty(letAB, 'setGet', { enumerable: false });
+  Object.defineProperty(varAB, 'method', { enumerable: false });
+  Object.defineProperty(varAB, 'setGet', { enumerable: false });
 
   // getOwnPropertyNames and keys - ES5 methods - to show the list of properties of object
-  outBD.innerHTML += '<br >letAB : ' + Object.getOwnPropertyNames(letAB);
-  outBD.innerHTML += '<br >letAB : ' + Object.keys(letAB);
+  outBD.innerHTML += '<br >varAB : ' + Object.getOwnPropertyNames(varAB);
+  outBD.innerHTML += '<br >varAB : ' + Object.keys(varAB);
   outBD.innerHTML += '<br >';
 
   // preventExtensions | seal | freeze
   // the (freeze) method - prevent any changes of an object event its prototype also
-  Object.freeze(letAB);
-  letAB.proFive = 55;     // adding new property
-  delete(letAB.proFour);  // delete existing property
-  letAB.proThree = 30;    // changing value
-  Object.defineProperty(letAB, 'proTwo', { writable: false });  // changing configuration
-  letAB.proTwo = 20;
+  Object.freeze(varAB);
+  varAB.proFive = 55;     // adding new property
+  devare(varAB.proFour);  // devare existing property
+  varAB.proThree = 30;    // changing value
+  Object.defineProperty(varAB, 'proTwo', { writable: false });  // changing configuration
+  varAB.proTwo = 20;
 
-  outBD.innerHTML += '<br >letAB : ' + Object.getOwnPropertyNames(letAB);
-  outBD.innerHTML += '<br >letAB.proTwo   : ' + letAB.proTwo;
-  outBD.innerHTML += '<br >letAB.proThree : ' + letAB.proThree;
+  outBD.innerHTML += '<br >varAB : ' + Object.getOwnPropertyNames(varAB);
+  outBD.innerHTML += '<br >varAB.proTwo   : ' + varAB.proTwo;
+  outBD.innerHTML += '<br >varAB.proThree : ' + varAB.proThree;
   outBD.innerHTML += '<br >';
 }
 
@@ -843,12 +843,12 @@ function ExDD() {
 //    though (function declaration) is hoisted (function declaration as object-constructor) hoisted
 
 function ExDE() {
-  // let hoistAA = new ClassAA(1, 2);    // class-hoisting - not allowed
+  // var hoistAA = new ClassAA(1, 2);    // class-hoisting - not allowed
   // hostAA.valueOne();
-  // letAB.method(3, 4);                 // object-hoisting - not allowed
-  let hoistAC1 = new FuncAC(5, 6);       // constructor-hoisting (func-declaration)- allowed
-  let hositAC2 = new FuncAC(7, 8);
-  // let hosisAD1 = new LetAD(300, 400);  // constructor-hoisting (exp-declaration) - not allowed
+  // varAB.method(3, 4);                 // object-hoisting - not allowed
+  var hoistAC1 = new FuncAC(5, 6);       // constructor-hoisting (func-declaration)- allowed
+  var hositAC2 = new FuncAC(7, 8);
+  // var hosisAD1 = new VarAD(300, 400);  // constructor-hoisting (exp-declaration) - not allowed
 
   // ---------------------------------------------------------------------------
   class ClassAA {
@@ -868,7 +868,7 @@ function ExDE() {
     argOne.valueOne();
   }
 
-  let letAB = {
+  var varAB = {
     proOne: null,
     proTwo: null,
     method: function () {
@@ -890,18 +890,18 @@ function ExDE() {
     // return this.proOne + this.proTwo;
   }
 
-  let LetAD = function () {
+  var VarAD = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
-    outBD.innerHTML += '<br >letAD : ' + (this.proOne + this.proTwo);
+    outBD.innerHTML += '<br >varAD : ' + (this.proOne + this.proTwo);
     // return this.proOne + this.proTwo;
   };
 
   // -------------------------------------------
   funcAA();
-  outBD.innerHTML += '<br >letAB.method : ' + letAB.method(11, 22);
-  let letAC = new FuncAC(10, 20);
-  let letAD = new LetAD(100, 200);
+  outBD.innerHTML += '<br >varAB.method : ' + varAB.method(11, 22);
+  var varAC = new FuncAC(10, 20);
+  var varAD = new VarAD(100, 200);
 
   // -------------------------------------------
   function FuncAE() {
@@ -910,45 +910,45 @@ function ExDE() {
     return this.proOne + this.proTwo;
   }
 
-  let LetAF = function () {
+  var VarAF = function () {
     this.proOne = arguments[0];
     this.proTwo = arguments[1];
     return this.proOne + this.proTwo;
   };
 
   // -------------------------------------------
-  let letAE1 = new FuncAE(true, false);
-  let letAF1 = new LetAF(true, false);
-  let letAE2 = new FuncAE(false, true);
-  let letAF2 = new LetAF(false, true);
-  outBD.innerHTML += '<br >letAE1-return : ' + letAE1;
-  outBD.innerHTML += '<br >letAF1-return : ' + letAF1;
-  outBD.innerHTML += '<br >letAE1.proOne : ' + letAE1.proOne;
-  outBD.innerHTML += '<br >letAF1.proOne : ' + letAF1.proOne;
-  outBD.innerHTML += '<br >letAE2.proTwo : ' + letAE2.proTwo;
-  outBD.innerHTML += '<br >letAF2.proTwo : ' + letAF2.proTwo;
+  var varAE1 = new FuncAE(true, false);
+  var varAF1 = new VarAF(true, false);
+  var varAE2 = new FuncAE(false, true);
+  var varAF2 = new VarAF(false, true);
+  outBD.innerHTML += '<br >varAE1-return : ' + varAE1;
+  outBD.innerHTML += '<br >varAF1-return : ' + varAF1;
+  outBD.innerHTML += '<br >varAE1.proOne : ' + varAE1.proOne;
+  outBD.innerHTML += '<br >varAF1.proOne : ' + varAF1.proOne;
+  outBD.innerHTML += '<br >varAE2.proTwo : ' + varAE2.proTwo;
+  outBD.innerHTML += '<br >varAF2.proTwo : ' + varAF2.proTwo;
 
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
-  let letAF = new Set([1, 2, 3]);
-  for (let x of letAF) outBD.innerHTML += '<br >letAF : ' + x;
-  for (let x of letAF.values()) outBD.innerHTML += '<br >letAF : ' + x;
-  for (let x of letAF.keys()) outBD.innerHTML += '<br >letAF : ' + x;
-  for (let x of letAF.entries()) outBD.innerHTML += '<br >letAF : ' + x;
-  for (let [x, y] of letAF.entries()) outBD.innerHTML += '<br >letAF : ' + x + ' > ' + y;
+  var varAF = new Set([1, 2, 3]);
+  for (var x of varAF) outBD.innerHTML += '<br >varAF : ' + x;
+  for (var x of varAF.values()) outBD.innerHTML += '<br >varAF : ' + x;
+  for (var x of varAF.keys()) outBD.innerHTML += '<br >varAF : ' + x;
+  for (var x of varAF.entries()) outBD.innerHTML += '<br >varAF : ' + x;
+  for (var [x, y] of varAF.entries()) outBD.innerHTML += '<br >varAF : ' + x + ' > ' + y;
   outBD.innerHTML += '<br >';
 
-  let letAG = new Map([
+  var varAG = new Map([
     [1, 'a'],
     [2, 'b'],
     [3, 'c'],
   ]);
-  for (let x of letAG) outBD.innerHTML += '<br >letAG : ' + x;
-  for (let x of letAG.values()) outBD.innerHTML += '<br >letAG : ' + x;
-  for (let x of letAG.keys()) outBD.innerHTML += '<br >letAG : ' + x;
-  for (let x of letAG.entries()) outBD.innerHTML += '<br >letAG : ' + x;
-  for (let [x, y] of letAG.entries()) outBD.innerHTML += '<br >letAG : ' + x + ' > ' + y;
+  for (var x of varAG) outBD.innerHTML += '<br >varAG : ' + x;
+  for (var x of varAG.values()) outBD.innerHTML += '<br >varAG : ' + x;
+  for (var x of varAG.keys()) outBD.innerHTML += '<br >varAG : ' + x;
+  for (var x of varAG.entries()) outBD.innerHTML += '<br >varAG : ' + x;
+  for (var [x, y] of varAG.entries()) outBD.innerHTML += '<br >varAG : ' + x + ' > ' + y;
   outBD.innerHTML += '<br >';
 }
 
@@ -963,7 +963,7 @@ function ExDF() {
   // practice 01 ...............................................................
   // function defination - call as (function) and (creating object)
   function funcAA() {
-    let local = arguments[0];
+    var local = arguments[0];
     outBD.innerHTML += '<br >funcAA-local : ' + local;
 
     const constNested = function () {
@@ -983,38 +983,38 @@ function ExDF() {
   funcAA(11);
   funcAB(22);
 
-  let letAA = new funcAA(33);
-  let letAB = new funcAB(44);
+  var varAA = new funcAA(33);
+  var varAB = new funcAB(44);
 
-  // letAA();
-  // letAB();
+  // varAA();
+  // varAB();
 
-  outBD.innerHTML += '<br >letAA (funcAA) : ' + letAA;
-  outBD.innerHTML += '<br >letAB (funcAB) : ' + letAB;
+  outBD.innerHTML += '<br >varAA (funcAA) : ' + varAA;
+  outBD.innerHTML += '<br >varAB (funcAB) : ' + varAB;
 
-  // letAA.constNested();   // nested-function can not call through object
-  letAB.method();           // nested-function as method can call through object
+  // varAA.constNested();   // nested-function can not call through object
+  varAB.method();           // nested-function as method can call through object
 
-  outBD.innerHTML += '<br >letAA.local : ' + letAA.local;   // undefined - not an object-constructor
-  outBD.innerHTML += '<br >letAB.proOne : ' + letAB.proOne;
+  outBD.innerHTML += '<br >varAA.local : ' + varAA.local;   // undefined - not an object-constructor
+  outBD.innerHTML += '<br >varAB.proOne : ' + varAB.proOne;
   outBD.innerHTML += '<br >';
 
   // practice 02 ...............................................................
   // function expression - call as (function) and (creating object)
   // inside function or expression -
   // any (local variable or nested function) will defined as property and method
-  let LetAC = function () {
-    let local = arguments[0];
-    outBD.innerHTML += '<br >LetAC-local : ' + local;
+  var VarAC = function () {
+    var local = arguments[0];
+    outBD.innerHTML += '<br >VarAC-local : ' + local;
 
     function funcNested() {
       outBD.innerHTML += '<br >funcNested statement ......';
     }
   };
 
-  let LetAD = function () {
+  var VarAD = function () {
     this.proOne = arguments[0];
-    outBD.innerHTML += '<br >LetAD-proOne : ' + this.proOne;
+    outBD.innerHTML += '<br >VarAD-proOne : ' + this.proOne;
 
     function methodOne() {
       outBD.innerHTML += '<br >methodOne statement ....';
@@ -1025,57 +1025,57 @@ function ExDF() {
     };
   };
 
-  LetAC(100);
-  LetAD(200);
+  VarAC(100);
+  VarAD(200);
 
-  let letAC = new LetAC(111);
-  let letAD = new LetAD(222);
+  var varAC = new VarAC(111);
+  var varAD = new VarAD(222);
 
-  // letAD.methodOne();
-  letAD.methodTwo();
-  outBD.innerHTML += '<br >letAD.proOne : ' + this.proOne;
+  // varAD.methodOne();
+  varAD.methodTwo();
+  outBD.innerHTML += '<br >varAD.proOne : ' + this.proOne;
   outBD.innerHTML += '<br >';
 
   // practice 03 ...............................................................
   // incase of arrow-expression (this) keyword has no effect so declaring object not possible
-  let LetAE = (arg) => {
-    let local = arg;
-    outBD.innerHTML += '<br >LetAE-arg : ' + local;
+  var VarAE = (arg) => {
+    var local = arg;
+    outBD.innerHTML += '<br >VarAE-arg : ' + local;
 
     function funcNested() {
       outBD.innerHTML += '<br >funcNested statement ...';
     }
   };
 
-  // let LetAF = (arg) => {
+  // var VarAF = (arg) => {
   //   this.proOne = arg;
-  //   outBD.innerHTML += '<br >LetAF-proOne : ' + proOne;
+  //   outBD.innerHTML += '<br >VarAF-proOne : ' + proOne;
   //
   //   this.method() {
   //     outBD.innerHTML += '<br >method statement ...';
   //   };
   // };
 
-  LetAE(1);
-  // LetAF(2);
+  VarAE(1);
+  // VarAF(2);
 
-  // let letAE = new LetAE(3);
-  // let letAF = new LetAF(4);
+  // var varAE = new VarAE(3);
+  // var varAF = new VarAF(4);
   //
-  // letAE.funcNested();
-  // letAF.method();
-  // outBD.innerHTML += '<br >letAF.proOne : ' + letAF.proOne;
+  // varAE.funcNested();
+  // varAF.method();
+  // outBD.innerHTML += '<br >varAF.proOne : ' + varAF.proOne;
   outBD.innerHTML += '<br >';
 
   // practice 04 ...............................................................
-  let letAG = new Function('argOne', 'return argOne');
-  outBD.innerHTML += '<br >letAG : ' + letAG(111);
+  var varAG = new Function('argOne', 'return argOne');
+  outBD.innerHTML += '<br >varAG : ' + varAG(111);
   outBD.innerHTML += '<br >';
 
   // practice 05 ...............................................................
-  let letAH = (function () {
-    let local = arguments[0];
-    outBD.innerHTML += '<br >letAH : ' + local;
+  var varAH = (function () {
+    var local = arguments[0];
+    outBD.innerHTML += '<br >varAH : ' + local;
 
     function funcNested() {
       outBD.innerHTML += '<br >funcNested statement ...';
@@ -1084,9 +1084,9 @@ function ExDF() {
     funcNested();
   })(11);
 
-  let LetAI = (function () {
+  var VarAI = (function () {
     this.proOne = arguments[0];
-    outBD.innerHTML += '<br >letAI : ' + this.proOne;
+    outBD.innerHTML += '<br >varAI : ' + this.proOne;
 
     this.method = (function () {
       outBD.innerHTML += '<br >method statement ...';
@@ -1100,9 +1100,9 @@ function ExDF() {
   // function-expression creates an object, that returns an object (has a method)
   // -> method returns and object (has a property)
 
-  let LetAJ = function () {
+  var VarAJ = function () {
     this.proOne = arguments[0];
-    let local = arguments[0];
+    var local = arguments[0];
     return {
       method: function () {
         this.proOne++;
@@ -1112,22 +1112,22 @@ function ExDF() {
     };
   };
 
-  let letAJ = new LetAJ(10, 11);
-  outBD.innerHTML += '<br >letAJ.method().valuePro   : ' + letAJ.method().valuePro;
-  outBD.innerHTML += '<br >letAJ.method().valuePro   : ' + letAJ.method().valuePro;
-  outBD.innerHTML += '<br >letAJ.method().valueLocal : ' + letAJ.method().valueLocal;
-  outBD.innerHTML += '<br >letAJ.method().valueLocal : ' + letAJ.method().valueLocal;
+  var varAJ = new VarAJ(10, 11);
+  outBD.innerHTML += '<br >varAJ.method().valuePro   : ' + varAJ.method().valuePro;
+  outBD.innerHTML += '<br >varAJ.method().valuePro   : ' + varAJ.method().valuePro;
+  outBD.innerHTML += '<br >varAJ.method().valueLocal : ' + varAJ.method().valueLocal;
+  outBD.innerHTML += '<br >varAJ.method().valueLocal : ' + varAJ.method().valueLocal;
   outBD.innerHTML += '<br >';
 
-  let LetAK = function () {
-    let local = arguments[0];
+  var VarAK = function () {
+    var local = arguments[0];
 
     function funcNested() {
       local++;
       return { value: local };
     }
 
-    let localObject = {
+    var localObject = {
       method: function () {
         local++;
         return { value: local };
@@ -1138,54 +1138,54 @@ function ExDF() {
     else return localObject;
   };
 
-  let letAK1 = new LetAK(10);
-  outBD.innerHTML += '<br >letAK1 : ' + letAK1.value;
-  outBD.innerHTML += '<br >letAK1 : ' + letAK1.value;
+  var varAK1 = new VarAK(10);
+  outBD.innerHTML += '<br >varAK1 : ' + varAK1.value;
+  outBD.innerHTML += '<br >varAK1 : ' + varAK1.value;
 
-  let letAK2 = new LetAK(30);
-  outBD.innerHTML += '<br >letAK2 : ' + letAK2.method().value;
-  outBD.innerHTML += '<br >letAK2 : ' + letAK2.method().value;
+  var varAK2 = new VarAK(30);
+  outBD.innerHTML += '<br >varAK2 : ' + varAK2.method().value;
+  outBD.innerHTML += '<br >varAK2 : ' + varAK2.method().value;
   outBD.innerHTML += '<br >';
 
   // practice 07 ...............................................................
   // method can be (expression or arrow-expression)
   // method-expression can define (this) but (method-arrow) cannot define (this)
 
-  let LetAL = function () {
+  var VarAL = function () {
     this.proOne = arguments[0];
     this.method = (arg) => {
       this.proOne += arg;
-      outBD.innerHTML += '<br >LetAL-proOne : ' + this.proOne;
+      outBD.innerHTML += '<br >VarAL-proOne : ' + this.proOne;
     };
     this.methodOne = (() => {
       outBD.innerHTML += '<br >arrow-method self-invoke';
     })();
   };
 
-  let letAL1 = new LetAL(100);
-  letAL1.method(20);
-  letAL1.method(30);
-  let letAL2 = new LetAL(200);
-  letAL2.method(11);
-  letAL2.method(22);
+  var varAL1 = new VarAL(100);
+  varAL1.method(20);
+  varAL1.method(30);
+  var varAL2 = new VarAL(200);
+  varAL2.method(11);
+  varAL2.method(22);
   outBD.innerHTML += '<br >';
 
-  let letAM = {
+  var varAM = {
     proOne: null,
     proTwo: null,
     method: function (arg) {
       this.proOne += arg;
-      outBD.innerHTML += '<br >letAM-proOne : ' + this.proOne;
+      outBD.innerHTML += '<br >varAM-proOne : ' + this.proOne;
     },
 
     methodTwo: (arg) => {
       this.proTwo += arg;
-      outBD.innerHTML += '<br >letAM-proTwo : ' + this.proTwo;
+      outBD.innerHTML += '<br >varAM-proTwo : ' + this.proTwo;
     }
   };
 
-  letAM.method(11);
-  letAM.methodTwo(11);
+  varAM.method(11);
+  varAM.methodTwo(11);
   outBD.innerHTML += '<br >';
 }
 
@@ -1200,7 +1200,7 @@ function ExDG() {
       this.proTwo = arguments[1];
     }
     method() {
-      // let print = function () {
+      // var print = function () {
       //   outBD.innerHTML += '<br >classAA-proOne : ' + this.proOne;
       //   outBD.innerHTML += '<br >classAA-proTwo : ' + this.proTwo;
       //   outBD.innerHTML += '<br >classAA-method : ' + this.method();
@@ -1216,17 +1216,17 @@ function ExDG() {
     }
   }
 
-  let letAA = new ClassAA(11, 22);
-  let letAB = new ClassAA(10, 20);
-  letAA.print();
-  letAB.print();
-  // letAA.method();
+  var varAA = new ClassAA(11, 22);
+  var varAB = new ClassAA(10, 20);
+  varAA.print();
+  varAB.print();
+  // varAA.method();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
   // nested (method / func-expression / func-defination) for (object allowed / class disallowed)
 
-  let letAC = {
+  var varAC = {
     proOne: null,
     method: function () {
       this.proOne = arguments[0];
@@ -1234,15 +1234,15 @@ function ExDG() {
       this.methodNested = function () {
         outBD.innerHTML += '<br >statement of nested-method : ' + this.proOne;
       };
-      let nestedExpre = function () {
+      var nestedExpre = function () {
         outBD.innerHTML += '<br >statement of nested-expre : ' + this.proOne;
       };
       nestedExpre();
     },
   };
 
-  letAC.method(11);
-  letAC.methodNested();
+  varAC.method(11);
+  varAC.methodNested();
   outBD.innerHTML += '<br >';
 
   class ClassAD {
@@ -1254,16 +1254,16 @@ function ExDG() {
       this.methodNested = function () {
         outBD.innerHTML += '<br >statement of nested-method : ' + this.proOne;
       };
-      // let nestedExpre = function () {
+      // var nestedExpre = function () {
       //   outBD.innerHTML += '<br >statement of nested-expre : ' + this.proOne;
       // };
       // nestedExpre();
     }
   }
 
-  let letAD = new ClassAD(10);
-  letAD.method();
-  letAD.methodNested();
+  var varAD = new ClassAD(10);
+  varAD.method();
+  varAD.methodNested();
   outBD.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
@@ -1280,7 +1280,7 @@ function ExDG() {
     // };
   }
 
-  let letAE = new ClassAE();
+  var varAE = new ClassAE();
   outBD.innerHTML += '<br >';
 }
 
