@@ -209,7 +209,7 @@ function ExDB() {
             outCD.innerHTML += '<br >BaseAA-proTwo : ' + this.proTwo;
         }
     }
-
+    
     class BaseAB {
         getValue() {
             this.proOne = arguments[0];
@@ -271,7 +271,7 @@ function ExDB() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # class & extended class - (static | hosting | strict)
+// # class & extended class - (static | hosting)
 function ExDC() {
     class ClassAA {
         constructor(argOne, argTwo) {
@@ -280,6 +280,7 @@ function ExDC() {
         }
 
         static printValue() {
+            // here, this (static) method is accessing (object-properties) 
             outCD.innerHTML += '<br >ST-ClassAA-proOne : ' + arguments[0].proOne;
             outCD.innerHTML += '<br >ST-ClassAA-proTwo : ' + arguments[0].proTwo;
             outCD.innerHTML += '<br >ST-ClassAA-sumValue : ' + 
@@ -287,6 +288,7 @@ function ExDC() {
         }
 
         static sumValue() {
+            // here, this (static) method is accessing (general-variable)
             return arguments[0] + arguments[1];
         }
 
@@ -302,42 +304,106 @@ function ExDC() {
     ClassAA.printValue(letAA);
     letAA.showValue();
     outCD.innerHTML += '<br >';
-
     
     class DriveAA extends ClassAA {
         callBase() {
             let OBJ = new ClassAA(21, 32);
-            ClassAA.printValue(OBJ);
+
             this.showValue();
+            OBJ.showValue();
+            ClassAA.printValue(OBJ);    
         }
     }
 
     let letAB = new DriveAA(1, 2);
     letAB.callBase();
     outCD.innerHTML += '<br >';
+
+    class DriveAB extends ClassAA {
+        constructor() {
+            super(arguments[0], arguments[1]);
+            let OBJ = new ClassAA(55, 66);
+            this.callBase(OBJ);
+        }
+
+        callBase() {
+            this.showValue();
+            arguments[0].showValue();
+            ClassAA.printValue(arguments[0]);
+            
+        }
+    }
+
+    let letBB = new DriveAB(110, 220);
+    outCD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // # object-method
 function ExDD() {
+    // creaing object
+    // Object({});
+    // Object.create();
 
+    // defining object-property 
+    // Object.defineProperty();
+    // Object.defineProperties();
+
+    // checking object prevention status
+    // Object.isExtensible();
+    // Object.isSealed();
+    // Object.isFrozen();
+
+    // object prevention 
+    // Object.preventExtensions();
+    // Object.seal();
+    // Object.freeze();
+
+    // object status
+    // Object.getOwnPropertyDescriptor();
+    // Object.getOwnPropertyDescriptors();
+    // Object.getOwnPropertyNames();
+    // Object.getPrototypeOf();
+    // Object.keys();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # iterator | accessor | display
+// # accessor | iterator | display
 function ExDE() {
+    let letAA = {
+        proOne: null,
+        proTwo: null,
+        method: function () {
+            outCD.innerHTML += '<br >';
+        },
 
+        set GetSet(arg) {
+            this.proOne = arg.valueOne;
+            this.proTwo = arg.valueTwo;
+        },
+
+        get GetSet() {
+            return this.proOne + this.proTwo;
+        }
+    };
+    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # function review
+// # Sets | Maps
 function ExDF() {
 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # scope-hoisting-strict review
+// # function review
 function ExDG() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// # scope-hoisting-strict review
+function ExDH() {
 
 }
 
@@ -346,13 +412,15 @@ outCD.innerHTML += 'ex-da : object review | nested object | nesting object and a
 outCD.innerHTML += '<hr >'; ExDA();
 outCD.innerHTML += '<br >ex-db : object constructor | class review | class inheritance';
 outCD.innerHTML += '<hr >'; ExDB();
-outCD.innerHTML += '<br >ex-dc : class & extended class - (static | hosting | strict)';
+outCD.innerHTML += '<br >ex-dc : class & extended class - (static | hosting)';
 outCD.innerHTML += '<hr >'; ExDC();
 outCD.innerHTML += '<br >ex-dd : object-method review';
 outCD.innerHTML += '<hr >'; ExDD();
-outCD.innerHTML += '<br >ex-de : iterator | accessors | display';
+outCD.innerHTML += '<br >ex-de : accessors | iterator | display';
 outCD.innerHTML += '<hr >'; ExDE();
-outCD.innerHTML += '<br >ex-df : function review';
+outCD.innerHTML += '<br >ex-df : Sets and Maps';
 outCD.innerHTML += '<hr >'; ExDF();
-outCD.innerHTML += '<br >ex-dg : scope-hoisting-strict';
+outCD.innerHTML += '<br >ex-dg : function review';
 outCD.innerHTML += '<hr >'; ExDG();
+outCD.innerHTML += '<br >ex-dh : scope-hoisting-strict';
+outCD.innerHTML += '<hr >'; ExDH();
