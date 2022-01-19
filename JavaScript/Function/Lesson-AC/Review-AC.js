@@ -339,7 +339,7 @@ function ExDC() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # object-method
+// # object-method - (vanilla javascript built-in)
 function ExDD() {
     // creating object
     // Object({});
@@ -368,7 +368,7 @@ function ExDD() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # accessor | iterator | display
+// # accessor | iterator
 function ExDE() {
     let letAA = {
         proOne: null,
@@ -623,14 +623,53 @@ function ExDE() {
     outCD.innerHTML += '<br >letBE1 : ' + letBE1(20)(30)(40);
     outCD.innerHTML += '<br >';
 
-    let letBE1 = new letBE(10);
-    outCD.innerHTML += '<br >';
+    // ---------------------------------- check it later -------------------
+    // let letBE1 = new letBE(10);
+    // let letBE2 = letBE1(20);
+    // let letBE3 = letBE2(30);
+    // let letBE4 = new letBE3(40);
+    // outCD.innerHTML += '<br >letBE4 : ' + letBE3(40);
+    // outCD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// # Sets | Maps
+// # Sets | Maps - vanilla javascript built-in methods
 function ExDF() {
+    let letAA = new Set([1, 2, 3]);
+    let setIterator = letAA.values();
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >';
 
+    letAA.add(4);
+    setIterator = letAA.values();
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >setIterator : ' + setIterator.next().value;
+    outCD.innerHTML += '<br >';
+
+    let letAB = new Map([
+        [1, 'a'],
+        [2, 'b'],
+        [3, 'c']
+    ]);
+    let mapIterator = letAB.values();
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >';
+
+    letAB.add(4, 'd');
+    mapIterator = letAB.value();
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >mapIterator : ' + mapIterator.next().value;
+    outCD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
