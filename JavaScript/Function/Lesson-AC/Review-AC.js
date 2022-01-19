@@ -341,7 +341,7 @@ function ExDC() {
 ////////////////////////////////////////////////////////////////////////////////
 // # object-method
 function ExDD() {
-    // creaing object
+    // creating object
     // Object({});
     // Object.create();
 
@@ -374,7 +374,10 @@ function ExDE() {
         proOne: null,
         proTwo: null,
         method: function () {
-            outCD.innerHTML += '<br >';
+            this.GetSet = { valueOne: 10, valueTwo: 20 };
+            outCD.innerHTML += '<br >letAA-proOne : ' + this.proOne;
+            outCD.innerHTML += '<br >letAA-proTwo : ' + this.proTwo;
+            outCD.innerHTML += '<br >letAA-GetSet : ' + this.GetSet;
         },
 
         set GetSet(arg) {
@@ -386,7 +389,242 @@ function ExDE() {
             return this.proOne + this.proTwo;
         }
     };
+
+    // ----------------------------------------------------
+    let letAB = Object({
+        proOne: 11,
+        proTwo: 22,
+        method: function () {
+            this.GetSet = { valueOne: arguments[0], valueTwo: arguments[1] };
+            outCD.innerHTML += '<br >letAB-proOne : ' + this.proOne;
+            outCD.innerHTML += '<br >letAB-proTwo : ' + this.proTwo;
+            outCD.innerHTML += '<br >letAB-GetSet : ' + this.GetSet;
+        },
+
+        set GetSet(arg) {
+            this.proOne = arg.valueOne;
+            this.proTwo = arg.valueTwo;
+        },
+
+        get GetSet() {
+            return this.proOne + this.proTwo;
+        },
+    });
+
+    letAA.method();
+    outCD.innerHTML += '<br >';
+    letAB.method(11, 22);
+    outCD.innerHTML += '<br >';
     
+    // ----------------------------------------------------
+    // object-constructor and object-accessors
+    let letAC = function () {
+        this.proOne = null;
+        this.proTwo = null;
+        this.method = function () {
+            this.GetSet = { valueOne: arguments[0], valueTwo: arguments[1] };
+            outCD.innerHTML += '<br >letAC-proOne : ' + this.proOne;
+            outCD.innerHTML += '<br >letAC-proTwo : ' + this.proTwo;
+            outCD.innerHTML += '<br >letAC-GetSet : ' + this.GetSet;
+        };
+    };
+
+    Object.defineProperty(letAC.prototype, 'GetSet', {
+        get: function () {
+            return this.proOne + this.proTwo;
+        },
+
+        set: function (arg) {
+            this.proOne = arg.valueOne;
+            this.proTwo = arg.valueTwo;
+        },
+    });
+
+    let letAC1 = new letAC();
+    letAC1.method(11, 22);
+    outCD.innerHTML += '<br >';
+
+    // ----------------------------------------------------
+    // object-class and object-accessors 
+    class ClassAD {
+        constructor() {
+            this.proOne = null;
+            this.proTwo = null;
+            this.GetSet = { valueOne: arguments[0], valueTwo: arguments[1] };
+        }
+
+        method() {
+            outCD.innerHTML += '<br >ClassAD-proOne : ' + this.proOne;
+            outCD.innerHTML += '<br >ClassAD-proTwo : ' + this.proTwo;
+            outCD.innerHTML += '<br >ClassAD-GetSet : ' + this.GetSet;
+        }
+
+        get GetSet() {
+            return this.proOne + this.proTwo;
+        }
+
+        set GetSet(arg) {
+            this.proOne = arg.valueOne;
+            this.proTwo = arg.valueTwo;
+        }
+    }
+
+    class ClassAE {
+        method() {
+            this.proOne = null;
+            this.proTwo = null;
+            this.GetSet = { valueOne: arguments[0], valueTwo: arguments[1] };
+            outCD.innerHTML += '<br >ClassAE-proOne : ' + this.proOne;
+            outCD.innerHTML += '<br >ClassAE-proTwo : ' + this.proTwo;
+            outCD.innerHTML += '<br >ClassAE-GetSet : ' + this.GetSet;
+        }
+
+        get GetSet() {
+            return this.proOne + this.proTwo;
+        }
+
+        set GetSet(arg) {
+            this.proOne = arg.valueOne;
+            this.proTwo = arg.valueTwo;
+        }
+    }
+
+    let letAD1 = new ClassAD(10, 20);
+    letAD1.method();
+    outCD.innerHTML += '<br >';
+
+    let letAE1 = new ClassAE();
+    letAE1.method(111, 222);
+    outCD.innerHTML += '<br >';
+
+    // ----------------------------------------------------
+    // extended object-class with constructor and object-accessors
+    class DriveAF extends ClassAD {
+        constructor() {
+            outCD.innerHTML += '<br >DriveAF .......';
+            super(arguments[0], arguments[1]);
+            this.method();
+        }
+    } 
+
+    class DriveAG extends ClassAE {
+        constructor() {
+            outCD.innerHTML += '<br >DriveAG .......';
+            this.method(arguments[0], arguments[1]);
+        }
+    }
+
+    let letAF1 = new DriveAF(11, 22);
+    outCD.innerHTML += '<br >';
+    let letAG1 = new DriveAF(10, 20);
+    outCD.innerHTML += '<br >';
+
+    // ----------------------------------------------------
+    // extended object-class without constructor and object-accessors
+    class DriveAH extends ClassAD {
+        callBase() {
+            outCD.innerHTML += '<br >DriveAH ........';
+            this.method();
+        }
+    }
+
+    class DriveAI extends ClassAE {
+        callBase() {
+            outCD.innerHTML += '<br >DriveAI ........';
+            this.method(arguments[0], arguments[1]);
+        }
+    }
+
+    let letAH1 = new DriveAH(101, 202);
+    letAH1.callBase();
+    outCD.innerHTML += '<br >';
+    let letAI1 = new DriveAI();
+    letAI1.callBase(110, 220);
+    outCD.innerHTML += '<br >';
+
+    // ------------------------------------------------------------------------
+    // home made iterator -- returns an object-method
+    let letBA = function () {
+        let local = arguments[0];
+        return {
+            method: function () {
+                local++;
+                return {
+                    value: local,
+                };
+            },
+        };
+    };
+
+    let letBA1 = new letBA(11);
+    outCD.innerHTML += '<br >letBA1.method().value : ' + letBA1.method().value;
+    outCD.innerHTML += '<br >letBA1.method().value : ' + letBA1.method().value;
+    outCD.innerHTML += '<br >letBA1.method().value : ' + letBA1.method().value;
+    outCD.innerHTML += '<br >';
+
+    // ------------------------------------------------------------------------
+    // home made iterator -- returns a function 
+    function funcBB() {
+        let local = arguments[0];
+        return function () {
+            local++;
+            return local;
+        };
+    }
+
+    let letBB1 = new funcBB(11);
+    outCD.innerHTML += '<br >letBB1 : ' + letBB1();
+    outCD.innerHTML += '<br >letBB1 : ' + letBB1();
+    outCD.innerHTML += '<br >';
+
+    let letBC = function () {
+        let local = arguments[0];
+        let innerFunc = function () {
+            local++;
+            return local;
+        };
+        return innerFunc;
+    };
+
+    let letBC1 = new letBC(22);
+    outCD.innerHTML += '<br >letBC1 : ' + letBC1();
+    outCD.innerHTML += '<br >letBC1 : ' + letBC1();
+    outCD.innerHTML += '<br >';
+
+    // ------------------------------------------------------------------------
+    // home made iterable - returns a function, more complex
+    let letBD = function () {
+        let local1 = arguments[0];
+        return function () {
+            let local2 = arguments[0];
+            return local1 + local2; 
+        };
+    };
+
+    let letBD1 = new letBD(10);
+    outCD.innerHTML += '<br >letBD1 : ' + letBD1(20);
+    outCD.innerHTML += '<br >';
+
+    let letBE = function () {
+        let local1 = arguments[0];
+        return function () {
+            let local2 = arguments[0];
+            return function () {
+                let local3 = arguments[0];
+                return function () {
+                    let local4 = arguments[0];
+                    return local1 + local2 + local3 + local4;
+                };
+            };
+        };
+    };
+
+    let letBE1 = new letBE(10);
+    outCD.innerHTML += '<br >letBE1 : ' + letBE1(20)(30)(40);
+    outCD.innerHTML += '<br >';
+
+    let letBE1 = new letBE(10);
+    outCD.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
