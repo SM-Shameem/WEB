@@ -316,7 +316,7 @@ function ExCC() {
   outCC.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
-  // javascript iterable ----------- concept incompvare
+  // javascript iterable ----------- concept incomplete
   // Create an Object
   const myNumbers = {};
 
