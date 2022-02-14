@@ -14,9 +14,8 @@ document.body.appendChild(outCE);
 ////////////////////////////////////////////////////////////////////////////////
 // # accessors | iterator | display
 function ExEA() {
-  // accessors
   // ------------------------------------------------------------------------
-
+  // single object declaration with accessors
   let letAA = {
     proOne: null,
     proTwo: null,
@@ -31,27 +30,29 @@ function ExEA() {
 
     method: function () {
       this.SetGet = { valueOne: arguments[0], valueTwo: arguments[1] };
-      outCE.innerHTML += '<br >proOne : ' + this.proOne;
-      outCE.innerHTML += '<br >proTwo : ' + this.proTwo;
-      outCE.innerHTML += '<br >SetGet : ' + this.SetGet;
+      outCE.innerHTML += '<br >letAA-proOne : ' + this.proOne;
+      outCE.innerHTML += '<br >letAA-proTwo : ' + this.proTwo;
+      outCE.innerHTML += '<br >letAA-SetGet : ' + this.SetGet;
     },
   };
 
   letAA.method(10, 20);
   outCE.innerHTML += '<br >';
 
+  // ------------------------------------------------------------------------
+  // object constructor declaration with accessors
   let LetAB = function () {
     this.proOne = null;
     this.proTwo = null;
     this.method = function () {
       this.SetGet = { valueOne: arguments[0], valueTwo: arguments[1] };
-      otuCE.innerHTML += '<br >proOne : ' + this.proOne;
-      outCE.innerHTML += '<br >proTwo : ' + this.proTwo;
-      outCE.innerHTML += '<br >SetGet : ' + this.SetGet;
+      outCE.innerHTML += '<br >LetAB-proOne : ' + this.proOne;
+      outCE.innerHTML += '<br >LetAB-proTwo : ' + this.proTwo;
+      outCE.innerHTML += '<br >LetAB-SetGet : ' + this.SetGet;
     };
   };
 
-  Object.defineProperty(letAB.prototype, 'SetGEt', {
+  Object.defineProperty(LetAB.prototype, 'SetGet', {
     set: function (arg) {
       this.proOne = arg.valueOne;
       this.proTwo = arg.valueTwo;
@@ -64,6 +65,145 @@ function ExEA() {
 
   let letAB1 = new LetAB();
   letAB1.method(11, 22);
+  outCE.innerHTML += '<br >';
+
+  // ------------------------------------------------------------------------
+  // object-class declaration with accessors
+  class LetAC {
+    method() {
+      this.SetGet = { valueOne: arguments[0], valueTwo: arguments[1] };
+      outCE.innerHTML += '<br >LetAC-proOne : ' + this.proOne;
+      outCE.innerHTML += '<br >LetAC-proTwo : ' + this.proTwo;
+      outCE.innerHTML += '<br >LetAC-SetGet : ' + this.SetGet;
+    }
+
+    set SetGet(arg) {
+      this.proOne = arg.valueOne;
+      this.proTwo = arg.valueTwo;
+    }
+
+    get SetGet() {
+      return this.proOne + this.proTwo;
+    }
+  }
+
+  let letAC1 = new LetAC();
+  letAC1.method(11, 22);
+  outCE.innerHTML += '<br >';
+
+  // ------------------------------------------------------------------------
+  // object-class declaration with constructor and accessors
+  class LetAD {
+    constructor() {
+      this.SetGet = { valueOne: arguments[0], valueTwo: arguments[1] };
+      outCE.innerHTML += '<br >LetAD-proOne : ' + this.proOne;
+      outCE.innerHTML += '<br >LetAD-proTwo : ' + this.proTwo;
+      outCE.innerHTML += '<br >LetAD-SetGet : ' + this.SetGet;
+    }
+
+    set SetGet(arg) {
+      this.proOne = arg.valueOne;
+      this.proTwo = arg.valueTwo;
+    }
+
+    get SetGet() {
+      return this.proOne + this.proTwo;
+    }
+  }
+
+  let letAD1 = new LetAD(11, 22);
+  outCE.innerHTML += '<br >';
+
+   // ------------------------------------------------------------------------
+  // object-extClass declaration and accessors
+  class LetAE extends LetAC {
+    callBase() {
+      outCE.innerHTML += '<br >LetAE-extends';
+      this.method(arguments[0], arguments[1]);
+    }
+  }
+
+  class LetAF extends LetAC {
+    constructor() {
+      outCE.innerHTML += '<br >LetAF-extends';
+      super();
+      this.method(111, 222);
+    }
+  }
+
+  let letAE1 = new LetAE();
+  letAE1.callBase(100, 200);
+  let letAF1 = new LetAF();
+  outCE.innerHTML += '<br >';
+
+  class LetAG extends LetAD {
+    callBase() {
+      outCE.innerHTML += '<br >LetAG-extends';
+    }
+  }
+
+  class LetAH extends LetAD {
+    constructor() {      
+      outCE.innerHTML += '<br >LetAH-extends';
+      super(arguments[0], arguments[1]);
+    }
+  }
+
+  let letAG1 = new LetAG();
+  letAG1.callBase();
+  let letAH1 = new LetAH(110, 220);
+  outCE.innerHTML += '<br >';
+
+  // ---------------------------------------------------------------------------
+  // object-iterator
+  let letBA = {
+    proOne: null,
+
+    methodOne: function () {
+      this.proOne = arguments[0];
+      return this.proOne;
+    },
+
+    methodTwo: function () {
+      this.proOne = arguments[0];
+      return function () {
+        this.proOne++;
+        return this.proOne;
+      };
+    },
+
+    methodThree: function () {
+      this.proOne = arguments[0];
+      return {
+        method: function () {
+          this.proOne++;
+          return this.proOne;
+        },
+      };
+    },
+  };
+
+  outCE.innerHTML += '<br >letBA.methodOne : ' + letBA.methodOne(11);
+  outCE.innerHTML += '<br >letBA.methodTwo : ' + letBA.methodTwo(11);
+  outCE.innerHTML += '<br >letBA.methodThree : ' + letBA.methodThree(11).method();
+  outCE.innerHTML += '<br >';
+
+  let LetBB = function () {
+    this.proOne = arguments[0];
+    let localOne = arguments[0];
+    return function () {
+      this.proOne++;
+      localOne++;
+      return {
+        nestOne: this.proOne,
+        nestTwo: localOne,
+      };
+    };
+  };
+
+  let letBB1 = new LetBB(11);
+  outCE.innerHTML += '<br >letBB1.nestOne : ' + letBB1.nestOne;
+  outCE.innerHTML += '<br >letBB1.nestTwo : ' + letBB1.nestTwo;
   outCE.innerHTML += '<br >';
 }
 
