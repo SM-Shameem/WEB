@@ -155,56 +155,119 @@ function ExEA() {
   outCE.innerHTML += '<br >';
 
   // ---------------------------------------------------------------------------
-  // object-iterator
-  let letBA = {
-    proOne: null,
-
-    methodOne: function () {
-      this.proOne = arguments[0];
-      return this.proOne;
-    },
-
-    methodTwo: function () {
-      this.proOne = arguments[0];
-      return function () {
-        this.proOne++;
-        return this.proOne;
-      };
-    },
-
-    methodThree: function () {
-      this.proOne = arguments[0];
-      return {
-        method: function () {
-          this.proOne++;
-          return this.proOne;
-        },
-      };
-    },
-  };
-
-  outCE.innerHTML += '<br >letBA.methodOne : ' + letBA.methodOne(11);
-  outCE.innerHTML += '<br >letBA.methodTwo : ' + letBA.methodTwo(11);
-  outCE.innerHTML += '<br >letBA.methodThree : ' + letBA.methodThree(11).method();
-  outCE.innerHTML += '<br >';
-
-  let LetBB = function () {
-    this.proOne = arguments[0];
-    let localOne = arguments[0];
+  // object-constructor return 
+  let LetBA = function () {
+    let local = arguments[0];
     return function () {
-      this.proOne++;
-      localOne++;
-      return {
-        nestOne: this.proOne,
-        nestTwo: localOne,
-      };
+      local++;
+      return local;
     };
   };
 
-  let letBB1 = new LetBB(11);
-  outCE.innerHTML += '<br >letBB1.nestOne : ' + letBB1.nestOne;
-  outCE.innerHTML += '<br >letBB1.nestTwo : ' + letBB1.nestTwo;
+  let letBA1 = new LetBA(11);
+  outCE.innerHTML += '<br >letBA1 : ' + letBA1();
+  outCE.innerHTML += '<br >letBA1 : ' + letBA1();
   outCE.innerHTML += '<br >';
+
+  let LetBB = function () {
+    let localOne = arguments[0];
+    this.pro = arguments[0];
+    return function () {
+      localOne++;
+      this.pro++;
+      return {
+        nestOne: localOne,
+        nestTwo: this.pro,
+      };
+    };      
+  };
+
+  let letBB1 = new LetBB(11);
+  outCE.innerHTML += '<br >letBB1().nestOne : ' + letBB1().nestOne;
+  outCE.innerHTML += '<br >letBB1().nestOne : ' + letBB1().nestOne;
+  outCE.innerHTML += '<br >letBB1().nestTwo : ' + letBB1().nestTwo;
+  outCE.innerHTML += '<br >letBB1().nestTwo : ' + letBB1().nestTwo;
+  outCE.innerHTML += '<br >';
+
+  // --------------------------------------------------------------------------
+  let LetBC = function () {
+    let local = arguments[0];
+    return local;
+  };
+
+  let LetBD = function () {
+    this.property = arguments[0];
+    return this.property;
+  };
+
+  let LetBE = function () {
+    let local = arguments[0];
+    return function () {
+      return local;
+    };
+  };
+
+  let LetBF = function () {
+    this.property = arguments[0];
+    return function () {
+      return this.property;
+    };
+  };
+
+  let LetBG = function () {
+    this.proOne = arguments[0];
+    let localOne = arguments[0];
+    return {
+      nestOne: this.proOne,
+      nestTwo: localOne,
+      nestThree: function () {
+        return this.proOne;
+      },
+      nestFour: function () {
+        return localOne;
+      },
+    };
+  };
+
+    let letBC1 = new LetBC(11);
+    let letBD1 = new LetBD(22);
+    let letBE1 = new LetBE(33);
+    let letBF1 = new LetBF(44);
+    let letBG1 = new LetBG(55);
+
+    outCE.innerHTML += '<br >func-exp : return local';
+    outCE.innerHTML += '<br >LetBC(10)    : ' + LetBC(10);
+    outCE.innerHTML += '<br >letBC1       : ' + letBC1;
+    outCE.innerHTML += '<br >letBC1.local : ' + letBC1.local;
+    // outCE.innerHTML += '<br >letBC1()  : ' + letBC1();
+    outCE.innerHTML += '<br >';
+
+    outCE.innerHTML += '<br >func-exp : return property';
+    outCE.innerHTML += '<br >LetBD(20)       : ' + LetBD(10);
+    outCE.innerHTML += '<br >letBD1          : ' + letBD1;
+    outCE.innerHTML += '<br >letBD1.property : ' + letBD1.property;
+    // outCE.innerHTML += '<br >letBD1()        : ' + letBD1();
+    outCE.innerHTML += '<br >';
+
+    outCE.innerHTML += '<br >fun-exp : return func - return local';
+    outCE.innerHTML += '<br >LetBC(30)-func : ' + LetBD(30);
+    outCE.innerHTML += '<br >letBC1         : ' + letBC1;
+    outCE.innerHTML += '<br >letBC1.local   : ' + letBC1.local;
+    // outCE.innerHTML += '<br >letBC1()       : ' + letBC1();
+    outCE.innerHTML += '<br >';
+
+    outCE.innerHTML += '<br >fun-exp : return func - return property';
+    outCE.innerHTML += '<br >LetBD(40)-func : ' + LetBD(40);
+    outCE.innerHTML += '<br >letBD1         : ' + letBD1;
+    outCE.innerHTML += '<br >letBD1.property: ' + LetBD.property;
+    outCE.innerHTML += '<br >letBD1()       : ' + LetBD();
+    outCE.innerHTML += '<br >';
+
+    outCE.innerHTML += '<br >fun-exp : return obj - property as (local | property)';
+    outCE.innerHTML += '<br >';
+
+    outCE.innerHTML += '<br >fun-exp : return obj - method return local | property';
+    outCE.innerHTML += '<br >';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
