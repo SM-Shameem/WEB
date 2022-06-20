@@ -15,7 +15,7 @@ outBA.setAttribute('id', 'styleOne');
 document.body.appendChild(outBA);
 
 ////////////////////////////////////////////////////////////////////////////////
-// # javascript function defination | function declaration
+// # javascript function definition | function declaration
 // -> javascript functions are defined with the (function) keyword
 // -> you can use a function declaration or a function expression
 
@@ -41,7 +41,7 @@ function ExAA() {
   outBA.innerHTML += '<br >myFunction return : ' + myFunction(11, 22);
   outBA.innerHTML += '<br >';
 
-  // === syntax mainpulation practice ==========================================
+  // === syntax manipulation practice ==========================================
 
   function funcAA(argOne, argTwo, argN) {
     var local = argOne + argTwo;
@@ -99,7 +99,7 @@ function ExAB() {
 
   // === syntax mainpulation practice ==========================================
 
-  // practice-a : function expression with function name - but invocked using its variable
+  // practice-a : function expression with function name - but invoked using its variable
   const constAD = function FuncOne(argOne, argTwo) {
     outBA.innerHTML += '<br >argOne + argTwo : ' + (argOne + argTwo);
   };
@@ -108,7 +108,7 @@ function ExAB() {
 
   // FuncOne(50, 60);
 
-  // practice-b : function expression ends with semicolone and stored in a variable
+  // practice-b : function expression ends with semicolons and stored in a variable
   // using (const) is better than using (var) because function expression is const value
   // constAE()    // function expression is not hoisted
   var varAE = function () {

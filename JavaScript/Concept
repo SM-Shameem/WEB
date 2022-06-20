@@ -47,7 +47,7 @@ DAY 02 (Object)
 
 # object accessors
 12. object accessors (getter and setter) and the (get and set) keyword
-13. why use (getters and setters) and difference bettween (method and getters)
+13. why use (getters and setters) and difference between (method and getters)
 14. adding (getters and setters) to an existing object using (Object.defineProperty()) method
 
 --------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ DAY 03 (Object)
 # object iterable
 21. iterators | iterating over a (string | array)
 22. home made iterable (object as argument | object as return)
--> 23. javascript iterable (concept incompvare)
+-> 23. javascript iterable (concept incomplete)
 
 --------------------------------------------------------------------------------
 DAY 04 (Object)
@@ -81,8 +81,8 @@ DAY 04 (Object)
 
 # static, getters/setters, and hosting
 28. static keyword (methods and properties)
--> 29. static-property and global-property with inheritance (syntax incompvare)
--> 30. getters and setters in class with inheritance and static/global (manipulate incompvare)
+-> 29. static-property and global-property with inheritance (syntax incomplete)
+-> 30. getters and setters in class with inheritance and static/global (manipulate incomplete)
 31. class hosting
 
 --------------------------------------------------------------------------------
@@ -227,13 +227,13 @@ Day 00 (references - MDN)
 46. functions
 
 ================================================================================
-Day 00 (for compvare biginners - MDN)
+Day 00 (for compvare beginners - MDN)
 ================================================================================
 01. javascript first steps
     -> what is javascript
     -> a first splash into javascript
     -> what went wrong? troubleshooting javascript
-    -> storing th einformation you need - variables
+    -> storing the information you need - variables
     -> basic math in javascript - numbers nad operators
     -> handling text - string in javascript
     -> useful string methods
@@ -245,7 +245,7 @@ Day 00 (for compvare biginners - MDN)
     -> build your own function
     -> function return values
     -> introduction to events
-03. inttroducing javascript objects
+03. introducing javascript objects
     -> object basics
     -> object-oriented javascript for beginners
     -> object prototypes
